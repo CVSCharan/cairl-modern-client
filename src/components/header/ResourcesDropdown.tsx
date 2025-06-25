@@ -1,13 +1,16 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
-import { ArrowRight, Book, Mic, FileText, Database, Cpu } from "lucide-react";
+import { Book, Mic, FileText, Database, Cpu } from "lucide-react";
 
 interface ResourcesDropdownProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({ isOpen, onClose }) => {
+const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const sections = [
     {
       title: "Knowledge Hub",
@@ -52,7 +55,9 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({ isOpen, onClose }
         ))}
 
         <div className="bg-secondary p-6 rounded-lg">
-          <h3 className="font-semibold text-foreground mb-4">Featured Content</h3>
+          <h3 className="font-semibold text-foreground mb-4">
+            Featured Content
+          </h3>
           <div className="space-y-4">
             <div className="border-l-4 border-primary pl-4 hover:bg-primary/10 p-2 rounded-r-md transition-all duration-300">
               <h5 className="font-semibold text-primary mb-1">Technology</h5>
