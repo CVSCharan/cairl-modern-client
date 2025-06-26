@@ -39,7 +39,7 @@ const ScrollToTop: React.FC = () => {
   const offset = circumference - (scrollProgress / 100) * circumference;
 
   return (
-    <div className="fixed bottom-4 left-4 z-50">
+    <div className="fixed bottom-4 left-4 z-40">
       {isVisible && (
         <button
           onClick={scrollToTop}

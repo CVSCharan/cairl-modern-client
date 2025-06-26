@@ -17,7 +17,7 @@ const EventCard: React.FC<EventCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="relative rounded-xl overflow-hidden h-64 group my-16">
+    <div className="relative rounded-xl overflow-hidden h-64 group my-4 md:my-16">
       {/* Background Image */}
       <img
         src={imageUrl}
@@ -32,17 +32,17 @@ const EventCard: React.FC<EventCardProps> = ({
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20" />
 
       {/* Content */}
-      <div className="relative z-30 h-full flex flex-col justify-end p-6 text-white">
-        <div className="mb-3">
-          <span className="text-sm font-bold bg-primary text-primary-foreground px-4 py-2 rounded-full inline-block shadow-xl">
+      <div className="relative z-30 h-full flex flex-col justify-end p-4 md:p-6 text-white">
+        <div className="mb-2 md:mb-3">
+          <span className="text-xs md:text-sm font-bold bg-primary text-primary-foreground px-3 py-1 md:px-4 md:py-2 rounded-full inline-block shadow-xl">
             {type}
           </span>
         </div>
-        <div className="text-sm font-bold mb-3 text-white">{date}</div>
-        <h3 className="text-2xl font-black mb-3 text-white leading-tight">
+        <div className="text-xs md:text-sm font-bold mb-2 md:mb-3 text-white">{date}</div>
+        <h3 className="text-lg md:text-2xl font-black mb-2 md:mb-3 text-white leading-tight">
           {title}
         </h3>
-        <p className="text-white text-sm leading-relaxed">{description}</p>
+        <p className="text-white text-xs md:text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
@@ -79,27 +79,27 @@ const Events: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <a
           href="#about-us"
-          className="bg-[#E5F5FC] text-[#005BA9] px-4 py-2 rounded-full"
+          className="bg-[#E5F5FC] text-[#005BA9] px-4 py-2 rounded-full text-sm md:text-base"
         >
           Happening
         </a>
-        <div className="flex justify-between items-center mt-8 mb-4">
-          <h2 className="text-3xl font-bold text-foreground">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 md:mt-8 mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-0">
             Upcoming Events & Webinar
           </h2>
           <Link
             to="/happenings"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-full font-medium flex items-center"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-full font-medium flex items-center text-sm md:text-base"
           >
             View All Events
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event, index) => (
             <EventCard
               key={index}

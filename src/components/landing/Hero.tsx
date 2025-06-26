@@ -68,26 +68,26 @@ const Hero: React.FC = () => {
                 <img
                   src={img}
                   alt={`City skyline at night ${index + 1}`}
-                  className="w-full h-full object-cover max-h-[620px] rounded-b-[30px]"
+                  className="w-full h-full object-cover max-h-[420px] md:max-h-[620px] rounded-b-[30px]"
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20" />
-          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20" />
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex" />
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex" />
         </Carousel>
 
         {/* Main Content */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight tracking-tight">
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 text-white leading-tight tracking-tight">
               Advancing <span className="text-[#85D1F1]">AI</span> for
               <br />
               <span className="font-accent">Social Good</span>
               <br />
               Together
             </h1>
-            <p className="font-sans text-xl text-lightText-secondary mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="font-sans text-lg md:text-xl text-lightText-secondary mb-8 md:mb-12 max-w-md md:max-w-2xl mx-auto leading-relaxed">
               Collaborative research, innovation, and education in artificial
               intelligence.
             </p>
@@ -95,11 +95,11 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Feature Cards - Centered at the bottom */}
-        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-row space-x-4">
+        <div className="relative md:absolute -bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-4 mt-8 md:mt-0">
           {featureCards.map((card, index) => (
             <div
               key={index}
-              className="bg-secondary rounded-xl p-4 flex items-center border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-80"
+              className="bg-secondary rounded-xl p-4 flex items-center border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-full md:w-80"
             >
               <div className="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
                 <img src={card.icon} alt={card.alt} className="w-6 h-6" />
@@ -113,8 +113,8 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Partner Logos Marquee */}
-      <div className="bg-background py-10 mt-24 rounded-xl shadow-md">
-        <h3 className="text-center font-heading text-xl mb-6 text-muted-foreground">
+      <div className="bg-background py-10 mt-48 md:mt-24 rounded-xl shadow-md">
+        <h3 className="text-center font-heading text-lg md:text-xl mb-6 text-muted-foreground">
           Trusted by Leading Organizations
         </h3>
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
                 <img
                   src={logo}
                   alt={`Partner logo ${index + 1}`}
-                  className="h-14"
+                  className="h-10 md:h-14"
                 />
               </li>
             ))}

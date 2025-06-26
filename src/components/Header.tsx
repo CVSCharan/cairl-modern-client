@@ -50,7 +50,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
         isScrolled
           ? "bg-background/80 shadow-md backdrop-blur-sm"
           : "bg-transparent"
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             <div onMouseEnter={() => handleMouseEnter("about")}>
               <DropdownButton isActive={activeDropdown === "about"}>
                 About us
@@ -133,7 +133,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Contact & CTA - Desktop */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/contact-us"
               className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="lg:hidden z-40">
             <button
               onClick={toggleMobileMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-foreground/70 hover:text-primary hover:bg-secondary focus:outline-none transition-colors duration-300"

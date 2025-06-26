@@ -208,7 +208,7 @@ const ChatBot: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 bg-background p-0 rounded-full shadow-lg z-50 hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none"
+          className="fixed bottom-4 right-4 bg-background p-0 rounded-full shadow-lg z-40 hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none"
           aria-label="Open chat"
         >
           <img
@@ -221,7 +221,7 @@ const ChatBot: React.FC = () => {
 
       {/* Chat interface */}
       {isOpen && (
-        <div className="fixed bottom-6 right-4 w-96 h-[600px] bg-background border border-border rounded-lg shadow-xl z-50 flex flex-col">
+        <div className="fixed bottom-6 right-4 w-96 h-[600px] bg-background border border-border rounded-lg shadow-xl z-40 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-border bg-secondary">
             <div className="flex items-center">
