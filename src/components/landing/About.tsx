@@ -5,12 +5,13 @@ import { motion } from "framer-motion";
 
 const About: React.FC = () => {
   return (
-    <div
-      className="section about min-h-[400px] md:min-h-[500px] flex justify-center items-center w-full my-12 md:my-16 relative overflow-hidden"
-      id="about-us"
-    >
-      <div className="absolute inset-0 bg-background -z-10"></div>
-      <LampContainer>
+    <LampContainer>
+      <div
+        className="section about h-auto flex flex-col justify-center items-center w-full my-12 md:my-16 relative"
+        id="about-us"
+      >
+        <div className="absolute inset-0 bg-transparent -z-10"></div>
+
         <motion.h4
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -67,8 +68,8 @@ const About: React.FC = () => {
             </Link>
           </div>
         </div>
-      </LampContainer>
-    </div>
+      </div>
+    </LampContainer>
   );
 };
 

@@ -5,6 +5,8 @@ import Landing from "./pages/Landing";
 import Layout from "./components/Layout";
 import ChatBot from "./components/ChatBot";
 import ScrollToTop from "./components/ui/ScrollToTop";
+import About from "./pages/About";
+import Happening from "./pages/Happening";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +16,8 @@ const App = () => (
       <Layout>
         <Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/happenings" element={<Happening />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {/* ChatBot component available on all pages */}
