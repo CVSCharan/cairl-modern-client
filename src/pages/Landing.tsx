@@ -25,7 +25,7 @@ const Landing = () => {
           <Events />
         </section>
 
-        <section className="animate-fadeIn [animation-delay:500ms] bg-secondary rounded-xl shadow-lg p-6 md:p-8">
+        <section className="animate-fadeIn [animation-delay:500ms] rounded-xl p-6 md:p-8">
           <CTA />
         </section>
 
