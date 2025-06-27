@@ -86,12 +86,24 @@ export default {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "float": {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        "wave": {
+          "0%": { transform: "scaleX(1)" },
+          "50%": { transform: "scaleX(1.05)" },
+          "100%": { transform: "scaleX(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeIn: "fadeIn 0.3s ease-out forwards",
         "infinite-scroll": "infinite-scroll 40s linear infinite",
+        "float": "float 6s ease-in-out infinite",
+        "wave": "wave 8s ease-in-out infinite",
       },
       boxShadow: {
         sm: "var(--shadow-sm)",

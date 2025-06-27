@@ -26,7 +26,7 @@ const CTA: React.FC = () => {
           <div className="text-center">
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 tracking-tight">
               Ready to make an
-              <span className="text-[#E5F5FC]"> impact</span> with CAiRL?
+              <span className="text-background"> impact</span> with CAiRL?
             </h2>
             <p className="font-sans text-lg md:text-xl text-muted-foreground mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
               Explore how you can get involved as a student, researcher,

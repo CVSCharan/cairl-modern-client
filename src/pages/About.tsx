@@ -3,6 +3,7 @@ import Mission from "../components/about/Mission";
 import Vision from "../components/about/Vision";
 import Team from "../components/about/Team";
 import { useEffect } from "react";
+import { Separator } from "../components/ui/separator";
 
 const About = () => {
   useEffect(() => {
@@ -91,18 +92,14 @@ const About = () => {
         </div>
       </div>
 
+      <Separator className="my-12" />
+
       {/* Mission Section */}
       <Mission />
 
+      <Separator className="my-12" />
+
       <div className="relative w-full">
-        {/* Background Element - Now covers header to form */}
-        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">
-          <img
-            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381712/Element-2_yonfix.png"
-            alt="Background Element"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover pt-8"
-          />
-        </div>
         <div className="relative z-20">
           {/* Vision Section */}
           <Vision />
@@ -112,16 +109,10 @@ const About = () => {
         </div>
       </div>
 
+      <Separator className="my-12" />
+
       {/* MOU Section */}
       <div id="mou" className="relative bg-card pt-46 lg:pt-52 pb-10">
-        {/* Top wavy border - same as previous sections */}
-        <div className="absolute top-0 left-0 right-0 w-full h-12 overflow-hidden">
-          <img
-            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750247250/wavy-bottom-white_qen5uh.svg"
-            alt="Wavy bottom border"
-            className="w-full h-full object-cover"
-          />
-        </div>
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 mt-12">
           {/* Text Content */}
           <div className="lg:w-1/2">
@@ -154,6 +145,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      <Separator className="my-12" />
 
       {/* FAQs Section */}
       <div id="faqs">

@@ -1,15 +1,6 @@
 const Mission = () => {
   return (
     <section id="mission" className="relative bg-background/80">
-      {/* Top wavy border */}
-      <div className="absolute top-0 left-0 right-0 w-full h-12 overflow-hidden">
-        <img
-          src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750247250/wavy-bottom-white_qen5uh.svg"
-          alt="Wavy bottom border"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
       <div className="py-16 pt-24 px-4 z-10 w-full max-w-7xl mx-auto">
         {/* Mission Header - Centered */}
         <div className="text-center mb-12">

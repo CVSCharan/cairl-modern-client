@@ -7,6 +7,10 @@ import ChatBot from "./components/ChatBot";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import About from "./pages/About";
 import Happening from "./pages/Happening";
+import BootcampDetails from "./pages/BootcampDetails";
+import Bootcamps from "./pages/Bootcamps";
+import Contact from "./pages/Contact";
+import Engage from "./pages/Engage";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +21,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/about-us" element={<About />} />
+          <Route path="/engage-with-us" element={<Engage />} />
+          <Route path="/contact-us" element={<Contact />} />
+          <Route path="/ai-bootcamps" element={<Bootcamps />} />
+          <Route path="/:id/ai-bootcamps" element={<BootcampDetails />} />
           <Route path="/happenings" element={<Happening />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

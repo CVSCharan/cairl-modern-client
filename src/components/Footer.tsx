@@ -6,9 +6,10 @@ const Footer: React.FC = () => {
     <footer
       className="relative text-white py-12 overflow-hidden"
       style={{
-        backgroundImage: "url('https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176571/footer-bg-img_ogqwyc.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundImage:
+          "url('https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176571/footer-bg-img_ogqwyc.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="absolute inset-0 bg-black/70 z-0"></div>
@@ -23,7 +24,8 @@ const Footer: React.FC = () => {
                 className="h-24 w-24"
               />
               <p className="text-sm text-gray-300">
-                Subscribe to our newsletter or follow us online to stay ahead in AI.
+                Subscribe to our newsletter or follow us online to stay ahead in
+                AI.
               </p>
 
               <div className="flex mt-4">
@@ -44,30 +46,47 @@ const Footer: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
               {/* About Us Column */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">About us</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">
+                  About us
+                </h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Who are we
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Advisory Team
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Our Team
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       MOUs & Strategic Partnership
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       FAQs
                     </a>
                   </li>
@@ -76,20 +95,31 @@ const Footer: React.FC = () => {
 
               {/* Services Column */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">Services</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">
+                  Services
+                </h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       AI Consulting
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Custom Solutions
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Training & Workshops
                     </a>
                   </li>
@@ -98,20 +128,31 @@ const Footer: React.FC = () => {
 
               {/* Resources Column */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">Resources</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">
+                  Resources
+                </h3>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Blog
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Publications
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                    <a
+                      href="#"
+                      className="text-gray-300 hover:text-white transition-colors"
+                    >
                       Case Studies
                     </a>
                   </li>
@@ -120,13 +161,17 @@ const Footer: React.FC = () => {
 
               {/* Contact Information */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
+                <h3 className="text-lg font-semibold mb-4 text-white">
+                  Contact
+                </h3>
                 <div className="space-y-2 text-gray-300">
                   <p>
-                    <span className="font-semibold text-white">Phone:</span> +91 9391335191
+                    <span className="font-semibold text-white">Phone:</span> +91
+                    9391335191
                   </p>
                   <p>
-                    <span className="font-semibold text-white">Email:</span> info@cairl.org
+                    <span className="font-semibold text-white">Email:</span>{" "}
+                    info@cairl.org
                   </p>
                   <address className="not-prose">
                     <span className="font-semibold text-white">Address:</span>
@@ -150,19 +195,41 @@ const Footer: React.FC = () => {
           </p>
 
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               <FaInstagram className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               <FaLinkedin className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               <FaTwitter className="w-5 h-5" />
             </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               <FaYoutube className="w-5 h-5" />
             </a>
           </div>
+        </div>
+
+        {/* Powered By */}
+        <div className="mt-6 text-center">
+          <p className="text-sm text-gray-400">Powered by</p>
+          <img
+            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750959808/Colaberry_logo_c6h8uc.png"
+            alt="Colaberry Logo"
+            className="h-8 mx-auto mt-2 rounded-lg"
+          />
         </div>
       </div>
     </footer>
