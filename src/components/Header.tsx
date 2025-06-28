@@ -143,7 +143,7 @@ const Header: React.FC = () => {
             </Link>
             <Link
               to="/engage-with-us"
-              className="bg-[#E5F5FC] text-[#005BA9] hover:bg-primary/90 px-6 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="bg-secondary text-foreground hover:bg-foreground hover:text-background px-4 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
               onClick={closeAllDropdowns}
             >
               Engage with us

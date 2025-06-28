@@ -12,17 +12,17 @@ const ResearchDropdown: React.FC<ResearchDropdownProps> = ({ isOpen, onClose }) 
     {
       title: "Research & Innovation",
       links: [
-        { name: "AI Research & Thought Leadership", href: "/research-innovation#leadership" },
-        { name: "AI Education & Skill Development", href: "/research-innovation#skill-development" },
-        { name: "AI Ecosystem Building & Partnerships", href: "/research-innovation#partnerships" },
+        { name: "AI Research & Thought Leadership", href: "/research-and-innovation#leadership" },
+        { name: "AI Education & Skill Development", href: "/research-and-innovation#skill-development" },
+        { name: "AI Ecosystem Building & Partnerships", href: "/research-and-innovation#partnerships" },
       ],
     },
     {
       title: "Challenges & Support",
       links: [
-        { name: "AI Hackathons & Innovation Challenges", href: "/research-innovation#hackathons" },
-        { name: "AI for Social Good & Sustainability", href: "/research-innovation#sustainability" },
-        { name: "AI Mentorship & Startup Support", href: "/research-innovation#mentorship" },
+        { name: "AI Hackathons & Innovation Challenges", href: "/research-and-innovation#hackathons" },
+        { name: "AI for Social Good & Sustainability", href: "/research-and-innovation#sustainability" },
+        { name: "AI Mentorship & Startup Support", href: "/research-and-innovation#mentorship" },
       ],
     },
   ];

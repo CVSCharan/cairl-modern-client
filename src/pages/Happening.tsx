@@ -29,8 +29,8 @@ const Happening = () => {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="flex flex-col justify-center items-center text-foreground py-16">
-        <h4 className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+      <div className="flex flex-col justify-center items-center text-foreground pb-16 pt-8">
+        <h4 className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8">
           Happenings
         </h4>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -92,7 +92,7 @@ const Happening = () => {
             </p>
             <a
               href="/events"
-              className="px-6 py-3 bg-[#005BA9] text-white rounded-lg font-medium hover:bg-[#004a8a] transition-colors"
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
               Know more
             </a>
@@ -156,7 +156,7 @@ const Happening = () => {
             </p>
             <a
               href="/webinars"
-              className="px-6 py-3 bg-[#005BA9] text-white rounded-lg font-medium hover:bg-[#004a8a] transition-colors"
+              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
             >
               Know more
             </a>
@@ -227,7 +227,7 @@ const Happening = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-card py-24 mt-28">
+      <div className="bg-secondary py-24 mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
             Subscribe to our newsletter

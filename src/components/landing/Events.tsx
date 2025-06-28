@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface EventCardProps {
   date: string;
@@ -38,11 +39,15 @@ const EventCard: React.FC<EventCardProps> = ({
             {type}
           </span>
         </div>
-        <div className="text-xs md:text-sm font-bold mb-2 md:mb-3 text-white">{date}</div>
+        <div className="text-xs md:text-sm font-bold mb-2 md:mb-3 text-white">
+          {date}
+        </div>
         <h3 className="text-lg md:text-2xl font-black mb-2 md:mb-3 text-white leading-tight">
           {title}
         </h3>
-        <p className="text-white text-xs md:text-sm leading-relaxed">{description}</p>
+        <p className="text-white text-xs md:text-sm leading-relaxed">
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -79,27 +84,26 @@ const Events: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 md:py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <a
-          href="#about-us"
-          className="bg-[#E5F5FC] text-[#005BA9] px-4 py-2 rounded-full text-sm md:text-base"
+    <section className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center">
+      <div className="bg-secondary h-full w-full py-4 md:py-6 px-4 rounded-3xl max-w-6xl mx-auto flex flex-col items-center">
+        <motion.h4
+          initial={{ opacity: 0.5, y: 70 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
         >
           Happening
-        </a>
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mt-6 md:mt-8 mb-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-0">
-            Upcoming Events & Webinar
-          </h2>
-          <Link
-            to="/happenings"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-full font-medium flex items-center text-sm md:text-base"
-          >
-            View All Events
-          </Link>
-        </div>
+        </motion.h4>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-0 text-center">
+          Upcoming Events & Webinar
+        </h2>
+
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event, index) => (
             <EventCard
               key={index}
@@ -110,6 +114,15 @@ const Events: React.FC = () => {
               imageUrl={event.imageUrl}
             />
           ))}
+        </div>
+
+        <div className="w-full flex justify-center my-6">
+          <Link
+            to="/happenings"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-full font-medium flex items-center text-sm md:text-base"
+          >
+            View All Events
+          </Link>
         </div>
       </div>
     </section>

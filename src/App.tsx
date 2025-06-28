@@ -11,6 +11,15 @@ import BootcampDetails from "./pages/BootcampDetails";
 import Bootcamps from "./pages/Bootcamps";
 import Contact from "./pages/Contact";
 import Engage from "./pages/Engage";
+import Services from "./pages/Services";
+import ResearchAndInnovation from "./pages/ResearchAndInnovation";
+import Webinars from "./pages/Webinar";
+import FocusGroups from "./pages/FocusGroups";
+import VisualJourney from "./pages/VisualJourney";
+import WhitePapers from "./pages/WhitePapers";
+import WhitePaperDetails from "./pages/WhitePaperDetails";
+import Resources from "./pages/Resources";
+import Podcasts from "./pages/Podcasts";
 
 const queryClient = new QueryClient();
 
@@ -23,9 +32,21 @@ const App = () => (
           <Route path="/about-us" element={<About />} />
           <Route path="/engage-with-us" element={<Engage />} />
           <Route path="/contact-us" element={<Contact />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/ai-bootcamps" element={<Bootcamps />} />
-          <Route path="/:id/ai-bootcamps" element={<BootcampDetails />} />
+          <Route path="/ai-bootcamps/:id" element={<BootcampDetails />} />
           <Route path="/happenings" element={<Happening />} />
+          <Route
+            path="/research-and-innovation"
+            element={<ResearchAndInnovation />}
+          />
+          <Route path="/webinars" element={<Webinars />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/focus-groups" element={<FocusGroups />} />
+          <Route path="/visual-journey" element={<VisualJourney />} />
+          <Route path="/white-papers" element={<WhitePapers />} />
+          <Route path="/white-papers/:id" element={<WhitePaperDetails />} />
+          <Route path="/podcasts" element={<Podcasts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {/* ChatBot component available on all pages */}

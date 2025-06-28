@@ -2,7 +2,7 @@ import { useState } from "react";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
 
-const Bootcamps = () => {
+const Webinars = () => {
   const [selectedDate, setSelectedDate] = useState(new Date(2025, 6, 10)); // July 10, 2025
   const [currentMonth, setCurrentMonth] = useState(new Date(2025, 6, 1)); // July 2025
 
@@ -37,7 +37,7 @@ const Bootcamps = () => {
       i++
     ) {
       days.push(
-        <td key={`prev-${i}`} className="py-2 text-gray-400">
+        <td key={`prev-${i}`} className="py-2 text-muted-foreground/70">
           {i}
         </td>
       );
@@ -56,8 +56,8 @@ const Bootcamps = () => {
           key={`curr-${i}`}
           className={`py-2 ${
             isSelected
-              ? "text-white bg-[#005BA9] rounded-full mx-auto w-8 h-8 flex items-center justify-center"
-              : ""
+              ? "text-primary-foreground bg-primary rounded-full mx-auto w-8 h-8 flex items-center justify-center"
+              : "text-foreground"
           }`}
           onClick={() => setSelectedDate(date)}
         >
@@ -69,7 +69,7 @@ const Bootcamps = () => {
     // Next month
     for (let i = 1; i <= nextMonthDaysToShow; i++) {
       days.push(
-        <td key={`next-${i}`} className="py-2 text-gray-400">
+        <td key={`next-${i}`} className="py-2 text-muted-foreground/70">
           {i}
         </td>
       );
@@ -160,23 +160,23 @@ const Bootcamps = () => {
             }}
             className="inline-block bg-foreground/10 text-foreground px-4 py-2 rounded-full mb-8"
           >
-            Bootcamps
+            Webinars
           </motion.h4>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            AI Bootcamps & Workshops
+            CAiRL Webinars
           </h1>
           <div className="flex justify-center gap-4 mt-16 mb-4">
             <button className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-medium">
-              All Bootcamps
+              All Webinars
             </button>
             <button className="px-4 py-2 bg-secondary text-primary border border-primary rounded-full font-medium">
-              Ongoing Bootcamps
+              Ongoing Webinars
             </button>
             <button className="px-4 py-2 bg-secondary text-primary border border-primary rounded-full font-medium">
-              Upcoming Bootcamps
+              Upcoming Webinars
             </button>
             <button className="px-4 py-2 bg-secondary text-primary border border-primary rounded-full font-medium">
-              Past Bootcamps
+              Past Webinars
             </button>
           </div>
         </div>
@@ -492,4 +492,4 @@ const Bootcamps = () => {
   );
 };
 
-export default Bootcamps;
+export default Webinars;

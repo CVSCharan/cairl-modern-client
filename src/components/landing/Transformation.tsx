@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Transformation: React.FC = () => {
   return (
-    <div className="relative min-h-[400px] md:min-h-[500px] flex items-center justify-center overflow-hidden px-2 mb-12 md:mb-16">
+    <section className="relative min-h-[400px] md:min-h-[500px] flex items-center justify-center overflow-hidden px-2 my-12 md:my-16">
       {/* Background Image with Overlay and Rounded Borders */}
       <div className="absolute inset-0 z-0 mx-auto max-w-7xl rounded-2xl overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl" />
@@ -25,17 +26,26 @@ const Transformation: React.FC = () => {
             transparent, and beneficial to society. We work with partners across
             industries to implement responsible AI solutions.
           </p>
-          <div className="cta-container">
+          <motion.div
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="cta-container inline-block"
+          >
             <Link
               to="/services"
               className="inline-block bg-white text-blue-800 font-medium py-3 px-6 md:px-8 rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg text-sm md:text-base"
             >
               Explore Services
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

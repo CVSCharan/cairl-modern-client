@@ -15,24 +15,24 @@ const BootcampDetails = () => {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#F6F6F6] flex flex-col">
+    <main className="min-h-screen bg-background flex flex-col pt-24">
       <div className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-white py-12 md:py-16">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="bg-card py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="w-full md:w-1/2">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                   AI & Machine Learning Bootcamp
                 </h1>
-                <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
-                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                  <span className="bg-primary/10 text-primary px-2 py-1 rounded-full">
                     Online
                   </span>
                   <span>•</span>
                   <span>10 May 2024 - 16 August 2024</span>
                 </div>
-                <p className="text-gray-700 mb-6">
+                <p className="text-muted-foreground mb-6">
                   Master the art of creating AI and Machine Learning solutions,
                   solve real-world problems, and develop a strong foundation in
                   AI concepts. Join our 12-week intensive bootcamp and become a
@@ -41,13 +41,13 @@ const BootcampDetails = () => {
                 <div className="flex flex-wrap gap-4">
                   <Link
                     to="/apply-now"
-                    className="bg-[#0066CC] hover:bg-[#004A8F] text-white font-medium py-2 px-6 rounded-md transition-colors duration-300"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-2 px-6 rounded-md transition-colors duration-300"
                   >
                     Apply Now
                   </Link>
                   <Link
                     to="/bootcamp-brochure"
-                    className="border border-[#0066CC] text-[#0066CC] hover:bg-blue-50 font-medium py-2 px-6 rounded-md transition-colors duration-300"
+                    className="border border-primary text-primary hover:bg-accent font-medium py-2 px-6 rounded-md transition-colors duration-300"
                   >
                     View Detailed Brochure
                   </Link>
@@ -57,7 +57,7 @@ const BootcampDetails = () => {
                 <img
                   src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750185490/cloud-computing_qlbzxs.png"
                   alt="AI & Machine Learning Bootcamp"
-                  className="w-full h-auto rounded-lg shadow-lg"
+                  className="w-full h-auto rounded-lg shadow-md"
                 />
               </div>
             </div>
@@ -66,11 +66,11 @@ const BootcampDetails = () => {
 
         {/* About the Bootcamp */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-6">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
               About the Bootcamp
             </h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-muted-foreground mb-6">
               CAiRL's AI and Machine Learning Bootcamp is a comprehensive
               program designed to equip you with the knowledge and skills needed
               to thrive in the AI industry. The bootcamp is structured as a
@@ -84,17 +84,17 @@ const BootcampDetails = () => {
         </section>
 
         {/* Key Features */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-8">
+        <section className="py-12 md:py-16 bg-card">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               Key Features
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="flex flex-col items-center p-6 bg-[#F6F6F6] rounded-lg shadow-sm">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center p-6 bg-secondary rounded-lg shadow-sm">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-blue-600"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -110,15 +110,15 @@ const BootcampDetails = () => {
                 <h3 className="text-lg font-semibold mb-2">
                   AI-Focused Curriculum
                 </h3>
-                <p className="text-center text-gray-600 text-sm">
+                <p className="text-center text-muted-foreground text-sm">
                   Designed by industry experts
                 </p>
               </div>
-              <div className="flex flex-col items-center p-6 bg-[#F6F6F6] rounded-lg shadow-sm">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center p-6 bg-secondary rounded-lg shadow-sm border border-border">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-blue-600"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -134,15 +134,15 @@ const BootcampDetails = () => {
                 <h3 className="text-lg font-semibold mb-2">
                   Community Support
                 </h3>
-                <p className="text-center text-gray-600 text-sm">
+                <p className="text-center text-muted-foreground text-sm">
                   Network with peers and mentors
                 </p>
               </div>
-              <div className="flex flex-col items-center p-6 bg-[#F6F6F6] rounded-lg shadow-sm">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center p-6 bg-secondary rounded-lg shadow-sm border border-border">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-blue-600"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -156,15 +156,15 @@ const BootcampDetails = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Career Sessions</h3>
-                <p className="text-center text-gray-600 text-sm">
+                <p className="text-center text-muted-foreground text-sm">
                   Job placement assistance
                 </p>
               </div>
-              <div className="flex flex-col items-center p-6 bg-[#F6F6F6] rounded-lg shadow-sm">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+              <div className="flex flex-col items-center p-6 bg-secondary rounded-lg shadow-sm border border-border">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-blue-600"
+                    className="h-6 w-6 text-primary"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -178,7 +178,7 @@ const BootcampDetails = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Certifications</h3>
-                <p className="text-center text-gray-600 text-sm">
+                <p className="text-center text-muted-foreground text-sm">
                   Industry-recognized credentials
                 </p>
               </div>
@@ -188,40 +188,40 @@ const BootcampDetails = () => {
 
         {/* Curriculum Overview */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-8">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               Curriculum Overview
             </h2>
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-card p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold mb-3">
                   Week 1-3: Fundamentals of AI
                 </h3>
-                <p className="text-gray-700 mb-2">
+                <p className="text-muted-foreground mb-2">
                   Python, Data Analysis, Statistics
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-card p-6 rounded-lg shadow-sm border border-border">
                 <h3 className="text-xl font-semibold mb-3">
                   Week 4-6: Machine Learning
                 </h3>
-                <p className="text-gray-700 mb-2">
+                <p className="text-muted-foreground mb-2">
                   Supervised Learning, Neural Networks
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-card p-6 rounded-lg shadow-sm border border-border">
                 <h3 className="text-xl font-semibold mb-3">
                   Week 7-9: Deep Learning & Natural Language Processing
                 </h3>
-                <p className="text-gray-700 mb-2">
+                <p className="text-muted-foreground mb-2">
                   Transformers, LLMs, Computer Vision, Generative AI
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-card p-6 rounded-lg shadow-sm border border-border">
                 <h3 className="text-xl font-semibold mb-3">
                   Week 10-12: Capstone Project & Career Preparation
                 </h3>
-                <p className="text-gray-700 mb-2">
+                <p className="text-muted-foreground mb-2">
                   Building a Portfolio-Ready Project, Interview Prep
                 </p>
               </div>
@@ -230,12 +230,12 @@ const BootcampDetails = () => {
         </section>
 
         {/* Software and Tools */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-6">
+        <section className="py-12 md:py-16 bg-card">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
               Software and Tools
             </h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-muted-foreground mb-6">
               Throughout the bootcamp, you'll gain hands-on experience with
               industry-leading AI tools and frameworks, including PyTorch,
               TensorFlow, HuggingFace, scikit-learn, and more. You'll also learn
@@ -247,12 +247,12 @@ const BootcampDetails = () => {
 
         {/* Instructors */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-8">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               Instructors
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-card p-6 rounded-lg shadow-sm text-center">
                 <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
                   <img
                     src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750185490/instructor-1_yvfvqm.jpg"
@@ -261,9 +261,9 @@ const BootcampDetails = () => {
                   />
                 </div>
                 <h3 className="text-lg font-semibold">Neil Armstrong</h3>
-                <p className="text-gray-600 text-sm">AI Research Lead</p>
+                <p className="text-muted-foreground text-sm">AI Research Lead</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-card p-6 rounded-lg shadow-sm text-center border border-border">
                 <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
                   <img
                     src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750185490/instructor-2_yvfvqm.jpg"
@@ -272,9 +272,9 @@ const BootcampDetails = () => {
                   />
                 </div>
                 <h3 className="text-lg font-semibold">Olivia Spencer</h3>
-                <p className="text-gray-600 text-sm">Machine Learning Expert</p>
+                <p className="text-muted-foreground text-sm">Machine Learning Expert</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+              <div className="bg-card p-6 rounded-lg shadow-sm text-center border border-border">
                 <div className="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-4 overflow-hidden">
                   <img
                     src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750185490/instructor-3_yvfvqm.jpg"
@@ -283,92 +283,92 @@ const BootcampDetails = () => {
                   />
                 </div>
                 <h3 className="text-lg font-semibold">Ethan Nguyen</h3>
-                <p className="text-gray-600 text-sm">Data Science Specialist</p>
+                <p className="text-muted-foreground text-sm">Data Science Specialist</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Enrollment Section */}
-        <section className="py-12 md:py-16 bg-[#F0F7FF]">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="py-12 md:py-16 bg-secondary">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Enroll Now
               </h2>
-              <p className="text-gray-700 max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto">
                 To apply for the AI & Machine Learning Bootcamp, you need to
                 complete an online application and pass a simple assessment.
                 Early applications close on July 31st, 2024.
               </p>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md p-8 max-w-3xl mx-auto">
+            <div className="bg-card rounded-lg shadow-md p-8 max-w-3xl mx-auto border border-border">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
                       htmlFor="firstName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-foreground mb-1"
                     >
                       First Name
                     </label>
                     <input
                       type="text"
                       id="firstName"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background/40"
                     />
                   </div>
                   <div>
                     <label
                       htmlFor="lastName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
+                      className="block text-sm font-medium text-foreground mb-1"
                     >
                       Last Name
                     </label>
                     <input
                       type="text"
                       id="lastName"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background/40"
                     />
                   </div>
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-foreground mb-1"
                   >
                     Email Address
                   </label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background/40"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-foreground mb-1"
                   >
                     Phone Number
                   </label>
                   <input
                     type="tel"
                     id="phone"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background/40"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="background"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-foreground mb-1"
                   >
                     Your Background
                   </label>
                   <select
                     id="background"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background/40"
                   >
                     <option value="">Select your background</option>
                     <option value="student">Student</option>
@@ -379,7 +379,7 @@ const BootcampDetails = () => {
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-[#0066CC] hover:bg-[#004A8F] text-white font-medium py-3 px-6 rounded-md transition-colors duration-300"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-md transition-colors duration-300"
                 >
                   Apply Now
                 </button>
@@ -390,19 +390,19 @@ const BootcampDetails = () => {
 
         {/* Pricing */}
         <section className="py-12 md:py-16">
-          <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-8">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
               Pricing
             </h2>
-            <div className="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+            <div className="bg-card rounded-lg shadow-md p-8 max-w-2xl mx-auto border border-border">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold mb-2">
                   AI & Machine Learning Bootcamp
                 </h3>
-                <div className="text-4xl font-bold text-[#0066CC] mb-2">
+                <div className="text-4xl font-bold text-primary mb-2">
                   ₹75,000
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   *Flexible payment options available
                 </p>
               </div>
@@ -410,7 +410,7 @@ const BootcampDetails = () => {
                 <li className="flex items-center gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-green-500"
+                    className="h-5 w-5 text-primary"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -470,7 +470,7 @@ const BootcampDetails = () => {
               </ul>
               <Link
                 to="/apply-now"
-                className="block w-full bg-[#0066CC] hover:bg-[#004A8F] text-white font-medium py-3 px-6 rounded-md transition-colors duration-300 text-center"
+                className="block w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-md transition-colors duration-300 text-center"
               >
                 Enroll Now
               </Link>
@@ -479,13 +479,13 @@ const BootcampDetails = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-12 md:py-16 bg-white">
+        <section className="py-12 md:py-16 bg-card">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0F172A] mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
               What they say about us
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-[#F6F6F6] p-6 rounded-lg shadow-sm">
+              <div className="bg-background p-6 rounded-lg shadow-sm border border-border">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
                     <img
@@ -496,18 +496,18 @@ const BootcampDetails = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Stephanie</h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-muted-foreground">
                       Bootcamp Graduate 2023
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-700">
+                <p className="text-muted-foreground">
                   "Our weekly meetings became more efficient and productive. The
                   AI-powered tools and techniques I learned at the bootcamp have
                   transformed how our team works together."
                 </p>
               </div>
-              <div className="bg-[#F6F6F6] p-6 rounded-lg shadow-sm">
+              <div className="bg-background p-6 rounded-lg shadow-sm border border-border">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
                     <img
@@ -518,10 +518,10 @@ const BootcampDetails = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Deepanshu</h3>
-                    <p className="text-sm text-gray-600">Data Scientist</p>
+                    <p className="text-sm text-muted-foreground">Data Scientist</p>
                   </div>
                 </div>
-                <p className="text-gray-700">
+                <p className="text-muted-foreground">
                   "The best investment I made for my career. I went from being
                   an analyst to a full-fledged data scientist in just 3 months
                   after completing the bootcamp."

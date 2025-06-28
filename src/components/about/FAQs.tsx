@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(1); // default open 2nd question
@@ -28,12 +29,24 @@ const FAQs = () => {
   ];
 
   return (
-    <section className="bg-background py-28">
+    <section
+      id="faqs"
+      className="bg-background min-h-screen flex justify-center items-center py-28"
+    >
       <div className="max-w-6xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
-          <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          <motion.h4
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+          >
             FAQs
-          </div>
+          </motion.h4>
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h2>

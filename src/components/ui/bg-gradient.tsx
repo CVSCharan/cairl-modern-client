@@ -30,7 +30,7 @@ export const BackgroundGradient = ({
         transition={
           animate
             ? {
-                duration: 5,
+                duration: 8,
                 repeat: Infinity,
                 repeatType: "reverse",
               }
@@ -40,10 +40,11 @@ export const BackgroundGradient = ({
           backgroundSize: animate ? "400% 400%" : undefined,
         }}
         className={cn(
-          "absolute inset-0 rounded-3xl z-[1] opacity-60 group-hover:opacity-100 blur-xl transition duration-500 will-change-transform",
-          "bg-[radial-gradient(circle_farthest-side_at_0_100%,hsl(var(--primary)),transparent),radial-gradient(circle_farthest-side_at_100%_0,hsl(var(--accent)),transparent),radial-gradient(circle_farthest-side_at_100%_100%,hsl(var(--secondary)),transparent),radial-gradient(circle_farthest-side_at_0_0,hsl(var(--primary)),hsl(var(--background)))]" 
+          "absolute inset-0 rounded-3xl z-[1] opacity-40 group-hover:opacity-80 blur-md transition duration-500 will-change-transform",
+          "bg-[radial-gradient(circle_farthest-side_at_0_100%,hsl(var(--primary)),transparent),radial-gradient(circle_farthest-side_at_100%_0,hsl(var(--accent)),transparent),radial-gradient(circle_farthest-side_at_100%_100%,hsl(var(--secondary)),transparent),radial-gradient(circle_farthest-side_at_0_0,hsl(var(--primary)),hsl(var(--background)))]"
         )}
       />
+
       <motion.div
         variants={animate ? variants : undefined}
         initial={animate ? "initial" : undefined}
@@ -51,7 +52,7 @@ export const BackgroundGradient = ({
         transition={
           animate
             ? {
-                duration: 5,
+                duration: 8,
                 repeat: Infinity,
                 repeatType: "reverse",
               }
@@ -61,8 +62,8 @@ export const BackgroundGradient = ({
           backgroundSize: animate ? "400% 400%" : undefined,
         }}
         className={cn(
-          "absolute inset-0 rounded-3xl z-[1] will-change-transform",
-          "bg-[radial-gradient(circle_farthest-side_at_0_100%,hsl(var(--primary)),transparent),radial-gradient(circle_farthest-side_at_100%_0,hsl(var(--accent)),transparent),radial-gradient(circle_farthest-side_at_100%_100%,hsl(var(--secondary)),transparent),radial-gradient(circle_farthest-side_at_0_0,hsl(var(--primary)),hsl(var(--background)))]" 
+          "absolute inset-0 rounded-3xl z-[1] opacity-40 group-hover:opacity-80 blur-md transition duration-500 will-change-transform",
+          "bg-[radial-gradient(circle_farthest-side_at_0_100%,hsl(var(--primary)),transparent),radial-gradient(circle_farthest-side_at_100%_0,hsl(var(--accent)),transparent),radial-gradient(circle_farthest-side_at_100%_100%,hsl(var(--secondary)),transparent),radial-gradient(circle_farthest-side_at_0_0,hsl(var(--primary)),hsl(var(--background)))]"
         )}
       />
 

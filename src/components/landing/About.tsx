@@ -7,11 +7,10 @@ const About: React.FC = () => {
   return (
     <LampContainer>
       <div
-        className="section about h-auto flex flex-col justify-center items-center w-full my-12 md:my-16 relative"
+        className="section about h-full flex flex-col justify-center items-center w-full py-12 mb-12 pt-12 md:py-16 relative"
         id="about-us"
       >
         <div className="absolute inset-0 bg-transparent -z-10"></div>
-
         <motion.h4
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -20,35 +19,17 @@ const About: React.FC = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="bg-[#E5F5FC] text-[#005BA9] px-4 py-2 rounded-full mb-4 text-sm md:text-base"
+          className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
         >
           About us
         </motion.h4>
         <div className="section-header mb-4 md:mb-6">
-          <motion.h2
-            initial={{ opacity: 0.5, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="section-title text-2xl md:text-3xl font-bold text-foreground"
-          >
+          <h2 className="section-title text-2xl md:text-3xl font-bold text-foreground">
             Leading the Future of AI Innovation
-          </motion.h2>
+          </h2>
         </div>
         <div className="about-content max-w-full md:max-w-[900px] text-center">
-          <motion.p
-            initial={{ opacity: 0.5, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="about-text text-base md:text-lg text-muted-foreground"
-          >
+          <p className="about-text text-base md:text-lg text-muted-foreground">
             CAiRL is a leading research lab dedicated to advancing AI
             technologies that benefit society. Our mission is to develop
             AI-based solutions, entrepreneurial ethics, and responsible AI for
@@ -58,7 +39,7 @@ const About: React.FC = () => {
             use of technology. We firmly believe that AI should be developed
             with human values in mind, ensuring that technological advancements
             benefit all of society.
-          </motion.p>
+          </p>
           <div className="cta-container mt-8 md:mt-10 text-center">
             <Link
               to="/about-us"

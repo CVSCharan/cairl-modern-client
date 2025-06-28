@@ -1,10 +1,11 @@
 import React from "react";
 import { BackgroundGradient } from "./ui/bg-gradient";
+import { motion } from "framer-motion";
 
 const CTA: React.FC = () => {
   return (
     <BackgroundGradient>
-      <section
+      <div
         className="section cta py-16 md:py-24 px-6 relative overflow-hidden rounded-2xl my-1 mx-1"
         style={{
           background: `
@@ -26,7 +27,20 @@ const CTA: React.FC = () => {
           <div className="text-center">
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 tracking-tight">
               Ready to make an
-              <span className="text-background"> impact</span> with CAiRL?
+              <motion.span
+                initial={{ opacity: 0.5, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.9,
+                  ease: "easeInOut",
+                }}
+                className="text-background"
+              >
+                {" "}
+                impact
+              </motion.span>{" "}
+              with CAiRL?
             </h2>
             <p className="font-sans text-lg md:text-xl text-muted-foreground mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed">
               Explore how you can get involved as a student, researcher,
@@ -55,7 +69,7 @@ const CTA: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </BackgroundGradient>
   );
 };

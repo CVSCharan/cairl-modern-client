@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -52,9 +53,18 @@ const Contact = () => {
         <section className="animate-fadeIn">
           {/* Contact Header */}
           <div className="text-center mb-12">
-            <div className="inline-block px-4 py-2 rounded-full bg-[#E5F5FC] text-[#005BA9] text-sm font-medium mb-4">
-              Contact
-            </div>
+            <motion.h4
+              initial={{ opacity: 0.5, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
+              }}
+              className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+            >
+              Join
+            </motion.h4>
             <h1 className="text-4xl font-bold text-foreground mb-4">
               Get in Touch
             </h1>
@@ -200,10 +210,10 @@ const Contact = () => {
                 />
               </div>
 
-              <div>
+              <div className="w-full flex justify-center items-center">
                 <button
                   type="submit"
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#005BA9] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Submit
                   <svg
@@ -228,15 +238,21 @@ const Contact = () => {
           {/* Contact Info Cards */}
           <div className="py-16 px-4 bg-transparent z-10" id="contact">
             <div className="flex flex-col justify-center items-center max-w-6xl mx-auto">
-              <a
-                href="#about-us"
-                className="bg-[#E5F5FC] text-[#005BA9] px-4 py-2 rounded-full"
+              <motion.h4
+                initial={{ opacity: 0.5, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.3,
+                  duration: 0.8,
+                  ease: "easeInOut",
+                }}
+                className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
               >
-                Contact
-              </a>
-              <div className="flex justify-between items-center mb-4 mt-8">
+                Connect
+              </motion.h4>
+              <div className="flex justify-between items-center mb-4">
                 <div className="flex flex-col justify-center items-center">
-                  <h2 className="text-3xl font-bold text-foreground">
+                  <h2 className="text-3xl font-bold text-foreground mb-1">
                     Connect with us
                   </h2>
                   <p className="text-sm text-gray-600 mt-2">
@@ -245,12 +261,17 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 my-12">
                 {/* Phone */}
                 <div className="bg-secondary p-6 md:p-8 rounded-xl">
-                  <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <Phone className="text-primary-foreground w-5 h-5" />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    className="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mb-3"
+                  >
+                    <Phone className="text-primary w-6 h-6" />
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
                     Phone
                   </h3>
@@ -264,9 +285,14 @@ const Contact = () => {
 
                 {/* Email */}
                 <div className="bg-secondary p-6 md:p-8 rounded-xl">
-                  <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <Mail className="text-primary-foreground w-5 h-5" />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    className="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mb-3"
+                  >
+                    <Mail className="text-primary w-6 h-6" />
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
                     Email
                   </h3>
@@ -280,9 +306,14 @@ const Contact = () => {
 
                 {/* Location */}
                 <div className="bg-secondary p-6 md:p-8 rounded-xl">
-                  <div className="bg-primary w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <MapPin className="text-primary-foreground w-5 h-5" />
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    className="bg-primary/10 w-14 h-14 rounded-full flex items-center justify-center mb-3"
+                  >
+                    <MapPin className="text-primary w-6 h-6" />
+                  </motion.div>
                   <h3 className="text-lg md:text-xl font-bold text-foreground mb-2">
                     Location
                   </h3>

@@ -1,5 +1,7 @@
 import React from "react";
 import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
@@ -44,117 +46,137 @@ const Footer: React.FC = () => {
           {/* Navigation Links */}
           <div className="md:col-span-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-              {/* About Us Column */}
+              {/* Events & News */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">
-                  About us
-                </h3>
+                <h3 className="text-lg font-semibold mb-4">Events & News</h3>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/events"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Who are we
-                    </a>
+                      Events
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/happenings"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Advisory Team
-                    </a>
+                      Happenings
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/webinars"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Our Team
-                    </a>
+                      Webinars
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
-                    >
-                      MOUs & Strategic Partnership
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/about-us#faqs"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
                       FAQs
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Services Column */}
+              {/* About Us Column */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">
-                  Services
-                </h3>
+                <h3 className="text-lg font-semibold mb-4">About Us</h3>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/about-us"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      AI Consulting
-                    </a>
+                      Who We Are
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/about-us#team"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Custom Solutions
-                    </a>
+                      Our Team
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/about-us#mission"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Training & Workshops
-                    </a>
+                      Mission & Vision
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/about-us#mou"
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      MOUs & Partnerships
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/visual-journey"
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      Visual Journey
+                    </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Resources Column */}
+              {/* Programs & Services */}
               <div>
-                <h3 className="text-lg font-semibold mb-4 text-white">
-                  Resources
+                <h3 className="text-lg font-semibold mb-4">
+                  Programs & Services
                 </h3>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/services"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Blog
-                    </a>
+                      Our Services
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/ai-bootcamps"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Publications
-                    </a>
+                      AI Bootcamps
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-300 hover:text-white transition-colors"
+                    <Link
+                      to="/focus-groups"
+                      className="text-white/80 hover:text-white transition-colors"
                     >
-                      Case Studies
-                    </a>
+                      Focus Groups
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/research-innovation"
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      Research & Innovation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/resources"
+                      className="text-white/80 hover:text-white transition-colors"
+                    >
+                      Resources
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -224,7 +246,18 @@ const Footer: React.FC = () => {
 
         {/* Powered By */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-gray-400">Powered by</p>
+          <motion.h4
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="text-sm text-gray-400"
+          >
+            Powered by
+          </motion.h4>
           <img
             src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750959808/Colaberry_logo_c6h8uc.png"
             alt="Colaberry Logo"
