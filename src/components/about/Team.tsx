@@ -171,7 +171,7 @@ const Team = () => {
             }}
             className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
           >
-            Our Team
+            Leadership
           </motion.h4>
 
           <h1 className="text-4xl font-bold text-foreground mb-6">

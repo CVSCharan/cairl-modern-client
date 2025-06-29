@@ -13,7 +13,7 @@ const Journey = () => {
         }}
         className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
       >
-        Our Journery
+        Journery
       </motion.h4>
       <h1 className="text-4xl font-bold text-foreground mb-8 w-[700px]">
         Bridging Innovation and Impact

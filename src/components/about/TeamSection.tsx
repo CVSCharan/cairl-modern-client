@@ -17,7 +17,7 @@ const TeamSection = ({
         </span>
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 px-4 md:px-6 items-stretch">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 px-4 md:px-6 items-stretch justify-center">
         {members.map((member, index) => (
           <div
             key={index}
@@ -32,12 +32,12 @@ const TeamSection = ({
               />
             </div>
 
-            {/* Text content with centered alignment and flex-grow */}
-            <div className="p-6 flex-grow flex flex-col items-center justify-center text-center">
+            {/* Text content with centered alignment and fixed minimum height */}
+            <div className="p-6 flex-grow flex flex-col items-center justify-center text-center min-h-[100px]">
               <h3 className="text-xl font-bold text-foreground mb-2">
                 {member.name}
               </h3>
-              <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase line-clamp-2">
+              <p className="text-muted-foreground text-sm font-medium tracking-wide uppercase line-clamp-2 h-10 flex-none">
                 {member.role}
               </p>
             </div>

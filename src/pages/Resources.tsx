@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import { motion } from "framer-motion";
 
 const Resources = () => {
   useEffect(() => {
@@ -30,21 +29,28 @@ const Resources = () => {
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col">
-      <Header />
-
       {/* Hero Section */}
-      <div className="bg-transparent flex flex-col justify-center items-center text-white py-20 mt-16">
-        <h4 className="inline-block bg-[#E5F5FC] text-[#005BA9] px-4 py-2 rounded-full mb-8">
+      <div className="bg-transparent flex flex-col justify-center items-center pb-20 mt-8">
+        <motion.h4
+          initial={{ opacity: 0.5, y: 70 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+        >
           Resources
-        </h4>
+        </motion.h4>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xl max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto mb-3">
             Fueling Innovation with Knowledge, Tools & Infrastructure
           </p>
-          <h1 className="text-4xl text-[#0D2E37] font-bold mb-8">
+          <h1 className="text-4xl font-bold text-foreground mb-6">
             Resources at CAiRL
           </h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto text-muted-foreground">
             At CAiRL, we empower the AI ecosystem with curated content,
             datasets, computing power, and thought leadership—designed for
             researchers, startups, enterprises, and policymakers.
@@ -59,7 +65,7 @@ const Resources = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
         >
           <div>
-            <h2 className="text-3xl font-bold text-[#005BA9] mb-6">
+            <h2 className="text-4xl font-semibold text-foreground mb-4">
               AI Use Cases & Implementation
             </h2>
             <p className="text-gray-700 mb-6">
@@ -85,12 +91,12 @@ const Resources = () => {
                 </span>
               ))}
             </div>
-            <a
+            {/* <a
               href="/events"
               className="px-6 py-3 bg-[#005BA9] text-white rounded-lg font-medium hover:bg-[#004a8a] transition-colors"
             >
               View more
-            </a>
+            </a> */}
           </div>
           <div className="rounded-xl h-full min-h-[300px] overflow-hidden">
             <img
@@ -114,26 +120,22 @@ const Resources = () => {
             />
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-[#005BA9] mb-6">
+            <h2 className="text-4xl font-semibold text-foreground mb-4">
               Datasets for Innovation
             </h2>
             <p className="text-gray-700 mb-6">
               Tap into curated, AI-ready datasets:
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+            <ul className="space-y-4 mb-6">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   ADEx (Telangana Agriculture Database)
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Sector-Specific Datasets: Healthcare, Energy, Finance & more .
                 </span>
               </li>
@@ -142,12 +144,12 @@ const Resources = () => {
               **Access is free or low-cost under a sustainable subscription
               model.
             </p>
-            <a
+            {/* <a
               href="/webinars"
               className="px-6 py-3 bg-[#005BA9] text-white rounded-lg font-medium hover:bg-[#004a8a] transition-colors"
             >
               View more
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -157,30 +159,28 @@ const Resources = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12"
         >
           <div>
-            <h2 className="text-3xl font-bold text-[#005BA9] mb-6">
+            <h2 className="text-4xl font-semibold text-foreground mb-4">
               Affordable AI Computing
             </h2>
             <p className="text-gray-700 mb-6">
               Accelerate AI development with cloud access via:
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
+            <ul className="space-y-4 mb-6">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
+                  Microsoft Azure AI
                 </span>
-                <span className="text-gray-700">Microsoft Azure AI</span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
+                  AWS AI/ML Services
                 </span>
-                <span className="text-gray-700">AWS AI/ML Services</span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">NVIDIA AI Cloud</span>
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">NVIDIA AI Cloud</span>
               </li>
             </ul>
             <p className="font-semibold text-gray-700 mb-4">
@@ -188,12 +188,12 @@ const Resources = () => {
               <br />
               **Managed by CAiRL’s non-profit model to ensure sustainability
             </p>
-            <a
+            {/* <a
               href="/visual-journey"
               className="px-6 py-3 bg-[#005BA9] text-white rounded-lg font-medium hover:bg-[#004a8a] transition-colors"
             >
               Know more
-            </a>
+            </a> */}
           </div>
           <div className="rounded-xl h-full max-h-[450px] overflow-hidden">
             <img
@@ -206,28 +206,26 @@ const Resources = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-[#F0F7FF] py-24 mt-28">
+      <div className="bg-secondary py-24 mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-[#005BA9] mb-4">
+          <h2 className="text-3xl font-bold text-primary mb-4">
             Subscribe to our newsletter
           </h2>
-          <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter or follow us online to stay ahead in AI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your Email"
-              className="flex-grow px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#005BA9]"
+              className="flex-grow px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-ring"
             />
-            <button className="px-6 py-3 bg-[#005BA9] text-white rounded-lg font-medium hover:bg-[#004a8a] transition-colors whitespace-nowrap">
+            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
               Submit
             </button>
           </div>
         </div>
       </div>
-
-      <Footer />
     </main>
   );
 };

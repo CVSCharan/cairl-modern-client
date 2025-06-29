@@ -19,7 +19,7 @@ const Mission = () => {
             }}
             className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
           >
-            Our Mission
+            Mission
           </motion.h4>
 
           {/* Mission Title */}

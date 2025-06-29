@@ -58,7 +58,7 @@ const FocusGroups = () => {
               </p>
 
               {/* Bullet Points */}
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-4 mb-6">
                 <li className="flex gap-3">
                   <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
                   <span className="text-muted-foreground">

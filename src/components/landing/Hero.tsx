@@ -29,10 +29,10 @@ const Hero: React.FC = () => {
 
   const heroImgs = [
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176578/landing_img_1_hvbbeq.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750879604/landing-img-4_ybueo6.jpg",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750879622/landing-img-2_yt9xjc.jpg",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750879610/landing-img-3_diqtdo.jpg",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750879624/landing-img-5_z6ubwk.jpg",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751235765/landing-lslide-img2_afia6a.jpg",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751236202/landing-lslide-img5_mzmwmp.jpg",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751235758/landing-lslide-img4_pep8hc.jpg",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751236507/landing-lslide-img7_qhrdry.jpg",
   ];
 
   const partnerLogos = [

@@ -1,22 +1,17 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Happening = () => {
   useEffect(() => {
-    // Check if there's a hash in the URL
     if (window.location.hash) {
-      // Remove the '#' from the hash
       const elementId = window.location.hash.substring(1);
-      // Find the element by ID
       const element = document.getElementById(elementId);
 
       if (element) {
-        // Smooth scroll to the element
         element.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
-
-        // Update URL without jumping (optional)
         window.history.replaceState(
           null,
           "",
@@ -24,17 +19,39 @@ const Happening = () => {
         );
       }
     }
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
+
+  const upcomingEvents = [
+    {
+      title: "CAIRL Learning Labs - AI in Life Sciences",
+      date: "July 4, 2025",
+      description:
+        "Join us for an insightful session on AI applications in life sciences, featuring industry experts and hands-on learning experiences.",
+      imageUrl:
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg",
+      type: "Workshop",
+      location: "Virtual",
+    },
+  ];
 
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <div className="flex flex-col justify-center items-center text-foreground pb-16 pt-8">
-        <h4 className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8">
+        <motion.h4
+          initial={{ opacity: 0.5, y: 70 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+        >
           Happenings
-        </h4>
+        </motion.h4>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl text-foreground font-bold mb-8">
+          <h1 className="text-4xl md:text-5xl text-foreground font-bold mb-8">
             Happenings at CAiRL
           </h1>
           <p className="text-xl max-w-3xl mx-auto text-muted-foreground">
@@ -53,55 +70,43 @@ const Happening = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
         >
           <div>
-            <h2 className="text-3xl font-bold text-[#005BA9] mb-6">Events</h2>
-            <p className="text-gray-700 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">Events</h2>
+            <p className="text-muted-foreground mb-6">
               CAiRL hosts and collaborates on high-impact AI events that bring
               together:
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+            <ul className="space-y-3 mb-6">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Global AI Leaders – Experts from industry, academia, and
                   government.
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Innovators & Researchers – Pioneering breakthroughs in AI.
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Startups & Enterprises – Scaling AI adoption across
                   industries.
                 </span>
               </li>
             </ul>
-            <p className="font-semibold text-gray-700 mb-4">
+            <p className="font-semibold text-muted-foreground mb-4">
               Why it Matters: CAiRL's events shape AI conversations and ignite
               industry collaboration.
             </p>
-            <a
-              href="/events"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-            >
-              Know more
-            </a>
           </div>
-          <div className="rounded-xl h-full min-h-[300px] overflow-hidden">
+          <div className="rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
             <img
               src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262916/happenings-events-card-img_fjbkec.png"
               alt="CAiRL Events"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
         </div>
@@ -111,55 +116,43 @@ const Happening = () => {
           id="webinars"
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
         >
-          <div className="order-last lg:order-first rounded-xl h-full min-h-[300px] overflow-hidden">
+          <div className="order-last lg:order-first rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
             <img
               src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262924/happenings-webinar-card-img_othucx.jpg"
               alt="CAiRL Webinars"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
           <div>
             <h2 className="text-3xl font-bold text-primary mb-6">Webinars</h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-muted-foreground mb-6">
               Our webinars provide on-demand AI expertise from world-class
               speakers:
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+            <ul className="space-y-3 mb-6">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Exclusive Fireside Chats – Conversations with AI pioneers.
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Live Demos & Workshops – Deep dives into AI applications.
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Expert Panels – Discussing AI trends, regulations, and
                   innovations.
                 </span>
               </li>
             </ul>
-            <p className="font-semibold text-gray-700 mb-4">
+            <p className="font-semibold text-muted-foreground mb-4">
               Why it Matters: Stay ahead with AI insights from global experts.
             </p>
-            <a
-              href="/webinars"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-            >
-              Know more
-            </a>
           </div>
         </div>
 
@@ -172,77 +165,133 @@ const Happening = () => {
             <h2 className="text-3xl font-bold text-primary mb-6">
               Visual Journey
             </h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-muted-foreground mb-6">
               A picture speaks a thousand words—our Visual Journey captures the
               milestones, achievements, and impact of CAiRL.
             </p>
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+            <ul className="space-y-3 mb-6">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Awards & Recognitions – Honouring our contributions to AI
                   innovation.
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Achiever's Journey – Showcasing winners of CAiRL Hackathons &
                   Challenges.
                 </span>
               </li>
-              <li className="flex items-start">
-                <span className="bg-[#005BA9] text-white rounded-full w-5 h-5 flex items-center justify-center mt-1 mr-3">
-                  •
-                </span>
-                <span className="text-gray-700">
+              <li className="flex gap-3">
+                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                <span className="text-muted-foreground">
                   Event Highlights – A glimpse into our summits, conferences,
                   and AI bootcamps.
                 </span>
               </li>
             </ul>
-            <p className="font-semibold text-gray-700 mb-4">
+            <p className="font-semibold text-muted-foreground mb-4">
               Explore our journey through images & videos – See how CAiRL is
               shaping AI's future!
             </p>
-            <a
-              href="/visual-journey"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-            >
-              Know more
-            </a>
           </div>
-          <div className="rounded-xl h-full max-h-[450px] overflow-hidden">
+          <div className="rounded-xl h-full max-h-[450px] overflow-hidden shadow-lg">
             <img
               src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262917/happenings-visual-journey-card-img_ppw12b.jpg"
               alt="CAiRL Visual Journey"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
+          </div>
+        </div>
+
+        {/* Upcoming Events Section */}
+        <div
+          id="upcoming-events"
+          className="min-h-screen flex flex-col justify-center items-center text-foreground pb-16 pt-8"
+        >
+          <motion.h4
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+          >
+            Events
+          </motion.h4>
+          <h2 className="text-3xl font-bold text-primary mb-6 text-center">
+            Upcoming Events
+          </h2>
+          <p className="text-muted-foreground mb-12 max-w-2xl mx-auto text-center">
+            Stay tuned for our exciting upcoming events, workshops, and
+            conferences. We regularly update this section with new opportunities
+            to engage with the latest in AI.
+          </p>
+
+          <div
+            className={`grid ${
+              upcomingEvents.length >= 3
+                ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+                : "grid-cols-1 md:grid-cols-2"
+            } gap-8 max-w-5xl mx-auto`}
+          >
+            {upcomingEvents.map((event, index) => (
+              <div
+                key={index}
+                className="bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden border border-border hover:shadow-xl transition-shadow duration-300"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={event.imageUrl}
+                    alt={event.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
+                      {event.type}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {event.description}
+                  </p>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-foreground/80">{event.date}</span>
+                    <span className="text-primary font-medium">
+                      {event.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Newsletter Section */}
       <div className="bg-secondary py-24 mt-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
-            Subscribe to our newsletter
+            Stay Informed with Our Newsletter
           </h2>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter or follow us online to stay ahead in AI.
+            Subscribe to receive updates on upcoming events, research
+            breakthroughs, and AI industry insights directly to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your Email"
-              className="flex-grow px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-ring"
+              className="flex-grow px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
             />
-            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-              Submit
+            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap shadow-md hover:shadow-lg">
+              Subscribe
             </button>
           </div>
         </div>

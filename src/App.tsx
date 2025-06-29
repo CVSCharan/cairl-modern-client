@@ -20,6 +20,8 @@ import WhitePapers from "./pages/WhitePapers";
 import WhitePaperDetails from "./pages/WhitePaperDetails";
 import Resources from "./pages/Resources";
 import Podcasts from "./pages/Podcasts";
+import Blogs from "./pages/Blogs";
+import BlogDetails from "./pages/BlogDetails";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
           />
           <Route path="/webinars" element={<Webinars />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:id" element={<BlogDetails />} />
           <Route path="/focus-groups" element={<FocusGroups />} />
           <Route path="/visual-journey" element={<VisualJourney />} />
           <Route path="/white-papers" element={<WhitePapers />} />

@@ -1,13 +1,16 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
-import { ArrowRight, Calendar, Video } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface HappeningsDropdownProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({ isOpen, onClose }) => {
+const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const sections = [
     {
       title: "Happenings",
@@ -45,29 +48,18 @@ const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({ isOpen, onClose
         <div className="bg-secondary p-6 rounded-lg">
           <h3 className="font-semibold text-foreground mb-4">Upcoming Event</h3>
           <div className="aspect-video bg-muted rounded-md mb-4 flex items-center justify-center">
-            <Calendar className="w-12 h-12 text-muted-foreground" />
+            <img
+              src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg"
+              alt="Upcoming Event"
+              className="w-full h-full object-cover rounded-md"
+            />
           </div>
           <h4 className="font-semibold text-foreground mb-2">
-            AI for a Better Future
+            CAIRL Learning Labs: AI in Life Sciences
           </h4>
           <p className="text-sm text-muted-foreground mb-4">
-            Join us for an exciting day of coding, collaboration, and innovation!
-          </p>
-          <button className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
-            Register
-          </button>
-        </div>
-
-        <div className="bg-secondary p-6 rounded-lg">
-          <h3 className="font-semibold text-foreground mb-4">Upcoming Webinar</h3>
-          <div className="aspect-video bg-muted rounded-md mb-4 flex items-center justify-center">
-            <Video className="w-12 h-12 text-muted-foreground" />
-          </div>
-          <h4 className="font-semibold text-foreground mb-2">
-            The Future of AI in Healthcare
-          </h4>
-          <p className="text-sm text-muted-foreground mb-4">
-            Learn from industry experts about the latest trends and applications.
+            Join us for an exciting event on July 4th, 2025, focused on AI
+            applications in genomics, drug discovery, and diagnostics.
           </p>
           <button className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
             Register

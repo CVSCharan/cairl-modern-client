@@ -205,9 +205,9 @@ const ServiceCard = ({
         {title}
       </h3>
       <p className="text-sm text-muted-foreground mb-4">{desc}</p>
-      <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-2 rounded-full font-medium">
+      {/* <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-2 rounded-full font-medium">
         Know more
-      </button>
+      </button> */}
     </div>
   </div>
 );

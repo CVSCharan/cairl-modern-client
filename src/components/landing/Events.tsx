@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
+// Assuming EventCard is imported from its file
+// import EventCard from "./EventCard";
+
 interface EventCardProps {
   date: string;
   title: string;
@@ -10,6 +13,8 @@ interface EventCardProps {
   imageUrl: string;
 }
 
+// NOTE: The EventCard component is included here for context,
+// but you should have it in its own file.
 const EventCard: React.FC<EventCardProps> = ({
   date,
   title,
@@ -18,21 +23,14 @@ const EventCard: React.FC<EventCardProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="relative rounded-xl overflow-hidden h-64 group my-4 md:my-16">
-      {/* Background Image */}
+    <div className="relative rounded-xl overflow-hidden h-64 group my-4 md:my-16 w-full max-w-sm">
       <img
         src={imageUrl}
         alt={title}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
-
-      {/* Overall Dark Overlay for Maximum Text Visibility */}
       <div className="absolute inset-0 bg-black/70 z-10" />
-
-      {/* Additional Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20" />
-
-      {/* Content */}
       <div className="relative z-30 h-full flex flex-col justify-end p-4 md:p-6 text-white">
         <div className="mb-2 md:mb-3">
           <span className="text-xs md:text-sm font-bold bg-primary text-primary-foreground px-3 py-1 md:px-4 md:py-2 rounded-full inline-block shadow-xl">
@@ -56,31 +54,22 @@ const EventCard: React.FC<EventCardProps> = ({
 const Events: React.FC = () => {
   const events = [
     {
-      date: "21/December/2023",
-      title: "FULL TIME FEETTOF 101",
-      type: "Workshop Digital",
-      description: "Coding Colloqui: Read Object Programming D Eta Digital",
-      imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750189047/events-img-3_sm4l4r.jpg",
-    },
-    {
-      date: "2/November/2023",
-      title: "Event Digital",
-      type: "Workshop Digital",
+      date: "04/July/2025",
+      title: "CAIRL Learning Labs: AI in Life Sciences",
+      type: "Event",
       description:
-        "Supplement Structure: Accelerating The Future of Programming",
+        "Join us for an exciting event focused on AI applications in genomics, drug discovery, and diagnostics.",
       imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750189052/events-img-1_jargc1.jpg",
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg",
     },
-    {
-      date: "2/November/2023",
-      title: "View all Events",
-      type: "Workshop Digital",
-      description:
-        "Coding Extrated Netrollable Transformed Texture Colors Darts Temperature gain Fireweight Levels",
-      imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750189053/events-img-2_nreecn.jpg",
-    },
+    // Add a second event to see how they align side-by-side
+    // {
+    //   date: "15/August/2025",
+    //   title: "Advanced AI Symposium",
+    //   type: "Symposium",
+    //   description: "A deep dive into the latest advancements in machine learning models and applications.",
+    //   imageUrl: "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750189052/events-img-1_jargc1.jpg",
+    // },
   ];
 
   return (
@@ -96,14 +85,15 @@ const Events: React.FC = () => {
           }}
           className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
         >
-          Happening
+          Happenings
         </motion.h4>
 
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-0 text-center">
-          Upcoming Events & Webinar
+          Upcoming Events & Webinars
         </h2>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* MODIFIED: Replaced grid with a flex container to center the cards */}
+        <div className="w-full flex flex-wrap justify-center items-center gap-6">
           {events.map((event, index) => (
             <EventCard
               key={index}

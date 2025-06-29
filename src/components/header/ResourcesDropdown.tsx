@@ -1,6 +1,7 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
 import { Book, Mic, FileText, Database, Cpu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface ResourcesDropdownProps {
   isOpen: boolean;
@@ -15,16 +16,24 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
     {
       title: "Knowledge Hub",
       links: [
-        { name: "Blog", href: "#blog", icon: Book },
-        { name: "Podcast", href: "#podcast", icon: Mic },
-        { name: "Whitepaper", href: "#whitepaper", icon: FileText },
+        { name: "Blog", href: "/blogs", icon: Book },
+        { name: "Podcast", href: "/podcasts", icon: Mic },
+        { name: "Whitepaper", href: "/white-papers", icon: FileText },
       ],
     },
     {
       title: "AI Use Cases & Implementation",
       links: [
-        { name: "Datasets for Innovation", href: "#datasets", icon: Database },
-        { name: "Affordable AI Computing", href: "#computing", icon: Cpu },
+        {
+          name: "Datasets for Innovation",
+          href: "/resources#datasets",
+          icon: Database,
+        },
+        {
+          name: "Affordable AI Computing",
+          href: "/resources#computing",
+          icon: Cpu,
+        },
       ],
     },
   ];
@@ -40,14 +49,14 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
             <ul className="space-y-3">
               {section.links.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group"
                     onClick={onClose}
                   >
                     <link.icon className="w-4 h-4 mr-2" />
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
