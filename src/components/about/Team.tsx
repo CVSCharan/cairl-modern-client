@@ -36,7 +36,7 @@ const Team = () => {
           <img
             src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381712/Element-2_yonfix.png"
             alt="Background Element"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover pt-8"
+            className="w-full h-full object-cover"
           />
         </div>
         {/* Vision Header */}

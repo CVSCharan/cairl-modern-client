@@ -35,21 +35,11 @@ const About = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="relative w-full">
-        {/* Background Element - Now covers header to form */}
-        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">
-          <img
-            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381598/Element-1_tsbawm.png"
-            alt="Background Element"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto pb-16 relative z-20">
-          {/* About Header */}
-          <Hero />
-          {/* Our Journey Section */}
-          <Journey />
-        </div>
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        {/* About Header */}
+        <Hero />
+        {/* Our Journey Section */}
+        <Journey />
       </div>
 
       {/* Mission Section */}
