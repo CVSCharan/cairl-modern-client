@@ -9,7 +9,6 @@ import About from "./pages/About";
 import Happening from "./pages/Happening";
 import BootcampDetails from "./pages/BootcampDetails";
 import Bootcamps from "./pages/Bootcamps";
-import Contact from "./pages/Contact";
 import Engage from "./pages/Engage";
 import Services from "./pages/Services";
 import ResearchAndInnovation from "./pages/ResearchAndInnovation";
@@ -33,7 +32,6 @@ const App = () => (
           <Route path="/" element={<Landing />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/engage-with-us" element={<Engage />} />
-          <Route path="/contact-us" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route path="/ai-bootcamps" element={<Bootcamps />} />
           <Route path="/ai-bootcamps/:id" element={<BootcampDetails />} />

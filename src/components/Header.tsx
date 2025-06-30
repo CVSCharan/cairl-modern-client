@@ -67,7 +67,7 @@ const Header: React.FC = () => {
               onClick={closeAllDropdowns}
             >
               <img
-                className="h-10 w-auto"
+                className="h-12 w-auto"
                 src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176558/cairl_logo_sx9gcw.png"
                 alt="CAiRL"
               />
@@ -134,13 +134,6 @@ const Header: React.FC = () => {
 
           {/* Contact & CTA - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/contact-us"
-              className="text-foreground hover:text-primary transition-colors duration-300 font-medium"
-              onClick={closeAllDropdowns}
-            >
-              Contact
-            </Link>
             <Link
               to="/engage-with-us"
               className="bg-secondary text-foreground hover:bg-foreground hover:text-background px-4 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
