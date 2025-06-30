@@ -41,14 +41,14 @@ const Hero: React.FC = () => {
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751271284/BITS_Pilani-Logo.svg_gariqk.png",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751271281/JNTU_kkjrhb.png",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176557/scroll_img_3_ttadxy.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750749649/Ccmb_emblem_rqgags.png",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280975/CCMB-new-logo.png_vn5p18.png",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751278587/CTVA-new_logo_f03sqr.png",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176559/scroll_img_2_rc4chz.png",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176558/scroll_img_1_opp3ip.png",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751278350/innominds-logo-rpa-leaders-2019-aspioneer_gjvkdw.webp",
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751278351/refactored_logo_new_x6rc3w.webp",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751271266/RICH-New-Logo-Design-01_bddzsz.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751279648/NGIT-new-logo_lhtkbr.png",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280975/RICH-new-logo_gwivhc.png",
+    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280090/NGIT-new-logo-1_d52igc.png",
   ];
 
   return (
@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
                 <img
                   src={logo}
                   alt={`Partner logo ${index + 1}`}
-                  className="h-14 md:h-18 w-auto"
+                  className="h-16 md:h-18 w-25 object-cover"
                 />
               </li>
             ))}

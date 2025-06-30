@@ -50,9 +50,9 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-30 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/80 shadow-md backdrop-blur-sm"
+          ? "bg-secondary/70 shadow-md backdrop-blur-sm"
           : "bg-transparent"
       }`}
       onMouseLeave={handleMouseLeave}
@@ -136,7 +136,11 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/engage-with-us"
-              className="bg-secondary text-foreground hover:bg-foreground hover:text-background px-4 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+              className={`px-4 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap ${
+                isScrolled
+                  ? "bg-background text-foreground hover:bg-foreground hover:text-background"
+                  : "bg-secondary text-foreground hover:bg-foreground hover:text-background"
+              }`}
               onClick={closeAllDropdowns}
             >
               Engage with us
@@ -167,6 +171,7 @@ const Header: React.FC = () => {
         activeDropdown={activeDropdown}
         onDropdownToggle={handleDropdownToggle}
         onClose={closeAllDropdowns}
+        isScrolled={isScrolled}
       />
     </header>
   );

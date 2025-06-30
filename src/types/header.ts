@@ -32,4 +32,5 @@ export interface MobileMenuProps {
   activeDropdown: string | null;
   onDropdownToggle: (dropdownName: string) => void;
   onClose: () => void;
+  isScrolled: boolean;
 }
