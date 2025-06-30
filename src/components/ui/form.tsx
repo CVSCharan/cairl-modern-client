@@ -5,18 +5,18 @@ import { useFormContext } from "react-hook-form";
 
 import { cn } from "../../lib/utils";
 import { Label } from "../../components/ui/label";
-import { Form, FormFieldContext, FormField } from "../../lib/form-utils";
+import { Form, FormFieldContext, FormField } from "../../lib/form-utils.tsx";
 
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
   const { getFieldState, formState } = useFormContext();
 
-  const fieldState = getFieldState(fieldContext.name, formState);
-
   if (!fieldContext) {
     throw new Error("useFormField should be used within <FormField>");
   }
+
+  const fieldState = getFieldState(fieldContext!.name, formState);
 
   const { id } = itemContext;
 

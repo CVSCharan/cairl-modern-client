@@ -1,6 +1,7 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface HappeningsDropdownProps {
   isOpen: boolean;
@@ -61,9 +62,12 @@ const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({
             Join us for an exciting event on July 4th, 2025, focused on AI
             applications in genomics, drug discovery, and diagnostics.
           </p>
-          <button className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
+          <Link
+            to="/happenings#upcoming-events"
+            className="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
             Register
-          </button>
+          </Link>
         </div>
       </div>
     </MegaMenu>
