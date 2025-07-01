@@ -28,7 +28,7 @@ const Happening = () => {
       description:
         "Join us for an insightful session on AI applications in life sciences, featuring industry experts and hands-on learning experiences.",
       imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg",
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751394883/Role_of_AIML_in_Life_Sciences_-_Raghavendra_f08iaa.png",
       type: "Workshop",
       location: "Virtual",
     },
@@ -41,7 +41,7 @@ const Happening = () => {
       description:
         "Exploring how AI is transforming the design industry, from generative design tools to AI-assisted creative processes.",
       imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228906/events_img_-_20th_june_25_fyooj3.jpg",
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751394494/Design_Meets_AI_Augmentation_-_ep6_s4uwqj.png",
       type: "Workshop",
       location: "Virtual",
       highlights: [
@@ -57,7 +57,7 @@ const Happening = () => {
       description:
         "Exploring AI applications in pharmaceutical research and drug discovery with industry leaders.",
       imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/events_img_-_27th_june_25_j5opqh.jpg",
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751394493/AI_for_Pharma_-_ep7_et1sqw.png",
       type: "Workshop",
       location: "Virtual",
       highlights: [
@@ -147,7 +147,7 @@ const Happening = () => {
             </div>
             <div className="rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
               <img
-                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262916/happenings-events-card-img_fjbkec.png"
+                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751395981/Happenings_-_Events_Img_ksqjxa.png"
                 alt="CAiRL Events"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
@@ -161,7 +161,7 @@ const Happening = () => {
           >
             <div className="order-last lg:order-first rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
               <img
-                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262924/happenings-webinar-card-img_othucx.jpg"
+                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751395981/Happenings_-_Weinars_img_w5mtqm.png"
                 alt="CAiRL Webinars"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
