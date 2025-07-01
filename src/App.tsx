@@ -15,12 +15,12 @@ import ResearchAndInnovation from "./pages/ResearchAndInnovation";
 import Webinars from "./pages/Webinar";
 import FocusGroups from "./pages/FocusGroups";
 import VisualJourney from "./pages/VisualJourney";
-import WhitePapers from "./pages/WhitePapers";
-import WhitePaperDetails from "./pages/WhitePaperDetails";
+// import WhitePapers from "./pages/WhitePapers";
+// import WhitePaperDetails from "./pages/WhitePaperDetails";
 import Resources from "./pages/Resources";
 import Podcasts from "./pages/Podcasts";
-import Blogs from "./pages/Blogs";
-import BlogDetails from "./pages/BlogDetails";
+// import Blogs from "./pages/Blogs";
+// import BlogDetails from "./pages/BlogDetails";
 import UnderConstruction from "./pages/UnderConstruction";
 
 const queryClient = new QueryClient();
