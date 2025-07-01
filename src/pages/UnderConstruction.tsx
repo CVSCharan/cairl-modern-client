@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { BackgroundGradient } from "../components/ui/bg-gradient";
 import { Button } from "../components/ui/button";
@@ -14,35 +13,35 @@ const UnderConstruction = () => {
             <div className="absolute bottom-10 right-10 w-40 h-40 bg-secondary/30 rounded-full blur-3xl" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-accent/30 rounded-full blur-3xl" />
           </div>
-          
+
           <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-8">
             {/* Construction icon with animation */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 260, 
+              transition={{
+                type: "spring",
+                stiffness: 260,
                 damping: 20,
-                delay: 0.1 
+                delay: 0.1,
               }}
               className="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center bg-primary/10 rounded-full mb-4"
             >
               <motion.div
-                animate={{ 
+                animate={{
                   rotate: [0, 10, -10, 10, 0],
                 }}
-                transition={{ 
-                  duration: 5, 
+                transition={{
+                  duration: 5,
                   repeat: Infinity,
-                  repeatType: "loop" 
+                  repeatType: "loop",
                 }}
                 className="text-5xl md:text-6xl"
               >
                 🛠️
               </motion.div>
             </motion.div>
-            
+
             {/* Title with staggered animation */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -50,7 +49,7 @@ const UnderConstruction = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="space-y-4"
             >
-              <motion.h1 
+              <motion.h1
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
@@ -58,8 +57,8 @@ const UnderConstruction = () => {
               >
                 Under Construction
               </motion.h1>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.7 }}
@@ -69,30 +68,31 @@ const UnderConstruction = () => {
                   We're working on something amazing for you.
                 </p>
                 <p className="mt-2 text-base md:text-lg text-muted-foreground/80">
-                  Our team is actively developing this page to bring you the best experience.
+                  Our team is actively developing this page to bring you the
+                  best experience.
                 </p>
               </motion.div>
             </motion.div>
-            
+
             {/* Progress bar */}
-            <motion.div 
+            <motion.div
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 1 }}
               className="w-full max-w-md h-2 bg-muted/30 rounded-full overflow-hidden"
             >
-              <motion.div 
+              <motion.div
                 initial={{ width: "0%" }}
                 animate={{ width: "70%" }}
-                transition={{ 
+                transition={{
                   duration: 2,
                   delay: 1.2,
-                  ease: "easeInOut" 
+                  ease: "easeInOut",
                 }}
                 className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
               />
             </motion.div>
-            
+
             {/* Coming soon text with typing animation */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -114,7 +114,7 @@ const UnderConstruction = () => {
               />
               <span>Coming Soon...</span>
             </motion.div>
-            
+
             {/* Return button */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -122,7 +122,7 @@ const UnderConstruction = () => {
               transition={{ delay: 1.8, duration: 0.5 }}
               className="pt-4"
             >
-              <Button 
+              <Button
                 onClick={() => window.history.back()}
                 variant="secondary"
                 size="lg"
