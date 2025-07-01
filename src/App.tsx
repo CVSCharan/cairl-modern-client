@@ -21,6 +21,7 @@ import Resources from "./pages/Resources";
 import Podcasts from "./pages/Podcasts";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
+import UnderConstruction from "./pages/UnderConstruction";
 
 const queryClient = new QueryClient();
 
@@ -42,12 +43,12 @@ const App = () => (
           />
           <Route path="/webinars" element={<Webinars />} />
           <Route path="/resources" element={<Resources />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/:id" element={<BlogDetails />} />
+          <Route path="/blogs" element={<UnderConstruction />} />
+          <Route path="/blogs/:id" element={<UnderConstruction />} />
           <Route path="/focus-groups" element={<FocusGroups />} />
           <Route path="/visual-journey" element={<VisualJourney />} />
-          <Route path="/white-papers" element={<WhitePapers />} />
-          <Route path="/white-papers/:id" element={<WhitePaperDetails />} />
+          <Route path="/white-papers" element={<UnderConstruction />} />
+          <Route path="/white-papers/:id" element={<UnderConstruction />} />
           <Route path="/podcasts" element={<Podcasts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

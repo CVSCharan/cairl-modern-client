@@ -70,173 +70,183 @@ const Happening = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <div className="flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24">
-        <motion.h4
-          initial={{ opacity: 0.5, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
-        >
-          Happenings
-        </motion.h4>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl text-foreground font-bold mb-8">
-            Happenings at CAiRL
-          </h1>
-          <p className="text-lg sm:text-xl max-w-xl md:max-w-3xl mx-auto text-muted-foreground">
-            AI is an ever-evolving field, and at CAiRL, we ensure you stay ahead
-            of the curve. Our events, webinars, and visual journeys bring
-            together the brightest minds, groundbreaking innovations, and
-            real-world impact.
-          </p>
+      <div className="relative w-full">
+        {/* Background Element - Now covers header to form */}
+        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-55 pointer-events-none">
+          <img
+            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750554423/Topology-1_bphtdf.png"
+            alt="Background Element"
+            className="absolute top-0 left-0 min-w-[400px] min-h-[400px] object-contain"
+          />
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Events Section */}
-        <div
-          id="events"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
-        >
-          <div>
-            <h2 className="text-3xl font-bold text-primary mb-6">Events</h2>
-            <p className="text-muted-foreground mb-6">
-              CAiRL hosts and collaborates on high-impact AI events that bring
-              together:
-            </p>
-            <ul className="space-y-3 mb-6">
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Global AI Leaders – Experts from industry, academia, and
-                  government.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Innovators & Researchers – Pioneering breakthroughs in AI.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Startups & Enterprises – Scaling AI adoption across
-                  industries.
-                </span>
-              </li>
-            </ul>
-            <p className="font-semibold text-muted-foreground mb-4">
-              Why it Matters: CAiRL's events shape AI conversations and ignite
-              industry collaboration.
-            </p>
-          </div>
-          <div className="rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
-            <img
-              src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262916/happenings-events-card-img_fjbkec.png"
-              alt="CAiRL Events"
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-        </div>
-
-        {/* Webinars Section */}
-        <div
-          id="webinars"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
-        >
-          <div className="order-last lg:order-first rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
-            <img
-              src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262924/happenings-webinar-card-img_othucx.jpg"
-              alt="CAiRL Webinars"
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-primary mb-6">Webinars</h2>
-            <p className="text-muted-foreground mb-6">
-              Our webinars provide on-demand AI expertise from world-class
-              speakers:
-            </p>
-            <ul className="space-y-3 mb-6">
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Exclusive Fireside Chats – Conversations with AI pioneers.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Live Demos & Workshops – Deep dives into AI applications.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Expert Panels – Discussing AI trends, regulations, and
-                  innovations.
-                </span>
-              </li>
-            </ul>
-            <p className="font-semibold text-muted-foreground mb-4">
-              Why it Matters: Stay ahead with AI insights from global experts.
+        {/* Hero Section */}
+        <div className="flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24">
+          <motion.h4
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+          >
+            Happenings
+          </motion.h4>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-5xl text-foreground font-bold mb-8">
+              Happenings at CAiRL
+            </h1>
+            <p className="text-lg sm:text-xl max-w-xl md:max-w-3xl mx-auto text-muted-foreground">
+              AI is an ever-evolving field, and at CAiRL, we ensure you stay
+              ahead of the curve. Our events, webinars, and visual journeys
+              bring together the brightest minds, groundbreaking innovations,
+              and real-world impact.
             </p>
           </div>
         </div>
 
-        {/* Visual Journey Section */}
-        <div
-          id="visual-journey"
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
-        >
-          <div>
-            <h2 className="text-3xl font-bold text-primary mb-6">
-              Visual Journey
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              A picture speaks a thousand words—our Visual Journey captures the
-              milestones, achievements, and impact of CAiRL.
-            </p>
-            <ul className="space-y-3 mb-6">
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Awards & Recognitions – Honouring our contributions to AI
-                  innovation.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Achiever's Journey – Showcasing winners of CAiRL Hackathons &
-                  Challenges.
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">
-                  Event Highlights – A glimpse into our summits, conferences,
-                  and AI bootcamps.
-                </span>
-              </li>
-            </ul>
-            <p className="font-semibold text-muted-foreground mb-4">
-              Explore our journey through images & videos – See how CAiRL is
-              shaping AI's future!
-            </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Events Section */}
+          <div
+            id="events"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
+          >
+            <div>
+              <h2 className="text-3xl font-bold text-primary mb-6">Events</h2>
+              <p className="text-muted-foreground mb-6">
+                CAiRL hosts and collaborates on high-impact AI events that bring
+                together:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Global AI Leaders – Experts from industry, academia, and
+                    government.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Innovators & Researchers – Pioneering breakthroughs in AI.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Startups & Enterprises – Scaling AI adoption across
+                    industries.
+                  </span>
+                </li>
+              </ul>
+              <p className="font-semibold text-muted-foreground mb-4">
+                Why it Matters: CAiRL's events shape AI conversations and ignite
+                industry collaboration.
+              </p>
+            </div>
+            <div className="rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
+              <img
+                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262916/happenings-events-card-img_fjbkec.png"
+                alt="CAiRL Events"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
           </div>
-          <div className="rounded-xl h-full max-h-[450px] overflow-hidden shadow-lg">
-            <img
-              src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262917/happenings-visual-journey-card-img_ppw12b.jpg"
-              alt="CAiRL Visual Journey"
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-            />
+
+          {/* Webinars Section */}
+          <div
+            id="webinars"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
+          >
+            <div className="order-last lg:order-first rounded-xl h-full min-h-[300px] overflow-hidden shadow-lg">
+              <img
+                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262924/happenings-webinar-card-img_othucx.jpg"
+                alt="CAiRL Webinars"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-primary mb-6">Webinars</h2>
+              <p className="text-muted-foreground mb-6">
+                Our webinars provide on-demand AI expertise from world-class
+                speakers:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Exclusive Fireside Chats – Conversations with AI pioneers.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Live Demos & Workshops – Deep dives into AI applications.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Expert Panels – Discussing AI trends, regulations, and
+                    innovations.
+                  </span>
+                </li>
+              </ul>
+              <p className="font-semibold text-muted-foreground mb-4">
+                Why it Matters: Stay ahead with AI insights from global experts.
+              </p>
+            </div>
+          </div>
+
+          {/* Visual Journey Section */}
+          <div
+            id="visual-journey"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20"
+          >
+            <div>
+              <h2 className="text-3xl font-bold text-primary mb-6">
+                Visual Journey
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                A picture speaks a thousand words—our Visual Journey captures
+                the milestones, achievements, and impact of CAiRL.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Awards & Recognitions – Honouring our contributions to AI
+                    innovation.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Achiever's Journey – Showcasing winners of CAiRL Hackathons
+                    & Challenges.
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                  <span className="text-muted-foreground">
+                    Event Highlights – A glimpse into our summits, conferences,
+                    and AI bootcamps.
+                  </span>
+                </li>
+              </ul>
+              <p className="font-semibold text-muted-foreground mb-4">
+                Explore our journey through images & videos – See how CAiRL is
+                shaping AI's future!
+              </p>
+            </div>
+            <div className="rounded-xl h-full max-h-[450px] overflow-hidden shadow-lg">
+              <img
+                src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750262917/happenings-visual-journey-card-img_ppw12b.jpg"
+                alt="CAiRL Visual Journey"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
       </div>

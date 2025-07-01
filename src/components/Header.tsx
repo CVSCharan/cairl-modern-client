@@ -133,7 +133,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Contact & CTA - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 cursor-pointer">
             <Link
               to="/engage-with-us"
               className={`px-4 py-3 rounded-md font-semibold transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap ${
