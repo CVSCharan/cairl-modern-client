@@ -27,7 +27,7 @@ const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="font-semibold text-foreground mb-4 border-b pb-2">
+          <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
             {sections[0].title}
           </h3>
           <ul className="space-y-3">
@@ -35,10 +35,12 @@ const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group"
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group ml-6"
                   onClick={onClose}
                 >
-                  <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="w-6 flex items-center -ml-6">
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </span>
                   {link.name}
                 </a>
               </li>
@@ -50,7 +52,7 @@ const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({
           <h3 className="font-semibold text-foreground mb-4">Upcoming Event</h3>
           <div className="aspect-video bg-muted rounded-md mb-4 flex items-center justify-center">
             <img
-              src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg"
+              src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751394883/Role_of_AIML_in_Life_Sciences_-_Raghavendra_f08iaa.png"
               alt="Upcoming Event"
               className="w-full h-full object-cover rounded-md"
             />

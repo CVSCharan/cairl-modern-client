@@ -12,7 +12,8 @@ export interface DropdownSection {
 export interface DropdownButtonProps {
   children: React.ReactNode;
   isActive: boolean;
-  onClick: () => void;
+  onClick?: () => void;
+  route?: string;
 }
 
 export interface DropdownMenuProps {

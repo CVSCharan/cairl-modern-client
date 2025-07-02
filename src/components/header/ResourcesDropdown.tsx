@@ -43,7 +43,7 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {sections.map((section) => (
           <div key={section.title}>
-            <h3 className="font-semibold text-foreground mb-4 border-b pb-2">
+            <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
               {section.title}
             </h3>
             <ul className="space-y-3">
@@ -51,10 +51,12 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group"
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group ml-6"
                     onClick={onClose}
                   >
-                    <link.icon className="w-4 h-4 mr-2" />
+                    <span className="w-6 flex items-center -ml-6">
+                      <link.icon className="w-4 h-4" />
+                    </span>
                     {link.name}
                   </Link>
                 </li>

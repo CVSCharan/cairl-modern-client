@@ -23,7 +23,7 @@ const FocusGroupsDropdown: React.FC<FocusGroupsDropdownProps> = ({ isOpen, onClo
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="font-semibold text-foreground mb-4 border-b pb-2">
+          <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
             {sections[0].title}
           </h3>
           <ul className="space-y-3">
@@ -31,10 +31,12 @@ const FocusGroupsDropdown: React.FC<FocusGroupsDropdownProps> = ({ isOpen, onClo
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group"
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group ml-6"
                   onClick={onClose}
                 >
-                  <link.icon className="w-4 h-4 mr-2" />
+                  <span className="w-6 flex items-center -ml-6">
+                    <link.icon className="w-4 h-4" />
+                  </span>
                   {link.name}
                 </a>
               </li>

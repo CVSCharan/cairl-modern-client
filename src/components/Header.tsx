@@ -77,7 +77,10 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <div onMouseEnter={() => handleMouseEnter("about")}>
-              <DropdownButton isActive={activeDropdown === "about"}>
+              <DropdownButton 
+                isActive={activeDropdown === "about"}
+                route="/about-us"
+              >
                 About us
               </DropdownButton>
               <AboutDropdown
@@ -86,7 +89,10 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("services")}>
-              <DropdownButton isActive={activeDropdown === "services"}>
+              <DropdownButton 
+                isActive={activeDropdown === "services"}
+                route="/services"
+              >
                 Services
               </DropdownButton>
               <ServicesDropdown
@@ -95,7 +101,10 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("research")}>
-              <DropdownButton isActive={activeDropdown === "research"}>
+              <DropdownButton 
+                isActive={activeDropdown === "research"}
+                route="/research-and-innovation"
+              >
                 Research & Innovation
               </DropdownButton>
               <ResearchDropdown
@@ -104,7 +113,10 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("happenings")}>
-              <DropdownButton isActive={activeDropdown === "happenings"}>
+              <DropdownButton 
+                isActive={activeDropdown === "happenings"}
+                route="/happenings"
+              >
                 Happenings
               </DropdownButton>
               <HappeningsDropdown
@@ -113,7 +125,10 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("focus-groups")}>
-              <DropdownButton isActive={activeDropdown === "focus-groups"}>
+              <DropdownButton 
+                isActive={activeDropdown === "focus-groups"}
+                route="/focus-groups"
+              >
                 Focus Groups
               </DropdownButton>
               <FocusGroupsDropdown
@@ -122,7 +137,10 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("resources")}>
-              <DropdownButton isActive={activeDropdown === "resources"}>
+              <DropdownButton 
+                isActive={activeDropdown === "resources"}
+                route="/resources"
+              >
                 Resources
               </DropdownButton>
               <ResourcesDropdown

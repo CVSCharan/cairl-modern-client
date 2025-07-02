@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { BackgroundGradient } from "../components/ui/bg-gradient";
 import { Button } from "../components/ui/button";
 
 const UnderConstruction = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-[calc(100vh-80px)] w-full flex items-center justify-center p-4 md:p-8">
       <BackgroundGradient className="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden">
@@ -100,6 +102,7 @@ const UnderConstruction = () => {
               transition={{ delay: 1.5, duration: 0.5 }}
               className="text-sm md:text-base text-muted-foreground/70 font-mono"
             >
+              <span>Coming Soon...</span>
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{
@@ -112,7 +115,6 @@ const UnderConstruction = () => {
                 }}
                 className="inline-block w-2 h-4 md:h-5 bg-primary ml-1 align-middle"
               />
-              <span>Coming Soon...</span>
             </motion.div>
 
             {/* Return button */}
@@ -123,12 +125,12 @@ const UnderConstruction = () => {
               className="pt-4"
             >
               <Button
-                onClick={() => window.history.back()}
+                onClick={() => navigate("/")}
                 variant="secondary"
                 size="lg"
                 className="font-medium"
               >
-                Return to Previous Page
+                Return to Home Page
               </Button>
             </motion.div>
           </div>

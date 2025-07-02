@@ -38,15 +38,11 @@ const AboutDropdown: React.FC<AboutDropdownProps> = ({ isOpen, onClose }) => {
     },
     {
       title: "MOUs & Strategic Partnerships",
-      links: [
-        { name: "View All Partnerships", href: "/about-us#mou" },
-      ],
+      links: [{ name: "View All Partnerships", href: "/about-us#mou" }],
     },
     {
       title: "FAQs",
-      links: [
-        { name: "Frequently Asked Questions", href: "/about-us#faqs" },
-      ],
+      links: [{ name: "Frequently Asked Questions", href: "/about-us#faqs" }],
     },
   ];
 
@@ -55,7 +51,7 @@ const AboutDropdown: React.FC<AboutDropdownProps> = ({ isOpen, onClose }) => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {sections.map((section) => (
           <div key={section.title}>
-            <h3 className="font-semibold text-foreground mb-4 border-b pb-2">
+            <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
               {section.title}
             </h3>
             <ul className="space-y-3">
@@ -63,10 +59,12 @@ const AboutDropdown: React.FC<AboutDropdownProps> = ({ isOpen, onClose }) => {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group"
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 group ml-6"
                     onClick={onClose}
                   >
-                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="w-6 flex items-center -ml-6">
+                      <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </span>
                     {link.name}
                   </a>
                 </li>
