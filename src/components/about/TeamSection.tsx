@@ -6,7 +6,7 @@ const TeamSection = ({
   members: { name: string; role: string; image: string }[];
 }) => {
   return (
-    <div className="mb-16">
+    <div className="mb-16 z-20">
       <h2 className="text-3xl font-bold text-foreground mb-12 text-center relative pb-8">
         {title}
         {/* Fancy underline */}
@@ -17,7 +17,7 @@ const TeamSection = ({
         </span>
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 px-4 md:px-6 items-stretch justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-4 items-stretch justify-center">
         {members.map((member, index) => (
           <div
             key={index}

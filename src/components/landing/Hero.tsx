@@ -52,10 +52,10 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative bg-transparent overflow-hidden">
+    <section className="relative bg-transparent overflow-hidden w-full">
       {/* Hero Background with Overlay */}
       <div className="relative w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10 rounded-b-[30px] shadow-xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10 shadow-xl" />
         <Carousel
           className="w-full h-full"
           opts={{
@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
                 <img
                   src={img}
                   alt={`City skyline at night ${index + 1}`}
-                  className="w-full h-full object-cover max-h-[420px] md:max-h-[620px] rounded-b-[30px]"
+                  className="w-full h-full object-cover max-h-[420px] md:max-h-[620px]"
                 />
               </CarouselItem>
             ))}
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
 
         {/* Main Content */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="container mx-auto px-4 text-center">
+          <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center">
             <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 text-white leading-tight tracking-tight">
               Advancing <span className="text-[#85D1F1]">AI</span> for
               <br />
@@ -102,40 +102,44 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Feature Cards - Centered at the bottom */}
-        <div className="relative md:absolute -bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-4 mt-8 md:mt-0">
-          {featureCards.map((card, index) => (
-            <div
-              key={index}
-              className="bg-secondary rounded-xl p-4 flex items-center border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-full md:w-80"
-            >
-              <div className="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
-                <img src={card.icon} alt={card.alt} className="w-6 h-6" />
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="relative md:absolute -bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-4 mt-8 md:mt-0 w-full justify-center">
+            {featureCards.map((card, index) => (
+              <div
+                key={index}
+                className="bg-foreground/10 backdrop-blur-sm rounded-xl p-4 flex flex-col justify-center items-center space-y-3 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-full md:w-80"
+              >
+                <div className="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+                  <img src={card.icon} alt={card.alt} className="w-6 h-6" />
+                </div>
+                <p className="text-secondary-foreground text-sm font-medium leading-snug text-center">
+                  {card.text}
+                </p>
               </div>
-              <p className="text-secondary-foreground text-sm font-medium leading-snug">
-                {card.text}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Partner Logos Marquee */}
-      <div className="bg-background py-10 mt-48 md:mt-24 rounded-xl shadow-md">
-        <h3 className="text-center font-heading text-lg md:text-xl mb-6 text-muted-foreground">
-          Trusted by Leading Organizations
-        </h3>
-        <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
-            {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-              <li key={index}>
-                <img
-                  src={logo}
-                  alt={`Partner logo ${index + 1}`}
-                  className="h-16 md:h-18 w-25 object-cover"
-                />
-              </li>
-            ))}
-          </ul>
+      {/* Partner Logos Marquee - with consistent spacing */}
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        <div className="bg-background py-10 mt-48 md:mt-24 rounded-xl shadow-md">
+          <h3 className="text-center font-heading text-lg md:text-xl mb-6 text-muted-foreground">
+            Trusted by Leading Organizations
+          </h3>
+          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
+              {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+                <li key={index}>
+                  <img
+                    src={logo}
+                    alt={`Partner logo ${index + 1}`}
+                    className="h-16 md:h-18 w-25 object-cover"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>

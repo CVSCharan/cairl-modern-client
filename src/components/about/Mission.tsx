@@ -51,7 +51,7 @@ const Mission = () => {
           </div>
 
           {/* Right column - Points */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-1/2 mt-8 md:mt-0">
             <div className="space-y-6">
               {/* First point */}
               <div className="bg-card rounded-xl p-6 shadow-sm">

@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 const Contact: React.FC = () => {
   return (
     <section
-      className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center px-4"
+      className="bg-transparent w-full flex flex-col justify-center items-center px-4"
       id="contact"
     >
-      <div className="bg-secondary w-full py-8 md:py-12 px-6 md:px-8 rounded-3xl max-w-6xl mx-auto flex flex-col items-center">
+      <div className="bg-secondary w-full py-12 md:py-16 px-6 md:px-10 rounded-3xl max-w-6xl mx-auto flex flex-col items-center shadow-md">
         <motion.h4
           initial={{ opacity: 0.5, y: 70 }}
           whileInView={{ opacity: 1, y: 0 }}

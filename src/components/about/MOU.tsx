@@ -8,7 +8,7 @@ const MOU = () => {
     >
       <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12 mt-12">
         {/* Text Content */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 text-center lg:text-left">
           <motion.h4
             initial={{ opacity: 0.5, y: 70 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ const MOU = () => {
         </div>
 
         {/* Image */}
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 mt-8 lg:mt-0">
           <img
             src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245474/about_mou_img_ekci19.png"
             alt="MOU Partnerships"

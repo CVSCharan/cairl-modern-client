@@ -6,7 +6,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about-us"
-      className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden"
+      className="relative min-h-[570px] flex items-center justify-center w-full bg-background overflow-hidden"
     >
       {/* Background Lamp Effect */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
@@ -49,13 +49,12 @@ const About: React.FC = () => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="max-w-3xl text-base md:text-lg text-muted-foreground mx-auto"
         >
-          CAiRL is a leading research lab dedicated to advancing AI
-          technologies that benefit society. Our mission is to develop
-          AI-based solutions, entrepreneurial ethics, and responsible AI for
-          everyone. Our team brings together experts from diverse fields to
-          create innovative AI applications that address real-world
-          challenges, enhance user experiences, and promote the responsible
-          use of technology.
+          CAiRL is a leading research lab dedicated to advancing AI technologies
+          that benefit society. Our mission is to develop AI-based solutions,
+          entrepreneurial ethics, and responsible AI for everyone. Our team
+          brings together experts from diverse fields to create innovative AI
+          applications that address real-world challenges, enhance user
+          experiences, and promote the responsible use of technology.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -76,5 +75,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-
-

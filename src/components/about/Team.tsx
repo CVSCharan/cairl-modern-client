@@ -29,29 +29,31 @@ const Team = () => {
   }, []); // Empty dependency array means this runs once on mount
 
   return (
-    <section className="relative w-full">
-      <div className="flex flex-col justify-center items-center mt-24 mb-16 z-20">
-        {/* Background Element - Now covers header to form */}
-        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">
-          <img
-            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381712/Element-2_yonfix.png"
-            alt="Background Element"
-            className="w-full h-full object-cover"
-          />
+    <section className="relative w-full py-16">
+      <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">
+        <img
+          src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381712/Element-2_yonfix.png"
+          alt="Background Element"
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col justify-center items-center mt-24 mb-8 z-20">
+          {/* Vision Header */}
+          <motion.h4
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
+          >
+            Advisory Team
+          </motion.h4>
         </div>
-        {/* Vision Header */}
-        <motion.h4
-          initial={{ opacity: 0.5, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
-        >
-          Advisory Team
-        </motion.h4>
+
         {/* Strategic Advisors */}
         <div id="strategic-advisors" className="z-20">
           <TeamSection
@@ -179,8 +181,8 @@ const Team = () => {
           </h1>
         </div>
 
-        {/* Technology Advisors */}
-        <div id="board-members">
+        {/* Board Members */}
+        <div id="board-members" className="z-20">
           <TeamSection
             title=""
             members={[

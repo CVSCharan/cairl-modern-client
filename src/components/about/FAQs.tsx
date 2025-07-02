@@ -56,45 +56,52 @@ const FAQs = () => {
           {/* Left: Questions */}
           <div className="bg-background divide-y divide-border border-[1px] border-border rounded-xl">
             {questions.map((question, index) => (
-              <button
-                key={index}
-                className={`w-full px-6 py-4 text-left flex items-center justify-between transition ${
-                  activeIndex === index
-                    ? "bg-primary/10 font-semibold text-primary"
-                    : "hover:bg-muted text-foreground"
-                }`}
-                onClick={() => setActiveIndex(index)}
-              >
-                <span className="flex items-center gap-3">
-                  <div
-                    className={`w-3 h-3 rounded-full ${
-                      activeIndex === index ? "bg-primary" : "bg-accent"
-                    }`}
-                  ></div>
-                  {question}
-                </span>
-                <svg
-                  className={`w-4 h-4 transform transition-transform duration-200 ${
-                    activeIndex === index ? "-rotate-90 text-primary" : ""
+              <div key={index}>
+                <button
+                  className={`w-full px-6 py-4 text-left flex items-center justify-between transition ${
+                    activeIndex === index
+                      ? "bg-primary/10 font-semibold text-primary"
+                      : "hover:bg-muted text-foreground"
                   }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+                  onClick={() => setActiveIndex(index)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+                  <span className="flex items-center gap-3">
+                    <div
+                      className={`w-3 h-3 rounded-full ${
+                        activeIndex === index ? "bg-primary" : "bg-accent"
+                      }`}
+                    ></div>
+                    {question}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 transform transition-transform duration-200 md:hidden ${
+                      activeIndex === index ? "-rotate-90 text-primary" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {/* Answer for mobile view */}
+                <div className={`md:hidden p-6 ${
+                    activeIndex === index ? "block" : "hidden"
+                }`}>
+                  <p>{answers[index]}</p>
+                </div>
+              </div>
             ))}
           </div>
 
-          {/* Right: Answers */}
-          <div className="bg-secondary p-8 rounded-xl text-foreground text-base space-y-6">
+          {/* Right: Answers (hidden on mobile) */}
+          <div className="hidden md:block bg-secondary p-8 rounded-xl text-foreground text-base space-y-6">
             <h4 className="font-semibold text-primary mb-2">
               {questions[activeIndex]}
             </h4>
