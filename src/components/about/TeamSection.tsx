@@ -6,7 +6,7 @@ const TeamSection = ({
   members: { name: string; role: string; image: string }[];
 }) => {
   return (
-    <div className="mb-16 z-20">
+    <div className="mb-16">
       <h2 className="text-3xl font-bold text-foreground mb-12 text-center relative pb-8">
         {title}
         {/* Fancy underline */}

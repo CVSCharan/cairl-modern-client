@@ -77,7 +77,7 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <div onMouseEnter={() => handleMouseEnter("about")}>
-              <DropdownButton 
+              <DropdownButton
                 isActive={activeDropdown === "about"}
                 route="/about-us"
               >
@@ -89,7 +89,7 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("services")}>
-              <DropdownButton 
+              <DropdownButton
                 isActive={activeDropdown === "services"}
                 route="/services"
               >
@@ -101,7 +101,7 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("research")}>
-              <DropdownButton 
+              <DropdownButton
                 isActive={activeDropdown === "research"}
                 route="/research-and-innovation"
               >
@@ -113,7 +113,7 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("happenings")}>
-              <DropdownButton 
+              <DropdownButton
                 isActive={activeDropdown === "happenings"}
                 route="/happenings"
               >
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("focus-groups")}>
-              <DropdownButton 
+              <DropdownButton
                 isActive={activeDropdown === "focus-groups"}
                 route="/focus-groups"
               >
@@ -137,7 +137,7 @@ const Header: React.FC = () => {
               />
             </div>
             <div onMouseEnter={() => handleMouseEnter("resources")}>
-              <DropdownButton 
+              <DropdownButton
                 isActive={activeDropdown === "resources"}
                 route="/resources"
               >

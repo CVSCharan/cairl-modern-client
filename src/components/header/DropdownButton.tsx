@@ -7,7 +7,11 @@ interface DropdownButtonProps {
   route?: string; // Optional route for direct navigation
 }
 
-const DropdownButton: React.FC<DropdownButtonProps> = ({ isActive, children, route }) => {
+const DropdownButton: React.FC<DropdownButtonProps> = ({
+  isActive,
+  children,
+  route,
+}) => {
   // Common content for both button and link
   const content = (
     <>
@@ -31,35 +35,26 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ isActive, children, rou
         className={`absolute bottom-0 left-0 w-full h-0.5 bg-ai-blue-dark transform transition-transform duration-300 ${
           isActive ? "scale-x-100" : "scale-x-0 hover:scale-x-100"
         }`}
-        style={{ transformOrigin: 'center' }}
+        style={{ transformOrigin: "center" }}
       />
     </>
   );
 
   // Common class names
   const commonClassNames = `flex items-center text-base font-medium transition-all duration-300 relative ${
-    isActive
-      ? "text-ai-blue-dark"
-      : "text-ai-gray-dark hover:text-ai-blue-dark"
+    isActive ? "text-ai-blue-dark" : "text-ai-gray-dark hover:text-ai-blue-dark"
   }`;
 
   // Common style
-  const commonStyle = { paddingBottom: '2px' }; // Space for the underline
+  const commonStyle = { paddingBottom: "2px" }; // Space for the underline
 
   // If route is provided, render as Link, otherwise as button
   return route ? (
-    <Link
-      to={route}
-      className={commonClassNames}
-      style={commonStyle}
-    >
+    <Link to={route} className={commonClassNames} style={commonStyle}>
       {content}
     </Link>
   ) : (
-    <button
-      className={commonClassNames}
-      style={commonStyle}
-    >
+    <button className={commonClassNames} style={commonStyle}>
       {content}
     </button>
   );

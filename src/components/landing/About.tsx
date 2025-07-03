@@ -6,7 +6,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about-us"
-      className="relative min-h-[570px] flex items-center justify-center w-full bg-background overflow-hidden"
+      className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden"
     >
       {/* Background Lamp Effect */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">

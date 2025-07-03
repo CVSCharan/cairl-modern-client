@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Transformation: React.FC = () => {
   return (
-    <section className="relative min-h-[400px] md:min-h-[500px] flex items-center justify-center overflow-hidden px-2 my-12 md:my-16">
+    <section className="relative flex items-center justify-center overflow-hidden py-20 md:py-28 px-4">
       {/* Background Image with Overlay and Rounded Borders */}
       <div className="absolute inset-0 z-0 mx-auto max-w-7xl rounded-2xl overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-40 rounded-2xl" />

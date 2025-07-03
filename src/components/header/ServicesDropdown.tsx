@@ -7,29 +7,47 @@ interface ServicesDropdownProps {
   onClose: () => void;
 }
 
-const ServicesDropdown: React.FC<ServicesDropdownProps> = ({ isOpen, onClose }) => {
+const ServicesDropdown: React.FC<ServicesDropdownProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const sections = [
     {
       title: "Capacity Building & Knowledge Empowerment",
       links: [
         { name: "AI Bootcamps", href: "/services#knowledge-empowerment" },
         { name: "Workshops", href: "/services#knowledge-empowerment" },
-        { name: "Center of Excellence", href: "/services#knowledge-empowerment" },
-        { name: "AI Tech Conference & Summits", href: "/services#knowledge-empowerment" },
+        {
+          name: "Center of Excellence",
+          href: "/services#knowledge-empowerment",
+        },
+        {
+          name: "AI Tech Conference & Summits",
+          href: "/services#knowledge-empowerment",
+        },
       ],
     },
     {
       title: "Innovation & Startup Support",
       links: [
-        { name: "Hackathons & Innovation Challenges", href: "/services#innovation" },
-        { name: "Startup Incubators & Innovation Hubs", href: "/services#innovation" },
+        {
+          name: "Hackathons & Innovation Challenges",
+          href: "/services#innovation",
+        },
+        {
+          name: "Startup Incubators & Innovation Hubs",
+          href: "/services#innovation",
+        },
         { name: "Joint Research Collaborations", href: "/services#innovation" },
       ],
     },
     {
       title: "Ecosystem Building & Social Impact",
       links: [
-        { name: "AI for Social Good & Rural Outreach", href: "/services#eco-system" },
+        {
+          name: "AI for Social Good & Rural Outreach",
+          href: "/services#eco-system",
+        },
         { name: "Liaising & Policy Engagement", href: "/services#eco-system" },
       ],
     },

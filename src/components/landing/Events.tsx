@@ -73,8 +73,8 @@ const Events: React.FC = () => {
   ];
 
   return (
-    <section className="bg-transparent w-full flex flex-col justify-center items-center">
-      <div className="bg-secondary h-full w-full py-10 md:py-14 px-6 md:px-10 rounded-3xl max-w-6xl mx-auto flex flex-col items-center">
+    <section className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center">
+      <div className="bg-secondary h-full w-full py-4 md:py-6 px-4 rounded-3xl max-w-6xl mx-auto flex flex-col items-center">
         <motion.h4
           initial={{ opacity: 0.5, y: 70 }}
           whileInView={{ opacity: 1, y: 0 }}

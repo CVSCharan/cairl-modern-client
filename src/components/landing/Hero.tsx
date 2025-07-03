@@ -7,6 +7,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../../components/ui/carousel";
+import Partners from "./Partners";
 
 const Hero: React.FC = () => {
   const featureCards = [
@@ -35,27 +36,15 @@ const Hero: React.FC = () => {
     "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751236507/landing-lslide-img7_qhrdry.jpg",
   ];
 
-  const partnerLogos = [
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750886760/colaberry-logo_dqizvh.webp",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176558/scroll_img_4_nfar9d.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751271284/BITS_Pilani-Logo.svg_gariqk.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751271281/JNTU_kkjrhb.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176557/scroll_img_3_ttadxy.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280975/CCMB-new-logo.png_vn5p18.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751278587/CTVA-new_logo_f03sqr.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176559/scroll_img_2_rc4chz.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176558/scroll_img_1_opp3ip.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751278350/innominds-logo-rpa-leaders-2019-aspioneer_gjvkdw.webp",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751278351/refactored_logo_new_x6rc3w.webp",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280975/RICH-new-logo_gwivhc.png",
-    "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280090/NGIT-new-logo-1_d52igc.png",
-  ];
-
   return (
-    <section className="relative bg-transparent overflow-hidden w-full">
-      {/* Hero Background with Overlay */}
+    // The main section is set to relative to act as a container for absolutely positioned children.
+    <section className="relative bg-transparent overflow-hidden pb-16">
+      {/* Container for the carousel and the overlay */}
       <div className="relative w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10 shadow-xl" />
+        {/* Gradient overlay to darken the images for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10 rounded-b-[30px] shadow-xl" />
+
+        {/* Image Carousel */}
         <Carousel
           className="w-full h-full"
           opts={{
@@ -75,7 +64,7 @@ const Hero: React.FC = () => {
                 <img
                   src={img}
                   alt={`City skyline at night ${index + 1}`}
-                  className="w-full h-full object-cover max-h-[420px] md:max-h-[620px]"
+                  className="w-full h-full object-cover max-h-[420px] md:max-h-[620px] rounded-b-[30px]"
                 />
               </CarouselItem>
             ))}
@@ -84,9 +73,9 @@ const Hero: React.FC = () => {
           <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex" />
         </Carousel>
 
-        {/* Main Content */}
+        {/* Main Hero Content (Text) */}
         <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="container mx-auto px-4 md:px-6 lg:px-8 text-center">
+          <div className="container mx-auto px-4 text-center">
             <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 text-white leading-tight tracking-tight">
               Advancing <span className="text-[#85D1F1]">AI</span> for
               <br />
@@ -101,47 +90,29 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Feature Cards - Centered at the bottom */}
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="relative md:absolute -bottom-16 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-4 mt-8 md:mt-0 w-full justify-center">
-            {featureCards.map((card, index) => (
-              <div
-                key={index}
-                className="bg-foreground/10 backdrop-blur-sm rounded-xl p-4 flex flex-col justify-center items-center space-y-3 border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-full md:w-80"
-              >
-                <div className="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
-                  <img src={card.icon} alt={card.alt} className="w-6 h-6" />
-                </div>
-                <p className="text-secondary-foreground text-sm font-medium leading-snug text-center">
-                  {card.text}
-                </p>
+        {/* Feature Cards - Positioned towards the bottom of the carousel */}
+        <div className="absolute -bottom-16 md:-bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-4 w-full max-w-4xl px-4">
+          {featureCards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-secondary rounded-xl p-4 flex items-center border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-full"
+            >
+              <div className="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
+                <img src={card.icon} alt={card.alt} className="w-6 h-6" />
               </div>
-            ))}
-          </div>
+              <p className="text-secondary-foreground text-sm font-medium leading-snug">
+                {card.text}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Partner Logos Marquee - with consistent spacing */}
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="bg-background py-10 mt-48 md:mt-24 rounded-xl shadow-md">
-          <h3 className="text-center font-heading text-lg md:text-xl mb-6 text-muted-foreground">
-            Trusted by Leading Organizations
-          </h3>
-          <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-            <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
-              {[...partnerLogos, ...partnerLogos].map((logo, index) => (
-                <li key={index}>
-                  <img
-                    src={logo}
-                    alt={`Partner logo ${index + 1}`}
-                    className="h-16 md:h-18 w-25 object-cover"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
+      {/* Spacing element to push the partners section down, accounting for the absolutely positioned feature cards */}
+      <div className="mt-40 md:mt-28"></div>
+
+      {/* Partner Logos Section */}
+      <Partners />
     </section>
   );
 };

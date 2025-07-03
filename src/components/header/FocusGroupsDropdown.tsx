@@ -7,14 +7,29 @@ interface FocusGroupsDropdownProps {
   onClose: () => void;
 }
 
-const FocusGroupsDropdown: React.FC<FocusGroupsDropdownProps> = ({ isOpen, onClose }) => {
+const FocusGroupsDropdown: React.FC<FocusGroupsDropdownProps> = ({
+  isOpen,
+  onClose,
+}) => {
   const sections = [
     {
       title: "Focus Groups",
       links: [
-        { name: "Enterprise AI Adoption", href: "/focus-groups#enterprise-ai-adoption", icon: Briefcase },
-        { name: "Capacity Building & Knowledge Management", href: "/focus-groups#capacity-building", icon: Users },
-        { name: "Partner with CAiRL", href: "/focus-groups#partner", icon: Handshake },
+        {
+          name: "Enterprise AI Adoption",
+          href: "/focus-groups#enterprise-ai-adoption",
+          icon: Briefcase,
+        },
+        {
+          name: "Capacity Building & Knowledge Management",
+          href: "/focus-groups#capacity-building",
+          icon: Users,
+        },
+        {
+          name: "Partner with CAiRL",
+          href: "/focus-groups#partner",
+          icon: Handshake,
+        },
       ],
     },
   ];
@@ -48,7 +63,9 @@ const FocusGroupsDropdown: React.FC<FocusGroupsDropdownProps> = ({ isOpen, onClo
           <h3 className="font-semibold text-foreground text-2xl mb-4">
             Together, we're building an AI-powered India.
           </h3>
-          <p className="text-muted-foreground text-lg mb-8">Join the movement</p>
+          <p className="text-muted-foreground text-lg mb-8">
+            Join the movement
+          </p>
           <button
             onClick={() => {
               window.location.href = "#register";
