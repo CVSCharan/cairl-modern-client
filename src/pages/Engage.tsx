@@ -9,6 +9,7 @@ import {
 } from "../components/ui/dialog";
 import { Phone, Mail, MapPin } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 
 const Engage = () => {
   emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
@@ -325,7 +326,7 @@ const Engage = () => {
                     duration: 0.8,
                     ease: "easeInOut",
                   }}
-                  className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-medium mb-8"
+                  className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
                 >
                   Plans
                 </motion.h4>
@@ -452,9 +453,12 @@ const Engage = () => {
                   organizations, institutions, and corporations to advance AI
                   research, development, and application.
                 </p>
-                <button className="bg-primary text-background px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                <Link
+                  to="/mous"
+                  className="bg-primary text-background px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                >
                   Know more
-                </button>
+                </Link>
               </div>
 
               {/* Image */}

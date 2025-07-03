@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { X, Send, User } from "lucide-react";
+import { X, Send, User, Bot } from "lucide-react";
 
 interface Message {
   id: string;
@@ -9,55 +9,25 @@ interface Message {
   isTyping?: boolean;
 }
 
-const questions = [
-  "What is CAiRL's mission?",
-  "How does CAiRL collaborate with startups?",
-  "What sectors does CAiRL focus on?",
-  "How can I collaborate with CAiRL?",
-  "Does CAiRL provide AI education or training programs?",
-  "How does CAiRL ensure ethical AI development?",
-  "How can I apply for grants or funding at CAiRL?",
-  "What are CAiRL's future goals for AI in India?",
-  "How can I stay updated with CAiRL's initiatives?",
-];
-
-const answers = [
-  "CAiRL's mission is to advance AI research and innovation in India through collaborative partnerships, cutting-edge research, and practical applications that address real-world challenges.",
-  "CAiRL partners with startups through incubators like T-Hub, where we offer mentorship, resources, and connections to industry leaders.",
-  "CAiRL focuses on multiple sectors including healthcare, agriculture, education, manufacturing, and public services.",
-  "You can collaborate with CAiRL as a research partner, startup, academic institution, or individual researcher.",
-  "Yes, CAiRL offers various educational programs including workshops, bootcamps, and certificate courses.",
-  "CAiRL ensures ethical AI development through an Ethics Committee, promoting transparency, fairness, and impact assessments.",
-  "Visit our website's Funding section for information on current grants, eligibility, and application procedures.",
-  "CAiRL aims to make India a global AI hub with responsible governance, local solutions, and talent development.",
-  "Subscribe to our newsletter, follow us on social media, and check our website for the latest updates.",
-];
-
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
-  const [showFAQs, setShowFAQs] = useState(true);
   const [typingMessageId, setTypingMessageId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // Get welcome message
-  const getWelcomeMessage = () => {
-    return "Hello! I'm CAiRL's AI assistant. I'm here to help you learn about our research, programs, and collaboration opportunities. Please select a question from below:";
-  };
-
-  // Initialize messages when chat is opened
+  // Initialize with welcome message when chat is opened
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setMessages([
         {
           id: "1",
-          text: getWelcomeMessage(),
+          text: "Hello! I'm CAiRL's AI assistant. How can I help you today?",
           sender: "bot",
           timestamp: new Date(),
         },
       ]);
-      setShowFAQs(true);
     }
   }, [isOpen, messages.length]);
 
@@ -67,8 +37,6 @@ const ChatBot: React.FC = () => {
 
   useEffect(() => {
     scrollToBottom();
-
-    console.log(typingMessageId);
   }, [messages, typingMessageId]);
 
   // Typewriter effect for bot messages
@@ -78,7 +46,7 @@ const ChatBot: React.FC = () => {
     callback?: () => void
   ) => {
     let index = 0;
-    const speed = 30; // Typing speed in milliseconds
+    const speed = 20; // Faster typing speed for professional feel
 
     const typeInterval = setInterval(() => {
       if (index < text.length) {
@@ -103,7 +71,32 @@ const ChatBot: React.FC = () => {
     }, speed);
   };
 
-  const handleSendMessage = () => {
+  const callN8nWebhook = async (question: string) => {
+    try {
+      const chatbot_api = import.meta.env.VITE_CHATBOT_API_URL;
+      const response = await fetch(chatbot_api, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          question: question,
+          sessionId: Date.now().toString(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Error calling n8n webhook:", error);
+      throw error;
+    }
+  };
+
+  const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
     const userMessage: Message = {
@@ -115,30 +108,13 @@ const ChatBot: React.FC = () => {
 
     setMessages((prev) => [...prev, userMessage]);
     setInputValue("");
-    setShowFAQs(false);
 
-    // Process user input and generate response
-    const userInput = inputValue.toLowerCase();
-    let botResponseText =
-      "Thank you for your question! I understand you're asking about CAiRL. For the best answers, please select from the questions below, as I have detailed information prepared for those topics.";
-
-    // Check if user input matches any of our questions
-    const questionIndex = questions.findIndex(
-      (q) =>
-        userInput.includes(q.toLowerCase().substring(0, 10)) ||
-        q.toLowerCase().includes(userInput.substring(0, 10))
-    );
-
-    if (questionIndex !== -1) {
-      botResponseText = answers[questionIndex];
-    }
-
-    // Simulate bot response with typewriter effect
-    setTimeout(() => {
+    try {
+      // Call n8n webhook
       const botResponseId = (Date.now() + 1).toString();
       const botResponse: Message = {
         id: botResponseId,
-        text: "",
+        text: "", // Start with empty text
         sender: "bot",
         timestamp: new Date(),
         isTyping: true,
@@ -147,60 +123,48 @@ const ChatBot: React.FC = () => {
       setMessages((prev) => [...prev, botResponse]);
       setTypingMessageId(botResponseId);
 
-      // Start typewriter effect
-      typewriterEffect(botResponseText, botResponseId, () => {
-        setShowFAQs(true); // Show FAQs after typing is complete
-      });
-    }, 1000);
-  };
+      // Get response from n8n
+      const n8nResponse = await callN8nWebhook(inputValue);
 
-  const handleFAQClick = (questionIndex: number) => {
-    const question = questions[questionIndex];
-    const answer = answers[questionIndex];
-
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      text: question,
-      sender: "user",
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
-    setShowFAQs(false);
-
-    // Simulate bot response with typewriter effect
-    setTimeout(() => {
-      const botResponseId = (Date.now() + 1).toString();
-      const botMessage: Message = {
+      // Use typewriter effect with the response from n8n
+      typewriterEffect(
+        n8nResponse.answer ||
+          n8nResponse.text ||
+          "I couldn't find an answer to that question. Could you try rephrasing?",
+        botResponseId
+      );
+    } catch (error) {
+      console.error("Error:", error);
+      // Fallback response
+      const botResponseId = (Date.now() + 2).toString();
+      const botResponse: Message = {
         id: botResponseId,
-        text: "",
+        text: "I'm having trouble connecting to the knowledge base. Please try again later.",
         sender: "bot",
         timestamp: new Date(),
-        isTyping: true,
       };
-
-      setMessages((prev) => [...prev, botMessage]);
-      setTypingMessageId(botResponseId);
-
-      // Start typewriter effect
-      typewriterEffect(answer, botResponseId, () => {
-        setShowFAQs(true); // Show FAQs after typing is complete
-      });
-    }, 800);
+      setMessages((prev) => [...prev, botResponse]);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
       handleSendMessage();
     }
   };
 
   const handleClose = () => {
     setIsOpen(false);
-    // Reset state when closing
     setMessages([]);
-    setShowFAQs(true);
   };
+
+  // Focus input when chat opens
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -208,134 +172,135 @@ const ChatBot: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 bg-background p-0 rounded-full shadow-lg z-40 hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none"
+          className="fixed bottom-6 right-6 bg-primary text-white p-4 rounded-full shadow-lg z-40 hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none flex items-center justify-center"
           aria-label="Open chat"
         >
-          <img
-            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176556/chat_icon_endzvg.png"
-            alt="Chat icon"
-            className="w-14 h-14 rounded-full object-cover border-2 border-border"
-          />
+          <div className="relative">
+            <Bot className="w-7 h-7 text-background" />
+            <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full border border-foreground"></span>
+          </div>
         </button>
       )}
 
       {/* Chat interface */}
       {isOpen && (
-        <div className="fixed bottom-6 right-4 w-96 h-[600px] bg-background border border-border rounded-lg shadow-xl z-40 flex flex-col">
+        <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-foreground border border-foreground/30 rounded-lg shadow-xl z-40 flex flex-col overflow-hidden">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-border bg-secondary">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 mr-3">
+          <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-foreground rounded-t-lg flex-shrink-0">
+            <div className="flex items-center space-x-3">
+              <div className="flex-shrink-0">
                 <img
                   src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176660/footer-logo_jgk1wb.png"
                   alt="CAiRL Logo"
-                  className="w-12 h-12 object-contain"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
-              <div className="flex flex-col justify-center mt-6">
-                <h3 className="text-base font-medium text-secondary-foreground leading-tight">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-800">
                   CAiRL Assistant
                 </h3>
-                <p className="text-xs text-muted-foreground mt-0.2">
-                  AI Research & Innovation
+                <p className="text-xs text-green-600 flex items-center">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-1 animate-pulse"></span>
+                  Online
                 </p>
               </div>
             </div>
             <button
               onClick={handleClose}
-              className="h-9 w-9 rounded-full flex items-center justify-center transition-colors duration-200 hover:bg-accent focus:outline-none focus:ring-2 focus:ring-ring"
+              className="h-8 w-8 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 focus:outline-none"
               aria-label="Close chat"
             >
-              <X className="w-4 h-4 text-muted-foreground" />
+              <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 p-4 overflow-y-auto">
+          <div className="flex-1 p-4 overflow-y-auto bg-foreground">
             <div className="space-y-4">
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`flex gap-2 ${
+                  className={`flex items-end ${
                     message.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
+                  } mb-2 group relative`}
                 >
                   {message.sender === "bot" && (
-                    <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center flex-shrink-0 border border-border">
+                    <div className="w-6 h-6 rounded-full bg-gray-200 flex-shrink-0 mr-2 overflow-hidden">
                       <img
                         src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176556/chat_icon_endzvg.png"
-                        alt="Chat icon"
-                        className="w-6 h-6 object-contain rounded-full"
+                        alt="CAiRL"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   )}
-                  <div
-                    className={`max-w-[80%] p-3 rounded-lg text-sm leading-relaxed ${
-                      message.sender === "user"
-                        ? "bg-primary text-primary-foreground rounded-br-sm"
-                        : "bg-secondary text-secondary-foreground rounded-bl-sm"
-                    }`}
-                  >
-                    {message.text}
-                    {message.sender === "bot" && message.isTyping && (
-                      <span className="inline-block w-2 h-4 bg-muted-foreground ml-1 animate-pulse"></span>
-                    )}
+
+                  {/* Message bubble and timestamp */}
+                  <div className="relative max-w-[80%]">
+                    <div
+                      className={`rounded-2xl px-4 py-2.5 text-sm ${
+                        message.sender === "user"
+                          ? "bg-background/70 text-foreground rounded-br-none shadow-sm"
+                          : "bg-background/70 text-foreground rounded-bl-none shadow-sm"
+                      }`}
+                    >
+                      {message.text ||
+                        (message.isTyping && (
+                          <span className="flex items-center space-x-1">
+                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce"></span>
+                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce delay-75"></span>
+                            <span className="w-1.5 h-1.5 bg-muted-foreground rounded-full animate-bounce delay-150"></span>
+                          </span>
+                        ))}
+                    </div>
+
+                    <span
+                      className={`absolute text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${
+                        message.sender === "user" ? "right-0" : "left-0"
+                      } mt-1`}
+                    >
+                      {message.timestamp.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </span>
                   </div>
+
+                  {/* User avatar */}
                   {message.sender === "user" && (
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
-                      <User className="w-4 h-4 text-secondary-foreground" />
+                    <div className="w-6 h-6 rounded-full bg-background/60 flex-shrink-0 ml-2 flex items-center justify-center">
+                      <User className="w-5 h-5 text-foreground" />
                     </div>
                   )}
                 </div>
               ))}
-
-              {/* FAQ Section - Shows all questions after every bot response */}
-              {showFAQs &&
-                messages.length > 0 &&
-                messages[messages.length - 1].sender === "bot" && (
-                  <div className="space-y-3 mt-4 p-3 bg-secondary rounded-lg">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <p className="font-medium">Select a question:</p>
-                    </div>
-                    <div className="space-y-2">
-                      {questions.map((question, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleFAQClick(index)}
-                          className="w-full text-left p-3 bg-background hover:bg-accent border border-border hover:border-ring rounded-lg text-sm transition-all duration-200 hover:shadow-sm"
-                        >
-                          <span className="text-foreground">{question}</span>
-                        </button>
-                      ))}
-                    </div>
-                    <div className="pt-2 border-t border-border">
-                      <p className="text-xs text-muted-foreground">
-                        Or type your own question below ↓
-                      </p>
-                    </div>
-                  </div>
-                )}
+              <div ref={messagesEndRef} />
             </div>
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-border bg-secondary">
-            <div className="flex gap-2">
+          <div className="p-3 border-t border-secondary/20 bg-foreground">
+            <div className="relative rounded-xl border border-input focus-within:border-primary focus-within:ring-1 focus-within:ring-ring transition-all">
               <input
+                ref={inputRef}
                 type="text"
                 value={inputValue}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setInputValue(e.target.value)
-                }
-                onKeyPress={handleKeyPress}
-                placeholder="Type your question here..."
-                className="flex-1 px-3 py-2 bg-input border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent"
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyPress}
+                placeholder="Message CAiRL Assistant..."
+                className="w-full px-4 py-3 pr-12 bg-background/70 text-foreground placeholder:text-muted-foreground rounded-xl text-sm focus:outline-none"
               />
               <button
                 onClick={handleSendMessage}
                 disabled={!inputValue.trim()}
-                className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 disabled:bg-muted disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+                className={`
+        absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 rounded-full 
+        transition-colors
+        ${
+          inputValue.trim()
+            ? "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80"
+            : "bg-muted text-muted-foreground cursor-not-allowed"
+        }
+      `}
               >
                 <Send className="w-4 h-4" />
               </button>

@@ -8,7 +8,7 @@ import Contact from "../components/landing/Contact";
 const Landing = () => {
   return (
     <main className="min-h-screen bg-background">
-      <section className="pb-20">
+      <section className="pb-10">
         <Hero />
       </section>
 

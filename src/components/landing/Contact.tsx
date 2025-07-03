@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
 
         <div className="w-full flex justify-center">
           <Link
-            to="/contact-us"
+            to="/engage-with-us"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-full font-medium flex items-center text-sm md:text-base"
           >
             Know more

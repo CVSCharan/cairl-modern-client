@@ -176,7 +176,7 @@ const ResearchAndInnovation = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 my-28">
+      <div className="my-28">
         <CTA />
       </div>
 
