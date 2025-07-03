@@ -11,13 +11,9 @@ import { useFormField } from "../../hooks/use-form-field";
 
 import { FormItemContext } from "../../lib/form-item-context";
 
-type FormItemContextValue = {
-  id: string;
-};
 
-const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-);
+
+
 
 const FormItem = React.forwardRef<
   HTMLDivElement,

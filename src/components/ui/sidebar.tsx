@@ -34,7 +34,7 @@ type SidebarContext = {
   toggleSidebar: () => void;
 };
 
-import {  SidebarContext } from "../../hooks/use-sidebar";
+import { useSidebar, SidebarContext } from "../../hooks/use-sidebar";
 
 const SidebarProvider = React.forwardRef<
   HTMLDivElement,

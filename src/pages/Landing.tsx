@@ -8,21 +8,29 @@ import Contact from "../components/landing/Contact";
 const Landing = () => {
   return (
     <main className="min-h-screen bg-background">
-      <Hero />
+      <section className="pb-20">
+        <Hero />
+      </section>
 
-      <section>
+      <section className="py-10">
         <About />
       </section>
 
-      <Transformation />
+      <section className="py-10">
+        <Transformation />
+      </section>
 
-      <Events />
+      <section className="py-10">
+        <Events />
+      </section>
 
-      <section>
+      <section className="py-10">
         <CTA />
       </section>
 
-      <Contact />
+      <section className="py-10">
+        <Contact />
+      </section>
     </main>
   );
 };
