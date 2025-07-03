@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Contact: React.FC = () => {
   return (
     <section
-      className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center px-4"
+      className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center"
       id="contact"
     >
       <div className="bg-secondary w-full py-8 md:py-12 px-6 md:px-8 rounded-3xl max-w-6xl mx-auto flex flex-col items-center">

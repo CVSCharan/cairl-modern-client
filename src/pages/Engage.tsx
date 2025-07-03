@@ -8,14 +8,76 @@ import {
   DialogDescription,
 } from "../components/ui/dialog";
 import { Phone, Mail, MapPin } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Engage = () => {
+  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loadingType, setLoadingType] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    organization: "",
+    linkedin: "",
+    engagement: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleButtonClick = (type: string) => {
     setLoadingType(type);
     setIsModalOpen(true);
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+    setIsSubmitted(false);
+
+    try {
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.currentTarget,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      console.log("Email sent successfully:", result.text);
+      setIsSubmitted(true);
+      setFormData({
+        fullName: "",
+        email: "",
+        organization: "",
+        linkedin: "",
+        engagement: "",
+        message: "",
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setError("Failed to send your message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const membershipPlans = [
@@ -589,7 +651,17 @@ const Engage = () => {
               </p>
             </div>
             <div className="bg-card rounded-2xl shadow-sm border border-border p-8">
-              <form className="space-y-6">
+              {isSubmitted && (
+                <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-md">
+                  Thank you for your message! We will get back to you soon.
+                </div>
+              )}
+              {error && (
+                <div className="mb-6 p-4 bg-red-100 text-red-800 rounded-md">
+                  {error}
+                </div>
+              )}
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -603,8 +675,10 @@ const Engage = () => {
                       id="fullName"
                       name="fullName"
                       required
+                      value={formData.fullName}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-2 bg-background/40 border border-border rounded-md focus:ring-primary focus:border-primary"
-                      placeholder="John"
+                      placeholder="John Doe"
                     />
                   </div>
 
@@ -620,6 +694,8 @@ const Engage = () => {
                       id="email"
                       name="email"
                       required
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-2 bg-background/40 border border-border rounded-md focus:ring-primary focus:border-primary"
                       placeholder="example@email.com"
                     />
@@ -636,8 +712,10 @@ const Engage = () => {
                       type="text"
                       id="organization"
                       name="organization"
+                      value={formData.organization}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-2 bg-background/40 border border-border rounded-md focus:ring-primary focus:border-primary"
-                      placeholder="ACME"
+                      placeholder="ACME Inc"
                     />
                   </div>
 
@@ -652,8 +730,10 @@ const Engage = () => {
                       type="text"
                       id="linkedin"
                       name="linkedin"
+                      value={formData.linkedin}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-2 bg-background/40 border border-border rounded-md focus:ring-primary focus:border-primary"
-                      placeholder="linkedin.com/in/..."
+                      placeholder="linkedin.com/in/yourprofile"
                     />
                   </div>
                 </div>
@@ -670,6 +750,8 @@ const Engage = () => {
                       id="engagement"
                       name="engagement"
                       required
+                      value={formData.engagement}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-2 bg-background/40 border border-border rounded-md focus:ring-primary focus:border-primary appearance-none"
                     >
                       <option value="" disabled>
@@ -704,6 +786,8 @@ const Engage = () => {
                     id="message"
                     name="message"
                     rows={4}
+                    value={formData.message}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-2 bg-background/40 border border-border rounded-md focus:ring-primary focus:border-primary"
                     placeholder="Tell us briefly about your interest"
                   />
@@ -712,21 +796,26 @@ const Engage = () => {
                 <div className="w-full flex justify-center items-center">
                   <button
                     type="submit"
-                    className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-foreground bg-secondary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    disabled={isSubmitting}
+                    className={`inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-foreground ${
+                      isSubmitting ? "bg-gray-400" : "bg-secondary"
+                    } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary`}
                   >
-                    Submit
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 ml-2"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    {isSubmitting ? "Sending..." : "Submit"}
+                    {!isSubmitting && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 ml-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    )}
                   </button>
                 </div>
               </form>

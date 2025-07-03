@@ -59,7 +59,7 @@ const ChatBot: React.FC = () => {
       ]);
       setShowFAQs(true);
     }
-  }, [isOpen]);
+  }, [isOpen, messages.length]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -69,7 +69,7 @@ const ChatBot: React.FC = () => {
     scrollToBottom();
 
     console.log(typingMessageId);
-  }, [messages]);
+  }, [messages, typingMessageId]);
 
   // Typewriter effect for bot messages
   const typewriterEffect = (

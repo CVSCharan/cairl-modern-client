@@ -22,6 +22,7 @@ import Podcasts from "./pages/Podcasts";
 // import Blogs from "./pages/Blogs";
 // import BlogDetails from "./pages/BlogDetails";
 import UnderConstruction from "./pages/UnderConstruction";
+import MOU from "./pages/MOU";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const App = () => (
           />
           <Route path="/webinars" element={<Webinars />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/mous" element={<MOU />} />
           <Route path="/blogs" element={<UnderConstruction />} />
           <Route path="/blogs/:id" element={<UnderConstruction />} />
           <Route path="/focus-groups" element={<FocusGroups />} />

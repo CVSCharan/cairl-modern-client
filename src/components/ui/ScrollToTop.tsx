@@ -5,20 +5,20 @@ const ScrollToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const toggleVisibility = () => {
+  const toggleVisibility = React.useCallback(() => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
-  };
+  }, []);
 
-  const handleScroll = () => {
+  const handleScroll = React.useCallback(() => {
     const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const progress = (window.pageYOffset / totalHeight) * 100;
     setScrollProgress(progress);
     toggleVisibility();
-  };
+  }, [toggleVisibility]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -33,7 +33,7 @@ const ScrollToTop: React.FC = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   const circumference = 2 * Math.PI * 20;
   const offset = circumference - (scrollProgress / 100) * circumference;
