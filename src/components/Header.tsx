@@ -2,13 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import DropdownButton from "./header/DropdownButton";
-import AboutDropdown from "./header/AboutDropdown";
-import ServicesDropdown from "./header/ServicesDropdown";
-import ResearchDropdown from "./header/ResearchDropdown";
-import HappeningsDropdown from "./header/HappeningsDropdown";
-import FocusGroupsDropdown from "./header/FocusGroupsDropdown";
-import ResourcesDropdown from "./header/ResourcesDropdown";
 import MobileMenu from "./header/MobileMenu";
+import { navigationData } from "../constants/navigation";
 
 const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -76,78 +71,23 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <div onMouseEnter={() => handleMouseEnter("about")}>
-              <DropdownButton
-                isActive={activeDropdown === "about"}
-                route="/about-us"
+            {navigationData.map((item) => (
+              <div
+                key={item.label}
+                onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
               >
-                About us
-              </DropdownButton>
-              <AboutDropdown
-                isOpen={activeDropdown === "about"}
-                onClose={closeAllDropdowns}
-              />
-            </div>
-            <div onMouseEnter={() => handleMouseEnter("services")}>
-              <DropdownButton
-                isActive={activeDropdown === "services"}
-                route="/services"
-              >
-                Services
-              </DropdownButton>
-              <ServicesDropdown
-                isOpen={activeDropdown === "services"}
-                onClose={closeAllDropdowns}
-              />
-            </div>
-            <div onMouseEnter={() => handleMouseEnter("research")}>
-              <DropdownButton
-                isActive={activeDropdown === "research"}
-                route="/research-and-innovation"
-              >
-                Research & Innovation
-              </DropdownButton>
-              <ResearchDropdown
-                isOpen={activeDropdown === "research"}
-                onClose={closeAllDropdowns}
-              />
-            </div>
-            <div onMouseEnter={() => handleMouseEnter("happenings")}>
-              <DropdownButton
-                isActive={activeDropdown === "happenings"}
-                route="/happenings"
-              >
-                Happenings
-              </DropdownButton>
-              <HappeningsDropdown
-                isOpen={activeDropdown === "happenings"}
-                onClose={closeAllDropdowns}
-              />
-            </div>
-            <div onMouseEnter={() => handleMouseEnter("focus-groups")}>
-              <DropdownButton
-                isActive={activeDropdown === "focus-groups"}
-                route="/focus-groups"
-              >
-                Focus Groups
-              </DropdownButton>
-              <FocusGroupsDropdown
-                isOpen={activeDropdown === "focus-groups"}
-                onClose={closeAllDropdowns}
-              />
-            </div>
-            <div onMouseEnter={() => handleMouseEnter("resources")}>
-              <DropdownButton
-                isActive={activeDropdown === "resources"}
-                route="/resources"
-              >
-                Resources
-              </DropdownButton>
-              <ResourcesDropdown
-                isOpen={activeDropdown === "resources"}
-                onClose={closeAllDropdowns}
-              />
-            </div>
+                <DropdownButton
+                  isActive={activeDropdown === item.label.toLowerCase()}
+                  route={item.route}
+                >
+                  {item.label}
+                </DropdownButton>
+                <item.component
+                  isOpen={activeDropdown === item.label.toLowerCase()}
+                  onClose={closeAllDropdowns}
+                />
+              </div>
+            ))}
           </nav>
 
           {/* Contact & CTA - Desktop */}

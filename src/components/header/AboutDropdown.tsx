@@ -1,6 +1,7 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
 import { ArrowRight } from "lucide-react";
+import { aboutUs } from "../../constants/navigation";
 
 interface AboutDropdownProps {
   isOpen: boolean;
@@ -8,48 +9,10 @@ interface AboutDropdownProps {
 }
 
 const AboutDropdown: React.FC<AboutDropdownProps> = ({ isOpen, onClose }) => {
-  const sections = [
-    {
-      title: "Who We Are",
-      links: [
-        { name: "Our Mission", href: "/about-us#mission" },
-        { name: "Our Vision", href: "/about-us#vision" },
-        { name: "Objectives", href: "/about-us#objectives" },
-        { name: "Goals", href: "/about-us#goals" },
-      ],
-    },
-    {
-      title: "Advisory Team",
-      links: [
-        { name: "Strategic Advisor", href: "/about-us#strategic-advisors" },
-        { name: "Academic Advisor", href: "/about-us#academic-advisors" },
-        { name: "Industry Advisor", href: "/about-us#industry-advisors" },
-        { name: "Technology Advisor", href: "/about-us#technology-advisors" },
-      ],
-    },
-    {
-      title: "Our Team",
-      links: [
-        {
-          name: "Board Members & Management Team",
-          href: "/about-us#board-members",
-        },
-      ],
-    },
-    {
-      title: "MOUs & Strategic Partnerships",
-      links: [{ name: "View All Partnerships", href: "/about-us#mou" }],
-    },
-    {
-      title: "FAQs",
-      links: [{ name: "Frequently Asked Questions", href: "/about-us#faqs" }],
-    },
-  ];
-
   return (
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-        {sections.map((section) => (
+        {aboutUs.links.map((section) => (
           <div key={section.title}>
             <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
               {section.title}

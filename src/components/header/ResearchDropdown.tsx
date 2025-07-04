@@ -1,6 +1,7 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
 import { ArrowRight } from "lucide-react";
+import { researchAndInnovation } from "../../constants/navigation";
 
 interface ResearchDropdownProps {
   isOpen: boolean;
@@ -11,47 +12,10 @@ const ResearchDropdown: React.FC<ResearchDropdownProps> = ({
   isOpen,
   onClose,
 }) => {
-  const sections = [
-    {
-      title: "Research & Innovation",
-      links: [
-        {
-          name: "AI Research & Thought Leadership",
-          href: "/research-and-innovation#leadership",
-        },
-        {
-          name: "AI Education & Skill Development",
-          href: "/research-and-innovation#skill-development",
-        },
-        {
-          name: "AI Ecosystem Building & Partnerships",
-          href: "/research-and-innovation#partnerships",
-        },
-      ],
-    },
-    {
-      title: "Challenges & Support",
-      links: [
-        {
-          name: "AI Hackathons & Innovation Challenges",
-          href: "/research-and-innovation#hackathons",
-        },
-        {
-          name: "AI for Social Good & Sustainability",
-          href: "/research-and-innovation#sustainability",
-        },
-        {
-          name: "AI Mentorship & Startup Support",
-          href: "/research-and-innovation#mentorship",
-        },
-      ],
-    },
-  ];
-
   return (
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {sections.map((section) => (
+        {researchAndInnovation.links.map((section) => (
           <div key={section.title}>
             <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
               {section.title}

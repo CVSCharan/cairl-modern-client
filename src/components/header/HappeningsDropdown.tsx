@@ -2,6 +2,7 @@ import React from "react";
 import MegaMenu from "./MegaMenu";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { happenings } from "../../constants/navigation";
 
 interface HappeningsDropdownProps {
   isOpen: boolean;
@@ -12,26 +13,15 @@ const HappeningsDropdown: React.FC<HappeningsDropdownProps> = ({
   isOpen,
   onClose,
 }) => {
-  const sections = [
-    {
-      title: "Happenings",
-      links: [
-        { name: "Events", href: "/happenings#events" },
-        { name: "Webinars", href: "/happenings#webinars" },
-        { name: "Visual Journey", href: "/happenings#visual-journey" },
-      ],
-    },
-  ];
-
   return (
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
-            {sections[0].title}
+            {happenings.links[0].title}
           </h3>
           <ul className="space-y-3">
-            {sections[0].links.map((link) => (
+            {happenings.links[0].links.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}

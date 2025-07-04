@@ -2,6 +2,7 @@ import React from "react";
 import MegaMenu from "./MegaMenu";
 import { Book, Mic, FileText, Database, Cpu } from "lucide-react";
 import { Link } from "react-router-dom";
+import { resources } from "../../constants/navigation";
 
 interface ResourcesDropdownProps {
   isOpen: boolean;
@@ -12,36 +13,10 @@ const ResourcesDropdown: React.FC<ResourcesDropdownProps> = ({
   isOpen,
   onClose,
 }) => {
-  const sections = [
-    {
-      title: "Knowledge Hub",
-      links: [
-        { name: "Blog", href: "/blogs", icon: Book },
-        { name: "Podcast", href: "/podcasts", icon: Mic },
-        { name: "Whitepaper", href: "/white-papers", icon: FileText },
-      ],
-    },
-    {
-      title: "AI Use Cases & Implementation",
-      links: [
-        {
-          name: "Datasets for Innovation",
-          href: "/resources#datasets",
-          icon: Database,
-        },
-        {
-          name: "Affordable AI Computing",
-          href: "/resources#computing",
-          icon: Cpu,
-        },
-      ],
-    },
-  ];
-
   return (
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {sections.map((section) => (
+        {resources.links.map((section) => (
           <div key={section.title}>
             <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
               {section.title}

@@ -1,6 +1,7 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
 import { ArrowRight, Users, Briefcase, Handshake } from "lucide-react";
+import { focusGroups } from "../../constants/navigation";
 
 interface FocusGroupsDropdownProps {
   isOpen: boolean;
@@ -11,38 +12,15 @@ const FocusGroupsDropdown: React.FC<FocusGroupsDropdownProps> = ({
   isOpen,
   onClose,
 }) => {
-  const sections = [
-    {
-      title: "Focus Groups",
-      links: [
-        {
-          name: "Enterprise AI Adoption",
-          href: "/focus-groups#enterprise-ai-adoption",
-          icon: Briefcase,
-        },
-        {
-          name: "Capacity Building & Knowledge Management",
-          href: "/focus-groups#capacity-building",
-          icon: Users,
-        },
-        {
-          name: "Partner with CAiRL",
-          href: "/focus-groups#partner",
-          icon: Handshake,
-        },
-      ],
-    },
-  ];
-
   return (
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
           <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
-            {sections[0].title}
+            {focusGroups.links[0].title}
           </h3>
           <ul className="space-y-3">
-            {sections[0].links.map((link) => (
+            {focusGroups.links[0].links.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}

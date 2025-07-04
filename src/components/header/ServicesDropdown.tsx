@@ -1,6 +1,7 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
 import { ArrowRight } from "lucide-react";
+import { services } from "../../constants/navigation";
 
 interface ServicesDropdownProps {
   isOpen: boolean;
@@ -11,52 +12,10 @@ const ServicesDropdown: React.FC<ServicesDropdownProps> = ({
   isOpen,
   onClose,
 }) => {
-  const sections = [
-    {
-      title: "Capacity Building & Knowledge Empowerment",
-      links: [
-        { name: "AI Bootcamps", href: "/services#knowledge-empowerment" },
-        { name: "Workshops", href: "/services#knowledge-empowerment" },
-        {
-          name: "Center of Excellence",
-          href: "/services#knowledge-empowerment",
-        },
-        {
-          name: "AI Tech Conference & Summits",
-          href: "/services#knowledge-empowerment",
-        },
-      ],
-    },
-    {
-      title: "Innovation & Startup Support",
-      links: [
-        {
-          name: "Hackathons & Innovation Challenges",
-          href: "/services#innovation",
-        },
-        {
-          name: "Startup Incubators & Innovation Hubs",
-          href: "/services#innovation",
-        },
-        { name: "Joint Research Collaborations", href: "/services#innovation" },
-      ],
-    },
-    {
-      title: "Ecosystem Building & Social Impact",
-      links: [
-        {
-          name: "AI for Social Good & Rural Outreach",
-          href: "/services#eco-system",
-        },
-        { name: "Liaising & Policy Engagement", href: "/services#eco-system" },
-      ],
-    },
-  ];
-
   return (
     <MegaMenu isOpen={isOpen}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {sections.map((section) => (
+        {services.links.map((section) => (
           <div key={section.title}>
             <h3 className="font-semibold text-foreground mb-4 border-b pb-2 text-center">
               {section.title}
