@@ -37,15 +37,20 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   isOpen={activeDropdown === item.label.toLowerCase()}
                   onToggle={() => handleToggle(item.label.toLowerCase())}
                 >
-                  {item.links.map((link) => (
-                    <Link
-                      key={link.href}
-                      to={link.href}
-                      className="block py-2 px-4 text-foreground/80 hover:text-primary"
-                      onClick={onClose}
-                    >
-                      {link.label}
-                    </Link>
+                  {item.links.map((section) => (
+                    <div key={section.title}>
+                      <h3 className="px-4 py-2 text-sm font-semibold text-foreground/60">{section.title}</h3>
+                      {section.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          to={link.href}
+                          className="block py-2 px-4 text-foreground/80 hover:text-primary"
+                          onClick={onClose}
+                        >
+                          {link.name}
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                 </MobileDropdown>
               ))}

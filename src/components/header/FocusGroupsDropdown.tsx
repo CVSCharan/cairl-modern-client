@@ -1,6 +1,6 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
-import { ArrowRight, Users, Briefcase, Handshake } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { focusGroups } from "../../constants/navigation";
 
 interface FocusGroupsDropdownProps {

@@ -1,6 +1,5 @@
 import React from "react";
 import MegaMenu from "./MegaMenu";
-import { Book, Mic, FileText, Database, Cpu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { resources } from "../../constants/navigation";
 
