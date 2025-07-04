@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "../../components/ui/carousel";
 import Partners from "./Partners";
 
@@ -41,66 +39,97 @@ const Hero: React.FC = () => {
       <div className="relative bg-transparent overflow-hidden pb-8">
         {/* Container for the carousel and the overlay */}
         <div className="relative w-full h-full">
-          {/* Gradient overlay to darken the images for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10 rounded-b-[30px] shadow-xl" />
+          {/* Enhanced gradient overlay with subtle animation */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/50 z-10 rounded-b-[30px] shadow-xl animate-pulse-subtle" />
 
-          {/* Image Carousel */}
+          {/* Image Carousel with enhanced animations */}
           <Carousel
-            className="w-full h-full"
+            className="w-full h-full carousel-container"
             opts={{
               align: "start",
               loop: true,
             }}
             plugins={[
               Autoplay({
-                delay: 5000,
+                delay: 6000, // Slightly longer for more professional feel
                 stopOnInteraction: false,
               }),
             ]}
           >
             <CarouselContent>
               {heroImgs.map((img, index) => (
-                <CarouselItem key={index}>
-                  <img
-                    src={img}
-                    alt={`City skyline at night ${index + 1}`}
-                    className="w-full h-full object-cover max-h-[420px] md:max-h-[620px] rounded-b-[30px]"
-                  />
+                <CarouselItem key={index} className="carousel-item-animated">
+                  <div className="relative overflow-hidden rounded-b-[30px]">
+                    <img
+                      src={img}
+                      alt={`City skyline at night ${index + 1}`}
+                      className="w-full h-full object-cover max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] xl:max-h-[640px] rounded-b-[30px] 
+                               transform transition-all duration-1000 ease-in-out
+                               hover:scale-105 carousel-image"
+                    />
+                    {/* Subtle Ken Burns effect overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-t from-transparent to-black/10 opacity-0 
+                                  transition-opacity duration-700 hover:opacity-100"
+                    />
+                  </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 hidden md:flex" />
           </Carousel>
 
-          {/* Main Hero Content (Text) */}
+          {/* Enhanced Main Hero Content with staggered animations */}
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <div className="container mx-auto px-4 text-center">
-              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-8 text-white leading-tight tracking-tight">
-                Advancing <span className="text-[#85D1F1]">AI</span> for
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h1
+                className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 lg:mb-8 text-white leading-tight tracking-tight
+                           animate-fade-in-up animation-delay-200"
+              >
+                Advancing{" "}
+                <span className="text-[#85D1F1] animate-glow">AI</span> for
                 <br />
-                <span className="font-accent">Social Good</span>
+                <span className="font-accent animate-fade-in-up animation-delay-400">
+                  Social Good
+                </span>
                 <br />
-                Together
+                <span className="animate-fade-in-up animation-delay-600">
+                  Together
+                </span>
               </h1>
-              <p className="font-sans text-lg md:text-xl text-lightText-secondary mb-8 md:mb-12 max-w-md md:max-w-2xl mx-auto leading-relaxed">
+              <p
+                className="font-sans text-sm sm:text-base md:text-lg lg:text-xl text-lightText-secondary mb-6 sm:mb-8 md:mb-10 lg:mb-12 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-auto leading-relaxed
+                          animate-fade-in-up animation-delay-800"
+              >
                 Collaborative research, innovation, and education in artificial
                 intelligence.
               </p>
             </div>
           </div>
 
-          {/* Feature Cards - Positioned towards the bottom of the carousel */}
-          <div className="absolute -bottom-16 md:-bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col md:flex-row gap-4 w-full max-w-4xl px-4">
+          {/* Enhanced Feature Cards with staggered entrance animations */}
+          <div className="absolute -bottom-20 sm:-bottom-16 md:-bottom-12 lg:-bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-xs sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl px-4 sm:px-6">
             {featureCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-secondary rounded-xl p-4 flex items-center border border-border shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-accent w-full"
+                className={`bg-secondary rounded-xl p-3 sm:p-4 flex items-center border border-border shadow-lg 
+                          transition-all duration-500 hover:shadow-xl hover:bg-accent hover:-translate-y-1 
+                          w-full animate-slide-up backdrop-blur-sm bg-secondary/90
+                          animation-delay-${(index + 1) * 200}`}
+                style={{
+                  animationDelay: `${(index + 1) * 200}ms`,
+                }}
               >
-                <div className="bg-primary rounded-full p-3 mr-4 flex-shrink-0">
-                  <img src={card.icon} alt={card.alt} className="w-6 h-6" />
+                <div
+                  className="bg-primary rounded-full p-2 sm:p-3 mr-3 sm:mr-4 flex-shrink-0 
+                              transition-transform duration-300 hover:rotate-12 hover:scale-110"
+                >
+                  <img
+                    src={card.icon}
+                    alt={card.alt}
+                    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+                  />
                 </div>
-                <p className="text-secondary-foreground text-sm font-medium leading-snug">
+                <p className="text-secondary-foreground text-xs sm:text-sm font-medium leading-snug">
                   {card.text}
                 </p>
               </div>
@@ -108,8 +137,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Spacing element to push the partners section down, accounting for the absolutely positioned feature cards */}
-        <div className="mt-20 md:mt-16"></div>
+        {/* Spacing element - responsive */}
+        <div className="mt-24 sm:mt-20 md:mt-18 lg:mt-16"></div>
 
         {/* Partner Logos Section */}
         <Partners />
