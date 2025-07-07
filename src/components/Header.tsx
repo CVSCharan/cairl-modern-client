@@ -75,6 +75,7 @@ const Header: React.FC = () => {
               <div
                 key={item.label}
                 onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
+                onMouseLeave={handleMouseLeave}
               >
                 <DropdownButton
                   isActive={activeDropdown === item.label.toLowerCase()}

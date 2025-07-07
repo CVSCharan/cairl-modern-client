@@ -1,119 +1,158 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
-// Assuming EventCard is imported from its file
-// import EventCard from "./EventCard";
-
-interface EventCardProps {
-  date: string;
-  title: string;
-  type: string;
-  description: string;
-  imageUrl: string;
-}
-
-// NOTE: The EventCard component is included here for context,
-// but you should have it in its own file.
-const EventCard: React.FC<EventCardProps> = ({
-  date,
-  title,
-  type,
-  description,
-  imageUrl,
-}) => {
-  return (
-    <div className="relative rounded-xl overflow-hidden h-64 group my-4 md:my-16 w-full max-w-sm">
-      <img
-        src={imageUrl}
-        alt={title}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-black/70 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20" />
-      <div className="relative z-30 h-full flex flex-col justify-end p-4 md:p-6 text-white">
-        <div className="mb-2 md:mb-3">
-          <span className="text-xs md:text-sm font-bold bg-primary text-primary-foreground px-3 py-1 md:px-4 md:py-2 rounded-full inline-block shadow-xl">
-            {type}
-          </span>
-        </div>
-        <div className="text-xs md:text-sm font-bold mb-2 md:mb-3 text-white">
-          {date}
-        </div>
-        <h3 className="text-lg md:text-2xl font-black mb-2 md:mb-3 text-white leading-tight">
-          {title}
-        </h3>
-        <p className="text-white text-xs md:text-sm leading-relaxed">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-};
+import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
 
 const Events: React.FC = () => {
-  const events = [
-    {
-      date: "04/July/2025",
-      title: "CAIRL Learning Labs: AI in Life Sciences",
-      type: "Event",
-      description:
-        "Join us for an exciting event focused on AI applications in genomics, drug discovery, and diagnostics.",
-      imageUrl:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg",
-    },
-    // Add a second event to see how they align side-by-side
-    // {
-    //   date: "15/August/2025",
-    //   title: "Advanced AI Symposium",
-    //   type: "Symposium",
-    //   description: "A deep dive into the latest advancements in machine learning models and applications.",
-    //   imageUrl: "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750189052/events-img-1_jargc1.jpg",
-    // },
-  ];
+  const featuredEvent = {
+    date: "04/July/2025",
+    time: "10:00 AM - 4:00 PM",
+    location: "Virtual Event",
+    title: "CAIRL Learning Labs: AI in Life Sciences",
+    type: "Featured Event",
+    description:
+      "Join us for an exciting event focused on AI applications in genomics, drug discovery, and diagnostics. Connect with industry leaders and discover cutting-edge innovations.",
+    imageUrl:
+      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751228905/UpComing_Event_-_04th_July_25_ejuccu.jpg",
+    highlights: [
+      "Expert-led sessions on AI in genomics",
+      "Interactive workshops and demos",
+      "Networking with industry professionals",
+      "Latest research presentations",
+    ],
+  };
 
   return (
-    <section className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center">
-      <div className="bg-secondary h-full w-full py-4 md:py-6 px-4 rounded-3xl max-w-6xl mx-auto flex flex-col items-center">
-        <motion.h4
-          initial={{ opacity: 0.5, y: 70 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm md:text-base font-medium mb-8"
-        >
-          Happenings
-        </motion.h4>
-
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 md:mb-0 text-center">
-          Upcoming Events & Webinars
-        </h2>
-
-        {/* MODIFIED: Replaced grid with a flex container to center the cards */}
-        <div className="w-full flex flex-wrap justify-center items-center gap-6">
-          {events.map((event, index) => (
-            <EventCard
-              key={index}
-              date={event.date}
-              title={event.title}
-              type={event.type}
-              description={event.description}
-              imageUrl={event.imageUrl}
-            />
-          ))}
-        </div>
-
-        <div className="w-full flex justify-center">
-          <Link
-            to="/happenings"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-full font-medium flex items-center text-sm md:text-base"
+    <section className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center py-16">
+      <div className="bg-secondary/50 backdrop-blur-sm border border-border/50 h-full w-full py-12 px-6 rounded-3xl max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
-            View All Events
-          </Link>
+            Happenings
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-foreground mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+          >
+            Upcoming Events
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-muted-foreground text-lg max-w-2xl mx-auto"
+          >
+            Don't miss our featured event - join us for an immersive experience
+            in AI innovation
+          </motion.p>
         </div>
+
+        {/* Featured Event Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="max-w-5xl mx-auto mb-16"
+        >
+          <div className="bg-card border border-border/50 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Image Section */}
+              <div className="relative h-80 lg:h-full overflow-hidden">
+                <img
+                  src={featuredEvent.imageUrl}
+                  alt={featuredEvent.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute top-6 left-6">
+                  <span className="bg-primary text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    {featuredEvent.type}
+                  </span>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="p-8 lg:p-12 flex flex-col justify-center">
+                <div className="space-y-6">
+                  {/* Event Details */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Calendar className="w-5 h-5 text-primary" />
+                      <span className="font-medium">{featuredEvent.date}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <Clock className="w-5 h-5 text-primary" />
+                      <span className="font-medium">{featuredEvent.time}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-muted-foreground">
+                      <MapPin className="w-5 h-5 text-primary" />
+                      <span className="font-medium">
+                        {featuredEvent.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Title and Description */}
+                  <div className="space-y-4">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground leading-tight">
+                      {featuredEvent.title}
+                    </h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      {featuredEvent.description}
+                    </p>
+                  </div>
+
+                  {/* Highlights */}
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-semibold text-foreground">
+                      What to Expect:
+                    </h4>
+                    <ul className="space-y-2">
+                      {featuredEvent.highlights.map((highlight, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 text-muted-foreground"
+                        >
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-4">
+                    <button className="bg-secondary text-foreground hover:bg-primary/90 hover:text-secondary px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-all duration-300 group/btn">
+                      Register Now
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* View All Events Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center"
+        >
+          <button className="bg-foreground border border-border text-background hover:bg-foreground/80 px-8 py-4 rounded-full font-semibold flex items-center gap-3 mx-auto transition-all duration-300 group/all shadow-lg hover:shadow-xl">
+            View All Events & Webinars
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover/all:translate-x-1" />
+          </button>
+        </motion.div>
       </div>
     </section>
   );
