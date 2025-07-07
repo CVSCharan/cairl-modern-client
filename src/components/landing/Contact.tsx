@@ -18,14 +18,14 @@ const Contact: React.FC = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-6 md:mb-8"
+          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm md:text-base font-medium mb-6 md:mb-8"
         >
-          Contact
+          Contact Us
         </motion.h4>
 
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3 md:mb-4">
-            Connect with us
+            Get in Touch
           </h2>
           <p className="text-sm md:text-base text-muted-foreground">
             Have questions, ideas, or just want to connect?
@@ -103,7 +103,7 @@ const Contact: React.FC = () => {
             to="/engage-with-us"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-full font-medium flex items-center text-sm md:text-base"
           >
-            Know more
+            Contact Us
           </Link>
         </div>
       </div>

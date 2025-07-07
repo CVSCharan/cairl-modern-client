@@ -226,16 +226,15 @@ const Engage = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm font-medium mb-8"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
             >
-              Engage
+              Engage With Us
             </motion.h4>
             <h1 className="text-4xl font-bold text-foreground mb-8 max-w-4xl">
-              Engage With Us
+              Join Our Collaborative Ecosystem
             </h1>
             <p className="text-lg text-muted-foreground max-w-4xl mx-auto">
-              Join our collaborative ecosystem to drive AI innovation and create
-              meaningful impact together.
+              Drive AI innovation and create meaningful impact together.
             </p>
           </div>
 
@@ -326,15 +325,15 @@ const Engage = () => {
                     duration: 0.8,
                     ease: "easeInOut",
                   }}
-                  className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+                  className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
                 >
-                  Plans
+                  Membership Plans
                 </motion.h4>
                 <h2 className="text-3xl font-bold text-foreground mb-4">
-                  Membership Plans
+                  Choose Your Plan
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Choose the plan that best fits your needs and goals
+                  Select the plan that best fits your needs and goals.
                 </p>
               </div>
 
@@ -438,12 +437,12 @@ const Engage = () => {
                     duration: 0.8,
                     ease: "easeInOut",
                   }}
-                  className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm font-base mb-8"
+                  className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
                 >
-                  MOUs
+                  Partnerships
                 </motion.h4>
                 <h2 className="text-3xl font-bold text-foreground mb-6">
-                  MOUs and Strategic Partnerships
+                  Strategic Partnerships
                 </h2>
                 <p className="text-muted-foreground mb-8 text-lg">
                   At CAIRL, we understand that collaboration is key to driving
@@ -457,7 +456,7 @@ const Engage = () => {
                   to="/mous"
                   className="bg-primary text-background px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
                 >
-                  Know more
+                  Explore Partnerships
                 </Link>
               </div>
 
@@ -483,16 +482,16 @@ const Engage = () => {
                   duration: 0.8,
                   ease: "easeInOut",
                 }}
-                className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm font-medium mb-8"
+                className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
               >
-                Partner
+                Partner With Us
               </motion.h4>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Partner With Us
+                Collaborate on Innovation
               </h2>
               <p className="text-muted-foreground text-lg">
-                Collaborate on co-branded research, policy work, education
-                programs, hackathons, and more.
+                Co-branded research, policy work, education programs,
+                hackathons, and more.
               </p>
             </div>
 
@@ -559,15 +558,15 @@ const Engage = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm font-medium mb-8"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
             >
-              Sponsor
+              Sponsor an Initiative
             </motion.h4>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Sponsor an Initiative
+              Empower Our Programs
             </h2>
             <p className="text-muted-foreground text-lg">
-              Empower impactful programs, research, and talent by sponsoring
+              Support impactful programs, research, and talent by sponsoring
               initiatives at CAiRL.
             </p>
           </div>
@@ -642,16 +641,16 @@ const Engage = () => {
                   duration: 0.8,
                   ease: "easeInOut",
                 }}
-                className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm font-medium mb-8"
+                className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
               >
-                Contact
+                Get in Touch
               </motion.h4>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Get in Touch
+                Contact Us
               </h2>
               <p className="text-muted-foreground text-lg">
-                Reach out to us for collaboration, inquiries, or to learn more
-                about our AI initiatives.
+                Reach out for collaboration, inquiries, or to learn more about
+                our AI initiatives.
               </p>
             </div>
             <div className="bg-card rounded-2xl shadow-sm border border-border p-8">
@@ -838,14 +837,14 @@ const Engage = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
             >
-              Connect
+              Connect With Us
             </motion.h4>
             <div className="flex justify-between items-center mb-4">
               <div className="flex flex-col justify-center items-center">
                 <h2 className="text-3xl font-bold text-foreground mb-1">
-                  Connect with us
+                  Our Contact Information
                 </h2>
                 <p className="text-sm text-gray-600 mt-2">
                   Have questions, ideas, or just want to connect?
@@ -938,11 +937,10 @@ const Engage = () => {
         <div className="bg-secondary py-24 mt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-primary mb-4">
-              Subscribe to our newsletter
+              Stay Connected
             </h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Subscribe to our newsletter or follow us online to stay ahead in
-              AI.
+              Subscribe to our newsletter to stay ahead in AI.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input

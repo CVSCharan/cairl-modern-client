@@ -83,7 +83,7 @@ const Events: React.FC = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
+          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm md:text-base font-medium mb-8"
         >
           Happenings
         </motion.h4>
@@ -106,10 +106,10 @@ const Events: React.FC = () => {
           ))}
         </div>
 
-        <div className="w-full flex justify-center my-6">
+        <div className="w-full flex justify-center">
           <Link
             to="/happenings"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-full font-medium flex items-center text-sm md:text-base"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-full font-medium flex items-center text-sm md:text-base"
           >
             View All Events
           </Link>

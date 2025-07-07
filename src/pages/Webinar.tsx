@@ -54,10 +54,10 @@ const Webinars = () => {
       days.push(
         <td
           key={`curr-${i}`}
-          className={`py-2 ${
+          className={`py-2 cursor-pointer ${
             isSelected
               ? "text-primary-foreground bg-primary rounded-full mx-auto w-8 h-8 flex items-center justify-center"
-              : "text-foreground"
+              : "text-foreground hover:bg-muted rounded-full"
           }`}
           onClick={() => setSelectedDate(date)}
         >
@@ -158,25 +158,25 @@ const Webinars = () => {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="inline-block bg-foreground/10 text-foreground px-4 py-2 rounded-full mb-8"
+            className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-8"
           >
             Webinars
           </motion.h4>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            CAiRL Webinars
+            Explore Our Webinars
           </h1>
           <div className="flex justify-center gap-4 mt-16 mb-4">
             <button className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-medium">
               All Webinars
             </button>
             <button className="px-4 py-2 bg-secondary text-primary border border-primary rounded-full font-medium">
-              Ongoing Webinars
+              Ongoing
             </button>
             <button className="px-4 py-2 bg-secondary text-primary border border-primary rounded-full font-medium">
-              Upcoming Webinars
+              Upcoming
             </button>
             <button className="px-4 py-2 bg-secondary text-primary border border-primary rounded-full font-medium">
-              Past Webinars
+              Past
             </button>
           </div>
         </div>
@@ -293,7 +293,7 @@ const Webinars = () => {
                         )
                       )
                     }
-                    className="p-1 rounded-full hover:bg-secondary"
+                    className="p-1 rounded-full hover:bg-muted"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -321,7 +321,7 @@ const Webinars = () => {
                         )
                       )
                     }
-                    className="p-1 rounded-full hover:bg-secondary"
+                    className="p-1 rounded-full hover:bg-muted"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -366,7 +366,7 @@ const Webinars = () => {
               <h3 className="font-bold text-base sm:text-lg mb-2 text-foreground">
                 Selected Bootcamp
               </h3>
-              <div className="bg-card rounded-lg p-4 border border-border">
+              <div className="bg-secondary rounded-lg p-4 border border-border">
                 <h4 className="text-lg font-semibold text-primary mb-2">
                   UI/UX Bootcamp
                 </h4>
@@ -402,7 +402,7 @@ const Webinars = () => {
                 duration: 0.8,
                 ease: "easeInOut",
               }}
-              className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm md:text-base font-medium mb-8"
             >
               Past Events
             </motion.h4>
@@ -412,12 +412,12 @@ const Webinars = () => {
 
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {/* Card 1 */}
-              <div className="bg-card border border-bg-foreground rounded-lg shadow-sm overflow-hidden">
-                <div className="relative aspect-video bg-foreground/20 flex items-center justify-center">
+              <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+                <div className="relative aspect-video bg-muted flex items-center justify-center">
                   {/* Play Button Placeholder */}
-                  <div className="w-12 h-12 bg-card rounded-full flex items-center justify-center shadow-md">
+                  <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center shadow-md">
                     <svg
-                      className="w-6 h-6 text-card-foreground"
+                      className="w-6 h-6 text-foreground"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -436,11 +436,11 @@ const Webinars = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="bg-card border border-bg-foreground rounded-lg shadow-sm overflow-hidden">
-                <div className="relative aspect-video bg-foreground/20 flex items-center justify-center">
-                  <div className="w-12 h-12 bg-card rounded-full flex items-center justify-center shadow-md">
+              <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+                <div className="relative aspect-video bg-muted flex items-center justify-center">
+                  <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center shadow-md">
                     <svg
-                      className="w-6 h-6 text-card-foreground"
+                      className="w-6 h-6 text-foreground"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -459,11 +459,11 @@ const Webinars = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="bg-card border border-bg-foreground rounded-lg shadow-sm overflow-hidden">
-                <div className="relative aspect-video bg-foreground/20 flex items-center justify-center">
-                  <div className="w-12 h-12 bg-card rounded-full flex items-center justify-center shadow-md">
+              <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+                <div className="relative aspect-video bg-muted flex items-center justify-center">
+                  <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center shadow-md">
                     <svg
-                      className="w-6 h-6 text-card-foreground"
+                      className="w-6 h-6 text-foreground"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >

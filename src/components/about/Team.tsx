@@ -37,7 +37,54 @@ const Team = () => {
           className="w-full h-full object-cover"
         />
       </div>
+
       <div className="container mx-auto px-4">
+        <div className="w-full flex flex-col items-center justify-center mt-24 z-20">
+          <motion.h4
+            initial={{ opacity: 0.5, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
+            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+          >
+            Leadership
+          </motion.h4>
+
+          <h1 className="text-4xl font-bold text-foreground mb-6">
+            Board Members & Management Team
+          </h1>
+        </div>
+
+        {/* Board Members */}
+        <div id="board-members" className="z-20">
+          <TeamSection
+            title=""
+            members={[
+              {
+                name: "Mr. Rammohan Manamasa",
+                role: "Founder & Chairman",
+                image:
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Rammohan_Manamasa_gqn4cl.png",
+              },
+              {
+                name: "Mr. Ram Katamaraja",
+                role: "Co-Founder",
+                image:
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Ram_Katamaraja_tj5jfe.png",
+              },
+              {
+                name: "Mr. Sarvesh Singh",
+                role: "Director General",
+                image:
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245472/Mr._Sarvesh_Singh_rnmoam.png",
+              },
+            ]}
+          />
+        </div>
+
         <div className="flex flex-col justify-center items-center mt-24 mb-8 z-20">
           {/* Vision Header */}
           <motion.h4
@@ -157,52 +204,6 @@ const Team = () => {
                 role: "AUVNLP, Product Manager",
                 image:
                   "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245470/Dr._Meenakshi_S_fnucbc.png",
-              },
-            ]}
-          />
-        </div>
-
-        <div className="w-full flex flex-col items-center justify-center mt-24 z-20">
-          <motion.h4
-            initial={{ opacity: 0.5, y: 70 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
-          >
-            Leadership
-          </motion.h4>
-
-          <h1 className="text-4xl font-bold text-foreground mb-6">
-            Board Members & Management Team
-          </h1>
-        </div>
-
-        {/* Board Members */}
-        <div id="board-members" className="z-20">
-          <TeamSection
-            title=""
-            members={[
-              {
-                name: "Mr. Rammohan Manamasa",
-                role: "Founder & Chairman",
-                image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Rammohan_Manamasa_gqn4cl.png",
-              },
-              {
-                name: "Mr. Ram Katamaraja",
-                role: "Co-Founder",
-                image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Ram_Katamaraja_tj5jfe.png",
-              },
-              {
-                name: "Mr. Sarvesh Singh",
-                role: "Director General",
-                image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245472/Mr._Sarvesh_Singh_rnmoam.png",
               },
             ]}
           />

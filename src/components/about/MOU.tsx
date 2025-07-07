@@ -19,7 +19,7 @@ const MOU = () => {
             }}
             className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm font-base mb-8"
           >
-            MOUs
+            Partnerships
           </motion.h4>
           <h2 className="text-3xl font-bold text-foreground mb-6">
             MOUs and Strategic Partnerships

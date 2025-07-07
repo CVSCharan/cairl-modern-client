@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      to="/events"
+                      to="/happenings"
                       className="text-white/80 hover:text-white transition-colors"
                     >
                       Events
@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
                   </li>
                   <li>
                     <Link
-                      to="/about-us#mou"
+                      to="/mous"
                       className="text-white/80 hover:text-white transition-colors"
                     >
                       MOUs & Partnerships
@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
                   </li>
                   <li>
                     <Link
-                      to="/research-innovation"
+                      to="/research-and-innovation"
                       className="text-white/80 hover:text-white transition-colors"
                     >
                       Research & Innovation

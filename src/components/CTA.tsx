@@ -119,7 +119,7 @@ const CTA: React.FC = () => {
               <div className="container mx-auto max-w-6xl relative z-10">
                 <div className="text-center">
                   <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 md:mb-8 tracking-tight leading-tight">
-                    Ready to make an
+                    Ready to Make an
                     <motion.span
                       initial={{ opacity: 0.5, y: 50 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -128,10 +128,10 @@ const CTA: React.FC = () => {
                         duration: 0.9,
                         ease: "easeInOut",
                       }}
-                      className="text-background block sm:inline"
+                      className="text-primary block sm:inline"
                     >
                       {" "}
-                      impact
+                      Impact
                     </motion.span>{" "}
                     <span className="block sm:inline">with CAiRL?</span>
                   </h2>

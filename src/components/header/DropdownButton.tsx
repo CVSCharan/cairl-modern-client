@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface DropdownButtonProps {
@@ -12,10 +12,19 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
   children,
   route,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   // Common content for both button and link
   const content = (
     <>
-      <span>{children}</span>
+      <span className="relative inline-block">
+        {children}
+        <span
+          className={`absolute -bottom-1 left-0 w-full h-0.5 bg-foreground transform transition-transform duration-300 origin-right rounded-full ${
+            isActive || isHovered ? "scale-x-100" : "scale-x-0"
+          }`}
+        />
+      </span>
       <svg
         className={`w-4 h-4 ml-1.5 transition-transform duration-300 ${
           isActive ? "rotate-180" : ""
@@ -31,30 +40,34 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
           d="M19 9l-7 7-7-7"
         />
       </svg>
-      <span
-        className={`absolute bottom-0 left-0 w-full h-0.5 bg-ai-blue-dark transform transition-transform duration-300 ${
-          isActive ? "scale-x-100" : "scale-x-0 hover:scale-x-100"
-        }`}
-        style={{ transformOrigin: "center" }}
-      />
     </>
   );
 
   // Common class names
-  const commonClassNames = `flex items-center text-base font-medium transition-all duration-300 relative ${
+  const commonClassNames = `flex items-center text-base font-medium transition-all duration-300 ${
     isActive ? "text-ai-blue-dark" : "text-ai-gray-dark hover:text-ai-blue-dark"
   }`;
 
-  // Common style
-  const commonStyle = { paddingBottom: "2px" }; // Space for the underline
+  // Common hover handlers
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
 
   // If route is provided, render as Link, otherwise as button
   return route ? (
-    <Link to={route} className={commonClassNames} style={commonStyle}>
+    <Link
+      to={route}
+      className={commonClassNames}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {content}
     </Link>
   ) : (
-    <button className={commonClassNames} style={commonStyle}>
+    <button
+      className={commonClassNames}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {content}
     </button>
   );

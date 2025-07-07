@@ -45,7 +45,7 @@ const FAQs = () => {
             }}
             className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
           >
-            FAQs
+            FAQS
           </motion.h4>
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Frequently Asked Questions
@@ -91,9 +91,11 @@ const FAQs = () => {
                   </svg>
                 </button>
                 {/* Answer for mobile view */}
-                <div className={`md:hidden p-6 ${
+                <div
+                  className={`md:hidden p-6 ${
                     activeIndex === index ? "block" : "hidden"
-                }`}>
+                  }`}
+                >
                   <p>{answers[index]}</p>
                 </div>
               </div>

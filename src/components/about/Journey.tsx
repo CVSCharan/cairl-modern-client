@@ -11,9 +11,9 @@ const Journey = () => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+        className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-base mb-8"
       >
-        Journery
+        Our Journey
       </motion.h4>
       <h1 className="text-4xl font-bold text-foreground mb-8 w-full md:w-[700px]">
         Bridging Innovation and Impact

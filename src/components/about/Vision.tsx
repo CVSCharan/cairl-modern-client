@@ -30,9 +30,9 @@ const Vision: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8 shadow-sm"
+          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm md:text-base font-medium mb-8 shadow-sm"
         >
-          Vision
+          Our Vision
         </motion.h4>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
