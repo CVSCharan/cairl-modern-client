@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import CTA from "../components/CTA";
 import PodcastCard from "../components/podcasts/PodcastCard";
 import TopChartItem from "../components/podcasts/TopChartItems";
@@ -191,76 +192,193 @@ const Podcasts = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-8">
+    <main className="min-h-screen bg-background flex flex-col">
       {/* Hero Section */}
-      <section className="bg-card pb-12">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-8">
-              Podcasts
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 max-w-xl mx-auto">
-              Everyday is Chance to Learn New Things
-            </h1>
-            <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-              Lorem ipsum dolor sit et amet, consectetur adipiscing elit.
-              Viverra tempor nunc dolor aliquam placerat porttitor.
-            </p>
+      <section className="relative flex items-center justify-center min-h-[70vh] w-full bg-background overflow-hidden py-16 sm:py-20 md:py-24 lg:py-28">
+        {/* Background Lamp Effect */}
+        <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 h-[20rem] w-[20rem] sm:h-[24rem] sm:w-[24rem] md:h-[28rem] md:w-[28rem] lg:h-[32rem] lg:w-[32rem] xl:h-[36rem] xl:w-[36rem] -translate-x-1/2 -translate-y-1/2">
+            <div
+              className="absolute h-full w-full rounded-full bg-primary/10 blur-3xl"
+              style={{ transform: "scale(1.5)" }}
+            />
+            <div
+              className="absolute h-full w-full"
+              style={{
+                background:
+                  "radial-gradient(circle at center, rgba(29, 78, 216, 0.2) 0%, transparent 60%)",
+              }}
+            />
           </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
+          <motion.h4
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm md:text-base font-medium mb-4 sm:mb-6 md:mb-8 shadow-sm border border-border"
+          >
+            Podcasts
+          </motion.h4>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-4 sm:mb-5 md:mb-6 leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight max-w-4xl"
+          >
+            Every Day is a Chance to{" "}
+            <span className="text-primary">Learn New Things</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mx-auto leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed"
+          >
+            Discover insights from leading AI researchers, industry experts, and innovators shaping the future of artificial intelligence and technology.
+          </motion.p>
         </div>
       </section>
 
       {/* Top Chart Section */}
-      <section className="py-8 md:py-12 px-4">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8">Top Chart</h2>
-          <div className="max-w-3xl mx-auto space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-8 sm:mb-12 md:mb-16"
+          >
+            <motion.h4
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6 shadow-sm border border-border"
+            >
+              Featured Content
+            </motion.h4>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6"
+            >
+              Top <span className="text-primary">Chart</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base md:text-lg"
+            >
+              Our most popular and trending podcast episodes this week
+            </motion.p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="max-w-4xl mx-auto space-y-4"
+          >
             {topCharts.map((item, index) => (
-              <TopChartItem
+              <motion.div
                 key={index}
-                rank={item.rank}
-                title={item.title}
-                type={item.type}
-                isActive={currentTrack?.audioUrl === item.audioUrl}
-                audioUrl={item.audioUrl}
-                thumbnail={item.thumbnail}
-                isPlaying={
-                  isPlaying && currentTrack?.audioUrl === item.audioUrl
-                }
-                onSelectTrack={() => handleSelectTrack(item)}
-              />
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.5 }}
+              >
+                <TopChartItem
+                  rank={item.rank}
+                  title={item.title}
+                  type={item.type}
+                  isActive={currentTrack?.audioUrl === item.audioUrl}
+                  audioUrl={item.audioUrl}
+                  thumbnail={item.thumbnail}
+                  isPlaying={
+                    isPlaying && currentTrack?.audioUrl === item.audioUrl
+                  }
+                  onSelectTrack={() => handleSelectTrack(item)}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Podcasts Grid Section */}
-      <section className="py-12 md:py-16 px-4">
+      <section className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-8 sm:mb-12 md:mb-16"
+          >
+            <motion.h4
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium mb-4 sm:mb-6 shadow-sm border border-border"
+            >
+              Latest Episodes
+            </motion.h4>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6"
+            >
+              Explore Our <span className="text-primary">Podcast Library</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base md:text-lg"
+            >
+              Deep dive into AI research, innovation, and the future of technology with our comprehensive podcast collection
+            </motion.p>
+          </motion.div>
+          
           {/* Podcasts Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {podcasts.map((podcast) => (
-              <PodcastCard
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
+            {podcasts.map((podcast, index) => (
+              <motion.div
                 key={podcast.id}
-                id={podcast.id}
-                title={podcast.title}
-                type={podcast.type}
-                duration={podcast.duration}
-                imageUrl={podcast.imageUrl}
-                isActive={currentTrack?.audioUrl === podcast.audioUrl}
-                isPlaying={
-                  isPlaying && currentTrack?.audioUrl === podcast.audioUrl
-                }
-                onSelectTrack={() =>
-                  handleSelectTrack({
-                    title: podcast.title,
-                    audioUrl: podcast.audioUrl,
-                    thumbnail: podcast.imageUrl,
-                  })
-                }
-              />
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.5 }}
+              >
+                <PodcastCard
+                  id={podcast.id}
+                  title={podcast.title}
+                  type={podcast.type}
+                  duration={podcast.duration}
+                  imageUrl={podcast.imageUrl}
+                  isActive={currentTrack?.audioUrl === podcast.audioUrl}
+                  isPlaying={
+                    isPlaying && currentTrack?.audioUrl === podcast.audioUrl
+                  }
+                  onSelectTrack={() =>
+                    handleSelectTrack({
+                      title: podcast.title,
+                      audioUrl: podcast.audioUrl,
+                      thumbnail: podcast.imageUrl,
+                    })
+                  }
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -277,21 +395,32 @@ const Podcasts = () => {
       </section>
 
       {/* CTA Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 mt-16 pb-28">
-        <CTA />
-      </div>
+      <section className="w-full py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+          <CTA />
+        </div>
+      </section>
 
-      <AudioPlayer
-        isPlaying={isPlaying}
-        volume={volume}
-        progress={progress}
-        duration={duration}
-        currentTrack={currentTrack}
-        onPlayPause={handlePlayPause}
-        onVolumeChange={handleVolumeChange}
-        onSeek={handleSeek}
-        onClose={handleClosePlayer}
-      />
+      {currentTrack && (
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+          transition={{ duration: 0.3 }}
+        >
+          <AudioPlayer
+            isPlaying={isPlaying}
+            volume={volume}
+            progress={progress}
+            duration={duration}
+            currentTrack={currentTrack}
+            onPlayPause={handlePlayPause}
+            onVolumeChange={handleVolumeChange}
+            onSeek={handleSeek}
+            onClose={handleClosePlayer}
+          />
+        </motion.div>
+      )}
     </main>
   );
 };
