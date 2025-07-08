@@ -38,7 +38,7 @@ const Team = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="relative container mx-auto px-4 z-20">
         <div className="w-full flex flex-col items-center justify-center mt-24 z-20">
           <motion.h4
             initial={{ opacity: 0.5, y: 70 }}
@@ -48,7 +48,7 @@ const Team = () => {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             Leadership
           </motion.h4>
@@ -59,7 +59,10 @@ const Team = () => {
         </div>
 
         {/* Board Members */}
-        <div id="board-members" className="z-20">
+        <div
+          id="board-members"
+          className="z-20 pb-8 sm:pb-12 md:pb-16 lg:pb-20"
+        >
           <TeamSection
             title=""
             members={[
@@ -85,7 +88,7 @@ const Team = () => {
           />
         </div>
 
-        <div className="flex flex-col justify-center items-center mt-24 mb-8 z-20">
+        <div className="flex flex-col justify-center items-center mt-24 z-20">
           {/* Vision Header */}
           <motion.h4
             initial={{ opacity: 0.5, y: 70 }}
@@ -95,7 +98,7 @@ const Team = () => {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
+            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             Advisory Team
           </motion.h4>

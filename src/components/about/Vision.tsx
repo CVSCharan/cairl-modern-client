@@ -30,7 +30,7 @@ const Vision: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm md:text-base font-medium mb-8 shadow-sm"
+          className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
         >
           Our Vision
         </motion.h4>
@@ -50,9 +50,9 @@ const Vision: React.FC = () => {
         >
           Our vision is to create a future where AI is seamlessly integrated
           into every aspect of life, improving human welfare, enabling
-          sustainable development, and empowering communities around the
-          world. At CAiRL, we aim to be a leader in the global AI ecosystem,
-          driving responsible AI innovation that benefits humanity.
+          sustainable development, and empowering communities around the world.
+          At CAiRL, we aim to be a leader in the global AI ecosystem, driving
+          responsible AI innovation that benefits humanity.
         </motion.p>
       </div>
     </section>

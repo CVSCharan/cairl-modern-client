@@ -4,34 +4,29 @@ import Vision from "../components/about/Vision";
 import Team from "../components/about/Team";
 import { useEffect } from "react";
 import Hero from "../components/about/Hero";
-import MOU from "../components/about/MOU";
+import MOU from "../components/MOU";
 import Journey from "../components/about/Journey";
+import NewsLetters from "../components/NewsLetters";
 
 const About = () => {
   useEffect(() => {
-    // Check if there's a hash in the URL
-    if (window.location.hash) {
-      // Remove the '#' from the hash
-      const elementId = window.location.hash.substring(1);
-      // Find the element by ID
-      const element = document.getElementById(elementId);
-
-      if (element) {
-        // Smooth scroll to the element
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        // Update URL without jumping (optional)
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.hash
-        );
-      }
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-  }, []); // Empty dependency array means this runs once on mount
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
 
   return (
     <main className="min-h-screen bg-background isolate">
@@ -43,19 +38,32 @@ const About = () => {
       </div>
 
       {/* Mission Section */}
-      <Mission />
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <Mission />
+      </div>
 
       {/* Vision Section */}
-      <Vision />
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <Vision />
+      </div>
 
       {/* Team Section */}
-      <Team />
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <Team />
+      </div>
 
       {/* MOU Section */}
-      <MOU />
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <MOU />
+      </div>
 
       {/* FAQs Section */}
-      <FAQs />
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <FAQs />
+      </div>
+
+      {/* Newsletter Section */}
+      <NewsLetters />
     </main>
   );
 };

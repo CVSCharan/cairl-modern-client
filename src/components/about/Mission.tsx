@@ -17,7 +17,7 @@ const Mission = () => {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="inline-block px-4 py-2 rounded-full bg-background text-foreground text-sm md:text-base font-medium mb-8"
+            className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             Mission
           </motion.h4>

@@ -5,110 +5,57 @@ import Transformation from "../components/landing/Transformation";
 import Events from "../components/landing/Events";
 import CTA from "../components/CTA";
 import Contact from "../components/landing/Contact";
-import { motion } from "framer-motion";
 
 const Landing = () => {
   // Smooth scroll to section when URL has hash
   useEffect(() => {
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      window.scrollTo(0, 0);
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-  }, []);
 
-  // Fade-in animation for sections
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
 
   return (
     <main className="min-h-screen bg-background overflow-hidden">
       {/* Hero Section - Full width */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="w-full mb-8 sm:mb-12 md:mb-16 lg:mb-20"
-      >
+      <div className="w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
         <Hero />
-      </motion.section>
+      </div>
 
       {/* About Section - With container constraints */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20"
-        id="about"
-      >
-        <div className="max-w-7xl mx-auto">
-          <About />
-        </div>
-      </motion.section>
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <About />
+      </div>
 
       {/* Transformation Section */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 bg-secondary/30"
-        id="transformation"
-      >
-        <div className="max-w-7xl mx-auto">
-          <Transformation />
-        </div>
-      </motion.section>
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 bg-secondary/30">
+        <Transformation />
+      </div>
 
       {/* Events Section */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20"
-        id="events"
-      >
-        <div className="max-w-7xl mx-auto">
-          <Events />
-        </div>
-      </motion.section>
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <Events />
+      </div>
 
       {/* CTA Section */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="w-full py-8 sm:py-12 md:py-16 lg:py-20"
-        id="cta"
-      >
-        <CTA />
-      </motion.section>
+      <CTA />
 
       {/* Contact Section */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={sectionVariants}
-        className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20"
-        id="contact"
-      >
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
         <Contact />
-      </motion.section>
+      </div>
     </main>
   );
 };

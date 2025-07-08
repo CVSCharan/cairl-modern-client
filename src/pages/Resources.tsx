@@ -3,29 +3,23 @@ import { motion } from "framer-motion";
 
 const Resources = () => {
   useEffect(() => {
-    // Check if there's a hash in the URL
-    if (window.location.hash) {
-      // Remove the '#' from the hash
-      const elementId = window.location.hash.substring(1);
-      // Find the element by ID
-      const element = document.getElementById(elementId);
-
-      if (element) {
-        // Smooth scroll to the element
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        // Update URL without jumping (optional)
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.hash
-        );
-      }
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-  }, []); // Empty dependency array means this runs once on mount
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col">

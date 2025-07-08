@@ -31,9 +31,9 @@ const FAQs = () => {
   return (
     <section
       id="faqs"
-      className="bg-background min-h-screen flex justify-center items-center py-28"
+      className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center py-16"
     >
-      <div className="max-w-6xl mx-auto px-4 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
           <motion.h4
             initial={{ opacity: 0.5, y: 70 }}
@@ -43,7 +43,7 @@ const FAQs = () => {
               duration: 0.8,
               ease: "easeInOut",
             }}
-            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             FAQS
           </motion.h4>
@@ -109,6 +109,118 @@ const FAQs = () => {
             </h4>
             <p>{answers[activeIndex]}</p>
           </div>
+        </div>
+      </div>
+
+      {/* Additional Info Section */}
+      <div className="bg-card border border-border/50 rounded-2xl p-8 md:p-12 mb-12 max-w-7xl mx-auto my-16">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
+                <svg
+                  className="text-primary w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-foreground">
+                Need More Help?
+              </h3>
+            </div>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              Can't find what you're looking for? Our team is here to help you
+              with any additional questions about our programs and services.
+            </p>
+            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span>Quick Response</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-2-2V10a2 2 0 012-2h2m2-4h6a2 2 0 012 2v6a2 2 0 01-2 2h-6l-4 4V8a2 2 0 012-2z"
+                  />
+                </svg>
+                <span>Expert Support</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
+              <h4 className="font-semibold text-foreground mb-2">
+                Partnership Inquiries
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                Information about collaboration opportunities and strategic
+                partnerships
+              </p>
+            </div>
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
+              <h4 className="font-semibold text-foreground mb-2">
+                Program Details
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                Detailed information about our educational programs and training
+                initiatives
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="text-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a
+            href="#contact"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl group"
+          >
+            Contact Support
+            <svg
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

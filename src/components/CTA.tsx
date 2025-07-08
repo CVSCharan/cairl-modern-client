@@ -95,7 +95,7 @@ const CTA: React.FC = () => {
         </DialogContent>
       </Dialog>
 
-      <div className="w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
+      <section className="w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
         <div className="container max-w-7xl w-full">
           <BackgroundGradient>
             <div
@@ -167,7 +167,7 @@ const CTA: React.FC = () => {
             </div>
           </BackgroundGradient>
         </div>
-      </div>
+      </section>
     </>
   );
 };

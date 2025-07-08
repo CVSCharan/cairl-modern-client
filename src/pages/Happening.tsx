@@ -3,22 +3,22 @@ import { motion } from "framer-motion";
 
 const Happening = () => {
   useEffect(() => {
-    if (window.location.hash) {
-      const elementId = window.location.hash.substring(1);
-      const element = document.getElementById(elementId);
-
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.hash
-        );
-      }
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
   }, []);
 
   const upcomingEvents = [
