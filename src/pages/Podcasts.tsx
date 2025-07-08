@@ -191,12 +191,12 @@ const Podcasts = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
+    <main className="min-h-screen bg-background flex flex-col pt-8">
       {/* Hero Section */}
       <section className="bg-card pb-12">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center">
-            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-4">
+            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full mb-8">
               Podcasts
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 max-w-xl mx-auto">
@@ -211,7 +211,7 @@ const Podcasts = () => {
       </section>
 
       {/* Top Chart Section */}
-      <section className="py-12 md:py-16 px-4">
+      <section className="py-8 md:py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Top Chart</h2>
           <div className="max-w-3xl mx-auto space-y-4">
@@ -260,6 +260,18 @@ const Podcasts = () => {
                 }
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Collaboration Section */}
+      <section className="py-12 md:py-16 px-4">
+        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center text-sm text-muted-foreground">
+          <p className="mb-4 text-lg font-semibold text-foreground">These podcasts are in collaboration with:</p>
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            <img src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176660/footer-logo_jgk1wb.png" alt="CAiRL Logo" className="h-12 w-auto object-contain" />
+            <img src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750959808/Colaberry_logo_c6h8uc.png" alt="Colaberry Logo" className="h-12 w-auto object-contain" />
+            <img src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1752014720/colaberry-school-of-data-analytics-logo_u6yvjh.jpg" alt="Colaberry School of Data Analytics Logo" className="h-12 w-auto object-contain" />
           </div>
         </div>
       </section>
