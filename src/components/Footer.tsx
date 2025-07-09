@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -28,6 +28,35 @@ const Footer: React.FC = () => {
               <p className="text-sm text-gray-300 max-w-sm">
                 Empowering collaborative research and innovation in AI.
               </p>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/cairl_2025?igsh=MTcyY3cxM285Ymt1OQ=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <FaInstagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/collaborative-ai-research-labs-foundation"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <FaLinkedin className="w-5 h-5" />
+                </a>
+                {/* <a href="#" className="text-gray-300 hover:text-white">
+                  <FaTwitter className="w-5 h-5" />
+                </a> */}
+                <a
+                  href="https://youtube.com/@cairl.2025?si=MJ49FJN09Zi207Os"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white"
+                >
+                  <FaYoutube className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -194,25 +223,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-12 pt-6 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-12 pt-6 flex flex-col md:flex-row justify-center items-center">
           <p className="text-sm text-gray-400 mb-4 md:mb-0">
             © 2024 Collaborative AI Research Labs Foundation. All rights
             reserved.
           </p>
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-300 hover:text-white">
-              <FaInstagram className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <FaLinkedin className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <FaTwitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white">
-              <FaYoutube className="w-5 h-5" />
-            </a>
-          </div>
         </div>
 
         {/* Powered By */}

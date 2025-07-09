@@ -45,14 +45,14 @@ const EventsTimeline = () => {
       className="flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24"
     >
       <motion.h4
-        initial={{ opacity: 0.5, y: 70 }}
+        initial={{ opacity: 0.5, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.3,
-          duration: 0.8,
+          duration: 0.5,
           ease: "easeInOut",
         }}
-        className="inline-block px-4 py-2 rounded-full bg-foreground/10 text-foreground text-sm font-base mb-8"
+        className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
       >
         Timeline
       </motion.h4>
