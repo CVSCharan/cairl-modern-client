@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
       secondary: "Vittal Rao Nagar, Madhapur, Hyderabad, Telangana 500081",
       description: "Meet us at our innovation hub",
       action: "Get Directions",
-      href: "#",
+      href: "https://www.google.com/maps/dir/?api=1&destination=T-Hub+2.0,+Inorbit+Mall+Rd,+Vittal+Rao+Nagar,+Madhapur,+Hyderabad,+Telangana+500081",
     },
   ];
 
@@ -50,14 +50,14 @@ const Contact: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <motion.h4
-            initial={{ opacity: 0.5, y: 70 }}
+            initial={{ opacity: 0.5, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
+            className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             Contact Us
           </motion.h4>
@@ -175,16 +175,14 @@ const Contact: React.FC = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/engage-with-us#get-in-touch"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl group"
-            >
-              Start a Conversation
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link
+            to="/engage-with-us#get-in-touch"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl group"
+          >
+            Start a Conversation
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
     </section>

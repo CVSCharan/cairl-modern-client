@@ -6,14 +6,14 @@ const Hero = () => {
       {/* Engage With Us Header */}
       <div className="text-center flex flex-col items-center mb-16">
         <motion.h4
-          initial={{ opacity: 0.5, y: 70 }}
+          initial={{ opacity: 0.5, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             delay: 0.3,
-            duration: 0.8,
+            duration: 0.5,
             ease: "easeInOut",
           }}
-          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
+          className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
         >
           Engage With Us
         </motion.h4>

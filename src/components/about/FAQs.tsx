@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(1); // default open 2nd question
@@ -36,11 +37,11 @@ const FAQs = () => {
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
           <motion.h4
-            initial={{ opacity: 0.5, y: 70 }}
+            initial={{ opacity: 0.5, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
-              duration: 0.8,
+              duration: 0.5,
               ease: "easeInOut",
             }}
             className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
@@ -202,8 +203,8 @@ const FAQs = () => {
       {/* CTA Section */}
       <div className="text-center">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="#contact"
+          <Link
+            to="/engage-with-us#get-in-touch"
             className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl group"
           >
             Contact Support
@@ -220,7 +221,7 @@ const FAQs = () => {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

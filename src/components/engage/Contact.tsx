@@ -28,21 +28,21 @@ const Contact = () => {
       secondary: "Vittal Rao Nagar, Madhapur, Hyderabad, Telangana 500081",
       description: "Meet us at our innovation hub",
       action: "Get Directions",
-      href: "#",
+      href: "https://www.google.com/maps/dir/?api=1&destination=T-Hub+2.0,+Inorbit+Mall+Rd,+Vittal+Rao+Nagar,+Madhapur,+Hyderabad,+Telangana+500081",
     },
   ];
   return (
     <div className="bg-background py-16 px-4 z-10">
       <div className="flex flex-col justify-center items-center max-w-6xl mx-auto">
         <motion.h4
-          initial={{ opacity: 0.5, y: 100 }}
+          initial={{ opacity: 0.5, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
             delay: 0.3,
-            duration: 0.8,
+            duration: 0.5,
             ease: "easeInOut",
           }}
-          className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
+          className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
         >
           Connect With Us
         </motion.h4>

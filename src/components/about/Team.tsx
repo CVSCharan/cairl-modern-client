@@ -41,11 +41,11 @@ const Team = () => {
       <div className="relative container mx-auto px-4 z-20">
         <div className="w-full flex flex-col items-center justify-center mt-24 z-20">
           <motion.h4
-            initial={{ opacity: 0.5, y: 70 }}
+            initial={{ opacity: 0.5, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
-              duration: 0.8,
+              duration: 0.5,
               ease: "easeInOut",
             }}
             className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
@@ -91,11 +91,11 @@ const Team = () => {
         <div className="flex flex-col justify-center items-center mt-24 z-20">
           {/* Vision Header */}
           <motion.h4
-            initial={{ opacity: 0.5, y: 70 }}
+            initial={{ opacity: 0.5, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
-              duration: 0.8,
+              duration: 0.5,
               ease: "easeInOut",
             }}
             className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"

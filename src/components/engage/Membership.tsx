@@ -143,14 +143,14 @@ const Membership = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
             <div className="text-center mb-16">
               <motion.h4
-                initial={{ opacity: 0.5, y: 70 }}
+                initial={{ opacity: 0.5, y: -30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
                   delay: 0.3,
-                  duration: 0.8,
+                  duration: 0.5,
                   ease: "easeInOut",
                 }}
-                className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8"
+                className="inline-block px-6 py-3 rounded-full bg-foreground text-secondary text-sm font-medium mb-6 border border-primary/20"
               >
                 Membership Plans
               </motion.h4>

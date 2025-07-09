@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="relative bg-transparent overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="relative w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10 rounded-b-[30px] shadow-xl" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 to-background/50 z-10 rounded-b-[30px] shadow-xl" />
         <img
           src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750244957/about_img_1_b5biqp.png"
           alt="About CAiRL"
@@ -17,11 +17,11 @@ const Hero = () => {
       <div className="absolute inset-0 z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.h4
-            initial={{ opacity: 0.5, y: 70 }}
+            initial={{ opacity: 0.5, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
-              duration: 0.8,
+              duration: 0.5,
               ease: "easeInOut",
             }}
             className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"

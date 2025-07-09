@@ -23,6 +23,7 @@ import Podcasts from "./pages/Podcasts";
 // import BlogDetails from "./pages/BlogDetails";
 import UnderConstruction from "./pages/UnderConstruction";
 import MOU from "./pages/MOU";
+import WebinarDetails from "./pages/WebinarDetails";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/ai-bootcamps" element={<Bootcamps />} />
           <Route path="/ai-bootcamps/:id" element={<BootcampDetails />} />
           <Route path="/happenings" element={<Happening />} />
+          <Route path="/webinar/:id" element={<WebinarDetails />} />
           <Route
             path="/research-and-innovation"
             element={<ResearchAndInnovation />}

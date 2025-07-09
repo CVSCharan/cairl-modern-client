@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Events: React.FC = () => {
   const featuredEvent = {
@@ -27,10 +28,10 @@ const Events: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
+            className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             Happenings
           </motion.div>
@@ -56,12 +57,7 @@ const Events: React.FC = () => {
         </div>
 
         {/* Featured Event Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-5xl mx-auto mb-16"
-        >
+        <div className="max-w-5xl mx-auto mb-16">
           <div className="bg-card border border-border/50 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Image Section */}
@@ -139,20 +135,18 @@ const Events: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* View All Events Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center"
-        >
-          <button className="bg-foreground border border-border text-background hover:bg-foreground/80 px-8 py-4 rounded-full font-semibold flex items-center gap-3 mx-auto transition-all duration-300 group/all shadow-lg hover:shadow-xl">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link
+            to="/happenings"
+            className="bg-foreground border border-border text-background hover:bg-foreground/80 px-8 py-4 rounded-full font-semibold flex items-center gap-3 mx-auto transition-all duration-300 group/all shadow-lg hover:shadow-xl"
+          >
             View All Events & Webinars
             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover/all:translate-x-1" />
-          </button>
-        </motion.div>
+          </Link>
+        </div>
       </div>
     </section>
   );

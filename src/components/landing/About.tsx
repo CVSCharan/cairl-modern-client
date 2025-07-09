@@ -28,10 +28,10 @@ const About: React.FC = () => {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <motion.h4
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-full bg-primary/10 text-primary text-xs sm:text-sm md:text-base font-medium mb-4 sm:mb-6 md:mb-8 shadow-sm border border-border"
+          className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-full bg-background/70 text-primary text-xs sm:text-sm md:text-base font-medium mb-4 sm:mb-6 md:mb-8 shadow-sm border border-border"
         >
           About Us
         </motion.h4>
