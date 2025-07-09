@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "../components/ui/button";
+// import { Button } from "../components/ui/button";
 import CTA from "../components/CTA";
+import NewsLetters from "../components/NewsLetters";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -85,7 +86,10 @@ const MOU = () => {
     },
     {
       title: "Academic Institutions",
-      logo: "https://res.cloudinary.com/dnyouhvwj/image/upload/v1715858368/academic-institutions-logo_yq5k6e.png",
+      logos: [
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751271284/BITS_Pilani-Logo.svg_gariqk.png",
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1751280090/NGIT-new-logo-1_d52igc.png",
+      ],
       alt: "Academic Institutions collaboration",
       sections: [
         {
@@ -143,14 +147,14 @@ const MOU = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8 pb-8">
           <div className="text-center mb-12 md:mb-16">
             <motion.h4
-              initial={{ opacity: 0.5, y: 70 }}
+              initial={{ opacity: 0.5, y: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.3,
-                duration: 0.8,
+                duration: 0.5,
                 ease: "easeInOut",
               }}
-              className="inline-block bg-secondary text-secondary-foreground px-4 py-2 rounded-full mb-8"
+              className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
               Contributions
             </motion.h4>
@@ -230,9 +234,9 @@ const MOU = () => {
                         {p.cta.text}
                       </p>
                     </div>
-                    <Button variant="default" className="mt-6" size="lg">
+                    {/* <Button variant="default" className="mt-6" size="lg">
                       {p.cta.button}
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
               </motion.div>
@@ -351,31 +355,12 @@ const MOU = () => {
         </div>
       </div>
 
-      <div className="my-28">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
         <CTA />
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-secondary py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            Subscribe to our newsletter
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter or follow us online to stay ahead in AI.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your Email"
-              className="flex-grow px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
+      <NewsLetters />
     </main>
   );
 };

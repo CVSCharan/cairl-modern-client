@@ -1,6 +1,27 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const MOU = () => {
+  useEffect(() => {
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
+
   return (
     <div
       id="mou"
@@ -33,9 +54,12 @@ const MOU = () => {
               and corporations to advance AI research, development, and
               application.
             </p>
-            <button className="bg-primary text-background px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+            <Link
+              to="/mous"
+              className="bg-primary text-background px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+            >
               Know more
-            </button>
+            </Link>
           </div>
 
           {/* Image */}

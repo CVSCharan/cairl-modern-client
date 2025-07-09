@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import CTA from "../components/CTA";
+import NewsLetters from "../components/NewsLetters";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -107,8 +108,7 @@ const ResearchAndInnovation = () => {
     {
       id: "mentorship",
       title: "AI Mentorship & Startup Support",
-      description:
-        "We nurture the AI disruptors of tomorrow by offering:",
+      description: "We nurture the AI disruptors of tomorrow by offering:",
       bullets: [
         "Mentorship from AI experts, researchers, and industry veterans.",
         "Investor and corporate connects for AI-driven startups.",
@@ -332,26 +332,7 @@ const ResearchAndInnovation = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="bg-secondary py-24 border-t border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-            Subscribe to our newsletter
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter or follow us online to stay ahead in AI.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your Email"
-              className="flex-grow px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-            <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors whitespace-nowrap">
-              Submit
-            </button>
-          </div>
-        </div>
-      </div>
+      <NewsLetters />
     </main>
   );
 };

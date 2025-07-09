@@ -213,17 +213,9 @@ const Podcasts = () => {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="relative w-full">
-        {/* Background Element */}
-        <div className="absolute top-0 left-0 w-full h-full z-0 opacity-55 pointer-events-none">
-          <img
-            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750554423/Topology-1_bphtdf.png"
-            alt="Background Element"
-            className="absolute top-0 left-0 min-w-[400px] min-h-[400px] object-contain"
-          />
-        </div>
+      <div className="w-full bg-secondary">
         {/* Hero Section */}
-        <div className="flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24">
+        <div className="flex flex-col justify-center items-center text-foreground pb-8 sm:pb-10 lg:pb-12 pt-8">
           <motion.h4
             initial={{ opacity: 0.5, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -232,7 +224,7 @@ const Podcasts = () => {
               duration: 0.5,
               ease: "easeInOut",
             }}
-            className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
+            className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
             Podcasts
           </motion.h4>
@@ -248,7 +240,7 @@ const Podcasts = () => {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-8">
           {/* Top Chart Section */}
           <div id="top-charts" className="mb-16 md:mb-20">
             <h2 className="text-3xl font-bold text-primary mb-6 text-center">
@@ -287,8 +279,16 @@ const Podcasts = () => {
       {/* All Podcasts Section */}
       <div
         id="all-podcasts"
-        className="min-h-screen flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24"
+        className="relative min-h-screen flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24"
       >
+        {/* Background Element */}
+        <div className="absolute top-20 left-0 w-full h-full z-0 opacity-55 pointer-events-none">
+          <img
+            src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750554423/Topology-1_bphtdf.png"
+            alt="Background Element"
+            className="absolute top-20 left-0 min-w-[400px] min-h-[400px] object-contain"
+          />
+        </div>
         <motion.h4
           initial={{ opacity: 0.5, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
