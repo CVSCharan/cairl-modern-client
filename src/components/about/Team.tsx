@@ -70,7 +70,7 @@ const Team = () => {
                 name: "Mr. Rammohan Manamasa",
                 role: "Founder & Chairman",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Rammohan_Manamasa_gqn4cl.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Mr._Rammohan_Manamasa-whitebg_vjelt7.png",
               },
               {
                 name: "Mr. Ram Katamaraja",
@@ -113,13 +113,13 @@ const Team = () => {
                 name: "Prof. Pallu Reddanna",
                 role: "President - FABA",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245473/Prof._Pallu_Reddanna_q6htli.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Prof._Pallu_Reddanna-whitebg_fusewk.png",
               },
               {
                 name: "Dr. Ratnakar Palakodeti",
                 role: "Secretary General - FABA",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Dr._Ratnakar_Palakodeti_eqbgsd.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090500/Dr._Ratnakar_Palakodeti-whitebg_ptunzu.png",
               },
               {
                 name: "Mr. Rahul Palth",
@@ -140,19 +140,19 @@ const Team = () => {
                 name: "Mr. Neil Gogte",
                 role: "Founder & Director of Knitt, NGIT, KNEC, KSJC",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Neil_Gogte_h1wvou.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090500/Mr._Neil_Gogte-whitebg_hwyl4d.png",
               },
               {
                 name: "Dr. Prasad Null",
                 role: "Physician Entrepreneur",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Dr._Prasad_Nuli_xdu6ew.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Dr._Prasad_Nuli-whitebg_bao47b.png",
               },
               {
                 name: "Dr. Ravi Guijula",
                 role: "PhD from IIT Hyderabad",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245470/Dr._Ravi_Gujjula_gtafxt.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090499/Dr._Ravi_Gujjula-whitebg_ovg5ck.png",
               },
             ]}
           />
@@ -167,19 +167,19 @@ const Team = () => {
                 name: "Dr. Suhit Anantula",
                 role: "Founder - The Helix Lab",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245471/Dr._Suhit_Anantula_vhfzlk.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Dr._Suhit_Anantula-whitebg_sxvxrn.png",
               },
               {
                 name: "Mr. Anurag Garg",
                 role: "Global Engineering Executive & General Manager",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245470/Mr._Anurag_Garg_ldm2kn.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090500/Mr._Anurag_Garg-whitebg_p6rb7l.png",
               },
               {
                 name: "Dr. Suraj Bhansali",
                 role: "Experienced Leader at GCC & CRO",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245473/Dr._Suraj_Bhansali_witjs7.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Dr._Suraj_Bhansali-whitebg_lqv3l8.png",
               },
             ]}
           />
@@ -194,19 +194,19 @@ const Team = () => {
                 name: "Mr. Sharath Doddla",
                 role: "Founder, CTO at ADQ Services",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245472/Mr._Sharath_Doddla_fleimj.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Mr._Sharath_Doddla-whitebg_xmtdke.png",
               },
               {
                 name: "Mr. Aswani Kumar Iraganaboina",
                 role: "Founder & CEO of RunCode",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245469/Mr._Aswani_Kumar_Iraganaboina_hx6afk.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090500/Mr._Aswani_Kumar_Iraganaboina-whitebg_n9pc8s.png",
               },
               {
                 name: "Dr. Meenakshi S",
                 role: "AUVNLP, Product Manager",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1750245470/Dr._Meenakshi_S_fnucbc.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090499/Dr._Meenakshi_S-whitebg_tlcjyl.png",
               },
             ]}
           />
