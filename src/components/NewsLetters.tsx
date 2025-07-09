@@ -209,12 +209,9 @@ const NewsLetters = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="py-6 space-y-8">
+        <div className="py-6 space-y-6">
           {/* Personal Information */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              Personal Information
-            </h3>
+          <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="firstName" className="text-sm font-medium">
@@ -244,10 +241,7 @@ const NewsLetters = () => {
           </div>
 
           {/* Professional Information */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              Professional Information
-            </h3>
+          <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="occupation" className="text-sm font-medium">
@@ -288,10 +282,7 @@ const NewsLetters = () => {
           </div>
 
           {/* Additional Information */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              Additional Information
-            </h3>
+          <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="country" className="text-sm font-medium">
@@ -329,11 +320,7 @@ const NewsLetters = () => {
           </div>
 
           {/* Interests */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              Areas of Interest{" "}
-              <span className="text-muted-foreground">(optional)</span>
-            </h3>
+          <div className="space-y-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {interestsOptions.map((item) => (
                 <div
