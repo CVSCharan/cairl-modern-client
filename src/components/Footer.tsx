@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
               <img
                 src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750176660/footer-logo_jgk1wb.png"
                 alt="CAiRL Logo"
-                className="h-24 w-24"
+                className="h-20 w-20"
               />
               <p className="text-sm text-gray-300 max-w-sm">
                 Empowering collaborative research and innovation in AI.
@@ -70,33 +70,37 @@ const Footer: React.FC = () => {
                   <li>
                     <Link
                       to="/happenings"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Events
+                      <span>Events</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/happenings"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Happenings
+                      <span>Happenings</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/webinars"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Webinars
+                      <span>Webinars</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/about-us#faqs"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      FAQs
+                      <span>FAQs</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                 </ul>
@@ -109,38 +113,46 @@ const Footer: React.FC = () => {
                   <li>
                     <Link
                       to="/about-us"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Who We Are
+                      <span>Who We Are</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/about-us#team"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Our Team
+                      <span>Our Team</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/about-us#mission"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Mission & Vision
+                      <span>Mission & Vision</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/mous" className="text-white/80 hover:text-white">
-                      MOUs & Partnerships
+                    <Link
+                      to="/mous"
+                      className="text-white/80 hover:text-white relative group"
+                    >
+                      <span>MOUs & Partnerships</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/visual-journey"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Visual Journey
+                      <span>Visual Journey</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                 </ul>
@@ -155,41 +167,46 @@ const Footer: React.FC = () => {
                   <li>
                     <Link
                       to="/services"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Our Services
+                      <span>Our Services</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/ai-bootcamps"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      AI Bootcamps
+                      <span>AI Bootcamps</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/focus-groups"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Focus Groups
+                      <span>Focus Groups</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/research-and-innovation"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Research & Innovation
+                      <span>Research & Innovation</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                   <li>
                     <Link
                       to="/resources"
-                      className="text-white/80 hover:text-white"
+                      className="text-white/80 hover:text-white relative group"
                     >
-                      Resources
+                      <span>Resources</span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                     </Link>
                   </li>
                 </ul>

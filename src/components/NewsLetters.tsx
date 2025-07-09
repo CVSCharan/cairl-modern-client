@@ -24,6 +24,7 @@ const NewsLetters = () => {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // State for the profile form
   const [profile, setProfile] = useState({
@@ -59,7 +60,7 @@ const NewsLetters = () => {
     }
   };
 
-  const handleSubscribeClick = () => {
+  const handleSubscribeClick = async () => {
     if (!email) {
       setError("Email address is required.");
       return;
@@ -70,7 +71,41 @@ const NewsLetters = () => {
       return;
     }
     setError("");
-    setOpen(true);
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/newsletter/check?email=${email}`,
+        {
+          method: "GET",
+        }
+      );
+
+      if (response.status === 404) {
+        setOpen(true);
+        return;
+      }
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.subscribed && data.active) {
+          setError("This email is already subscribed and active.");
+        } else {
+          setOpen(true);
+        }
+      } else {
+        const errorData = await response
+          .json()
+          .catch(() => ({ message: "An unexpected error occurred." }));
+        setError(errorData.message || "An error occurred. Please try again.");
+      }
+    } catch (error) {
+      setError(
+        "Failed to connect to the server. Please check your connection and try again."
+      );
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleProfileSubmit = (e: React.FormEvent) => {
@@ -142,9 +177,10 @@ const NewsLetters = () => {
                 </div>
                 <Button
                   onClick={handleSubscribeClick}
+                  disabled={loading}
                   className="w-full h-12 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors duration-200"
                 >
-                  Subscribe
+                  {loading ? "Checking..." : "Subscribe"}
                 </Button>
               </div>
             </div>
