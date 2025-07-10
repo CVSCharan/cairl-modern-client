@@ -21,7 +21,7 @@ const Partners: React.FC = () => {
     <section className="bg-background py-4 md:py-8">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <h3 className="text-center font-heading text-lg md:text-xl mb-8 text-muted-foreground">
-          Trusted by Leading Organizations
+          Strategic Architects
         </h3>
         <div className="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll">
