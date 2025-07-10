@@ -115,5 +115,5 @@ export default {
       },
     },
   },
-  plugins: [tailwindAnimate, tailwindcssTypography],
+  plugins: [tailwindAnimate, tailwindcssTypography, require('@tailwindcss/aspect-ratio')],
 } satisfies Config;

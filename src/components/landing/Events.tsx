@@ -20,6 +20,7 @@ const Events: React.FC = () => {
       "Networking with industry professionals",
       "Latest research presentations",
     ],
+    regiterLink: "https://forms.gle/v6pEMcCbcgHeDJjx8",
   };
 
   return (
@@ -126,10 +127,13 @@ const Events: React.FC = () => {
 
                   {/* CTA Button */}
                   <div className="pt-4">
-                    <button className="bg-secondary text-foreground hover:bg-primary/90 hover:text-secondary px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-all duration-300 group/btn">
+                    <a
+                      href={featuredEvent.regiterLink}
+                      className="bg-secondary text-foreground hover:bg-primary/90 hover:text-secondary px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-all duration-300 group/btn w-fit"
+                    >
                       Register Now
                       <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
