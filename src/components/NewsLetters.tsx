@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -25,6 +25,9 @@ const NewsLetters = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [modalLoading, setModalLoading] = useState(false);
+  const [modalError, setModalError] = useState("");
+  const [showSuccessScreen, setShowSuccessScreen] = useState(false);
 
   // State for the profile form
   const [profile, setProfile] = useState({
@@ -32,7 +35,7 @@ const NewsLetters = () => {
     lastName: "",
     gender: "",
     occupation: "",
-    company: "",
+    org: "",
     country: "",
     interests: [] as string[],
   });
@@ -50,14 +53,12 @@ const NewsLetters = () => {
     interestId: string,
     checked: boolean | "indeterminate"
   ) => {
-    if (checked) {
-      setProfile({ ...profile, interests: [...profile.interests, interestId] });
-    } else {
-      setProfile({
-        ...profile,
-        interests: profile.interests.filter((i) => i !== interestId),
-      });
-    }
+    setProfile((prevProfile) => {
+      const newInterests = checked
+        ? [...prevProfile.interests, interestId]
+        : prevProfile.interests.filter((i) => i !== interestId);
+      return { ...prevProfile, interests: newInterests };
+    });
   };
 
   const handleSubscribeClick = async () => {
@@ -108,11 +109,68 @@ const NewsLetters = () => {
     }
   };
 
-  const handleProfileSubmit = (e: React.FormEvent) => {
+  const handleProfileSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Submitting profile:", { email, ...profile });
-    setOpen(false);
+    setModalLoading(true);
+    setModalError("");
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/newsletter`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, ...profile }),
+        }
+      );
+
+      if (response.ok) {
+        setShowSuccessScreen(true);
+      } else {
+        const errorData = await response
+          .json()
+          .catch(() => ({ message: "An unexpected error occurred." }));
+        setModalError(
+          errorData.message || "An error occurred. Please try again."
+        );
+      }
+    } catch (error) {
+      setModalError(
+        "Failed to connect to the server. Please check your connection and try again."
+      );
+      console.error(error);
+    } finally {
+      setModalLoading(false);
+    }
   };
+
+  const handleDialogClose = () => {
+    setOpen(false);
+    setShowSuccessScreen(false);
+    setProfile({
+      firstName: "",
+      lastName: "",
+      gender: "",
+      occupation: "",
+      org: "",
+      country: "",
+      interests: [],
+    });
+    setEmail("");
+    setError("");
+    setModalError("");
+  };
+
+  useEffect(() => {
+    if (showSuccessScreen) {
+      const timer = setTimeout(() => {
+        handleDialogClose();
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccessScreen]);
 
   const genderOptions = [
     { value: "male", label: "Male" },
@@ -143,7 +201,10 @@ const NewsLetters = () => {
   ];
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen) => !isOpen && handleDialogClose()}
+    >
       {/* Professional Newsletter Section */}
       <div className="bg-secondary py-20 border-t">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -235,171 +296,222 @@ const NewsLetters = () => {
 
       {/* Professional Dialog */}
       <DialogContent className="sm:max-w-3xl">
-        <DialogHeader className="text-center pb-6 border-b">
-          <DialogTitle className="text-2xl font-bold text-foreground">
-            CAiRL Newsletters
-          </DialogTitle>
-          <DialogDescription className="text-muted-foreground mt-2">
-            Help us tailor our content for you. Your email:{" "}
-            <span className="font-semibold text-foreground">{email}</span>
-          </DialogDescription>
-        </DialogHeader>
-
-        <div className="py-6 space-y-6">
-          {/* Personal Information */}
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-sm font-medium">
-                  First Name
-                </Label>
-                <Input
-                  id="firstName"
-                  placeholder="e.g., John"
-                  className="h-11"
-                  value={profile.firstName}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName" className="text-sm font-medium">
-                  Last Name
-                </Label>
-                <Input
-                  id="lastName"
-                  placeholder="e.g., Doe"
-                  className="h-11"
-                  value={profile.lastName}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
+        {showSuccessScreen ? (
+          <div className="flex flex-col items-center justify-center text-center p-12">
+            <svg
+              className="w-16 h-16 text-green-500 mb-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <h2 className="text-2xl font-bold text-foreground mb-4">
+              Subscription Successful!
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-md">
+              Thank you for subscribing to the CAiRL newsletter. You're all set
+              to receive the latest updates directly in your inbox.
+            </p>
+            <Button onClick={handleDialogClose} className="h-10 px-8 text-sm">
+              Close
+            </Button>
           </div>
+        ) : (
+          <>
+            <DialogHeader className="text-center pb-6 border-b">
+              <DialogTitle className="text-2xl font-bold text-foreground">
+                CAiRL Newsletters
+              </DialogTitle>
+              <DialogDescription className="text-muted-foreground mt-2">
+                Help us tailor our content for you. Your email:{" "}
+                <span className="font-semibold text-foreground">{email}</span>
+              </DialogDescription>
+            </DialogHeader>
 
-          {/* Professional Information */}
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="occupation" className="text-sm font-medium">
-                  Which title best describes you?
-                </Label>
-                <Select
-                  onValueChange={(value) =>
-                    handleSelectChange("occupation", value)
-                  }
-                  value={profile.occupation}
-                >
-                  <SelectTrigger className="h-11">
-                    <SelectValue placeholder="Select your occupation" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {occupationOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="company" className="text-sm font-medium">
-                  Company / Institution{" "}
-                  <span className="text-muted-foreground">(optional)</span>
-                </Label>
-                <Input
-                  id="company"
-                  placeholder="e.g., Acme Inc."
-                  className="h-11"
-                  value={profile.company}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Information */}
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="country" className="text-sm font-medium">
-                  Country
-                </Label>
-                <Input
-                  id="country"
-                  placeholder="e.g., India"
-                  className="h-11"
-                  value={profile.country}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="gender" className="text-sm font-medium">
-                  Gender (optional)
-                </Label>
-                <Select
-                  onValueChange={(value) => handleSelectChange("gender", value)}
-                  value={profile.gender}
-                >
-                  <SelectTrigger className="h-11">
-                    <SelectValue placeholder="Select your gender" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {genderOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          </div>
-
-          {/* Interests */}
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {interestsOptions.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex items-center space-x-3 p-3 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
-                >
-                  <Checkbox
-                    id={item.id}
-                    checked={profile.interests.includes(item.id)}
-                    onCheckedChange={(checked) =>
-                      handleInterestChange(item.id, checked)
-                    }
-                  />
-                  <Label
-                    htmlFor={item.id}
-                    className="text-sm font-medium cursor-pointer"
-                  >
-                    {item.label}
-                  </Label>
+            <div className="py-6 space-y-6">
+              {/* Personal Information */}
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName" className="text-sm font-medium">
+                      First Name
+                      <span className="text-muted-foreground">*</span>
+                    </Label>
+                    <Input
+                      id="firstName"
+                      placeholder="e.g., John"
+                      className="h-11"
+                      value={profile.firstName}
+                      onChange={handleInputChange}
+                      disabled={modalLoading}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="lastName" className="text-sm font-medium">
+                      Last Name
+                      <span className="text-muted-foreground">*</span>
+                    </Label>
+                    <Input
+                      id="lastName"
+                      placeholder="e.g., Doe"
+                      className="h-11"
+                      value={profile.lastName}
+                      onChange={handleInputChange}
+                      disabled={modalLoading}
+                    />
+                  </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Professional Information */}
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="occupation" className="text-sm font-medium">
+                      Which title best describes you?
+                      <span className="text-muted-foreground">*</span>
+                    </Label>
+                    <Select
+                      onValueChange={(value) =>
+                        handleSelectChange("occupation", value)
+                      }
+                      value={profile.occupation}
+                      disabled={modalLoading}
+                    >
+                      <SelectTrigger className="h-11">
+                        <SelectValue placeholder="Select your occupation" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {occupationOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="company" className="text-sm font-medium">
+                      Company / Institution{" "}
+                      <span className="text-muted-foreground">*</span>
+                    </Label>
+                    <Input
+                      id="org"
+                      placeholder="e.g., Acme Inc."
+                      className="h-11"
+                      value={profile.org}
+                      onChange={handleInputChange}
+                      disabled={modalLoading}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Information */}
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="country" className="text-sm font-medium">
+                      Country
+                      <span className="text-muted-foreground">*</span>
+                    </Label>
+                    <Input
+                      id="country"
+                      placeholder="e.g., India"
+                      className="h-11"
+                      value={profile.country}
+                      onChange={handleInputChange}
+                      disabled={modalLoading}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="gender" className="text-sm font-medium">
+                      Gender <span className="text-muted-foreground">*</span>
+                    </Label>
+                    <Select
+                      onValueChange={(value) =>
+                        handleSelectChange("gender", value)
+                      }
+                      value={profile.gender}
+                      disabled={modalLoading}
+                    >
+                      <SelectTrigger className="h-11">
+                        <SelectValue placeholder="Select your gender" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {genderOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+
+              {/* Interests */}
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {interestsOptions.map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex items-center space-x-3 p-3 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
+                    >
+                      <Checkbox
+                        id={item.id}
+                        checked={profile.interests.includes(item.id)}
+                        onCheckedChange={(checked) =>
+                          handleInterestChange(item.id, checked)
+                        }
+                        disabled={modalLoading}
+                      />
+                      <Label
+                        htmlFor={item.id}
+                        className="text-sm font-medium cursor-pointer"
+                      >
+                        {item.label}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <DialogFooter className="pt-4 flex-col">
+                {modalError && (
+                  <p className="text-destructive text-sm text-center font-medium">
+                    {modalError}
+                  </p>
+                )}
+                <div className="flex justify-center space-x-3 w-full">
+                  <DialogClose asChild>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="h-9 px-6 text-sm"
+                      disabled={modalLoading}
+                    >
+                      Cancel
+                    </Button>
+                  </DialogClose>
+                  <Button
+                    onClick={handleProfileSubmit}
+                    className="h-9 px-8 text-sm"
+                    disabled={modalLoading}
+                  >
+                    {modalLoading ? "Subscribing..." : "Subscribe"}
+                  </Button>
+                </div>
+              </DialogFooter>
             </div>
-          </div>
-          <DialogFooter className="pt-4">
-            <div className="flex justify-center space-x-3 w-full">
-              <DialogClose asChild>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="h-9 px-6 text-sm"
-                >
-                  Cancel
-                </Button>
-              </DialogClose>
-              <Button
-                onClick={handleProfileSubmit}
-                className="h-9 px-8 text-sm"
-              >
-                Subscribe
-              </Button>
-            </div>
-          </DialogFooter>
-        </div>
+          </>
+        )}
       </DialogContent>
     </Dialog>
   );

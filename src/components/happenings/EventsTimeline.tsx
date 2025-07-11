@@ -6,7 +6,7 @@ import { WebinarsData } from "../../data/Webinar";
 const EventsTimeline = () => {
   return (
     <div
-      id="past-events"
+      id="timeline"
       className="flex flex-col justify-center items-center text-foreground py-16 sm:py-20 lg:py-24"
     >
       <motion.h4
