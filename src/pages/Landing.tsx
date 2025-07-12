@@ -6,6 +6,7 @@ import Events from "../components/landing/Events";
 import CTA from "../components/CTA";
 import Contact from "../components/landing/Contact";
 import SEOMetadata from "../components/seo/SEOMetadata";
+import NewsLetters from "../components/NewsLetters";
 
 const Landing = () => {
   // Smooth scroll to section when URL has hash
@@ -53,7 +54,7 @@ const Landing = () => {
       </div>
 
       {/* Transformation Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 bg-secondary/30">
+      <div className="min-h-screen w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 bg-secondary flex flex-col justify-center items-center">
         <Transformation />
       </div>
 
@@ -66,7 +67,7 @@ const Landing = () => {
       <CTA />
 
       {/* Contact Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="w-full pt-8 sm:pt-12 md:pt-16 lg:pt-20">
         <Contact />
       </div>
     </main>

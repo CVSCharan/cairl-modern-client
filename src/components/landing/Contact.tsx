@@ -43,10 +43,10 @@ const Contact: React.FC = () => {
 
   return (
     <section
-      className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center py-16"
+      className="bg-secondary min-h-screen w-full flex flex-col justify-center items-center py-16"
       id="contact"
     >
-      <div className="bg-secondary/50 backdrop-blur-sm border border-border/50 w-full py-16 px-6 md:px-8 rounded-3xl max-w-7xl mx-auto">
+      <div className="bg-transparent w-full py-16 px-6 md:px-8 rounded-3xl max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.h4

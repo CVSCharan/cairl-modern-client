@@ -95,11 +95,11 @@ const CTA: React.FC = () => {
         </DialogContent>
       </Dialog>
 
-      <section className="w-full flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
+      <section className="w-full flex flex-col justify-center items-center px-4">
         <div className="container max-w-7xl w-full">
           <BackgroundGradient>
             <div
-              className="section cta py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden rounded-xl sm:rounded-2xl my-1 mx-1"
+              className="section cta py-12 sm:py-16 md:py-20 lg:py-24 px-4 relative overflow-hidden rounded-xl sm:rounded-2xl my-1 mx-1"
               style={{
                 background: `
             linear-gradient(95.35deg, #000000 0.77%, #004A9F 50.41%, #071A37 99.86%),
