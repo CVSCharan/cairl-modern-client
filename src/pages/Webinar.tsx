@@ -1,10 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Webinars = () => {
   const [selectedDate, setSelectedDate] = useState(new Date(2025, 6, 10)); // July 10, 2025
   const [currentMonth, setCurrentMonth] = useState(new Date(2025, 6, 1)); // July 2025
+
+  useEffect(() => {
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
 
   const daysInMonth = (month: number, year: number) => {
     return new Date(year, month + 1, 0).getDate();
@@ -147,6 +167,16 @@ const Webinars = () => {
 
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      <SEOMetadata
+        title="CAiRL Webinars - On-Demand AI Expertise"
+        description="Access on-demand AI expertise from world-class speakers through CAiRL's webinars. Explore topics like AI trends, regulations, and innovations."
+        keywords="AI webinars, CAiRL webinars, AI expertise, AI trends, AI innovations"
+        ogTitle="CAiRL Webinars - On-Demand AI Expertise"
+        ogDescription="Access on-demand AI expertise from world-class speakers through CAiRL's webinars. Explore topics like AI trends, regulations, and innovations."
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Webinars - On-Demand AI Expertise"
+        twitterDescription="Access on-demand AI expertise from world-class speakers through CAiRL's webinars. Explore topics like AI trends, regulations, and innovations."
+      />
       <section className="max-w-7xl mx-auto relative z-10 pt-8">
         {/* Page Heading */}
         <div className="text-center mb-12">

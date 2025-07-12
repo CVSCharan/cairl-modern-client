@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import CTA from "../components/CTA";
 import { useState, useEffect } from "react";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 interface BlogData {
   id: string;
@@ -145,6 +146,20 @@ const BlogDetails = () => {
 
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      {blog && (
+        <SEOMetadata
+          title={`${blog.title} - CAiRL Blog`}
+          description={`Read the latest blog post from CAiRL on ${blog.category}.`}
+          keywords={`CAiRL blog, ${blog.category}, ${blog.title}, AI blog`}
+          ogTitle={`${blog.title} - CAiRL Blog`}
+          ogDescription={`Read the latest blog post from CAiRL on ${blog.category}.`}
+          ogImage={blog.imageUrl}
+          ogUrl={window.location.href}
+          twitterTitle={`${blog.title} - CAiRL Blog`}
+          twitterDescription={`Read the latest blog post from CAiRL on ${blog.category}.`}
+          twitterImage={blog.imageUrl}
+        />
+      )}
       {/* Hero Section */}
       <div className="relative w-full h-[50vh] overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>

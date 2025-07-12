@@ -1,11 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import { Home, ArrowLeft, HelpCircle, Mail } from "lucide-react";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const NotFound = () => {
   const navigate = useNavigate();
 
   return (
     <main className="min-h-screen bg-background flex items-center justify-center p-4">
+      <SEOMetadata
+        title="404 - Page Not Found | CAiRL"
+        description="The page you are looking for does not exist or has been moved. Please return to the homepage or contact support."
+        keywords="404, not found, page not found, CAiRL"
+        ogTitle="404 - Page Not Found | CAiRL"
+        ogDescription="The page you are looking for does not exist or has been moved. Please return to the homepage or contact support."
+        ogUrl={window.location.href}
+        twitterTitle="404 - Page Not Found | CAiRL"
+        twitterDescription="The page you are looking for does not exist or has been moved. Please return to the homepage or contact support."
+      />
       <div className="relative z-10 max-w-2xl w-full text-center">
         <div className="mb-6 md:mb-8">
           <h1 className="text-7xl sm:text-8xl md:text-9xl font-bold text-primary opacity-10">404</h1>

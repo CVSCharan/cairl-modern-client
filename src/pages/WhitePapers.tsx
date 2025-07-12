@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const WhitePapers = () => {
   useEffect(() => {
@@ -24,6 +25,18 @@ const WhitePapers = () => {
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col">
+      <SEOMetadata
+        title="CAiRL White Papers - AI Case Studies and Research"
+        description="Explore CAiRL's collection of white papers, featuring in-depth AI case studies, research on ethical AI, and insights into AI-enhanced networks."
+        keywords="AI white papers, AI case studies, ethical AI research, AI networks, CAiRL publications"
+        ogTitle="CAiRL White Papers - AI Case Studies and Research"
+        ogDescription="Explore CAiRL's collection of white papers, featuring in-depth AI case studies, research on ethical AI, and insights into AI-enhanced networks."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750793938/white-papers-card-img-1_bytuvi.png"
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL White Papers - AI Case Studies and Research"
+        twitterDescription="Explore CAiRL's collection of white papers, featuring in-depth AI case studies, research on ethical AI, and insights into AI-enhanced networks."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750793938/white-papers-card-img-1_bytuvi.png"
+      />
       {/* Hero Section */}
       <div className="bg-transparent flex flex-col justify-center items-center pb-20 mt-8">
         <motion.h4

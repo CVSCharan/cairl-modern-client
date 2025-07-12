@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Bootcamps = () => {
   const [selectedDate, setSelectedDate] = useState(new Date(2025, 6, 10)); // July 10, 2025
@@ -147,6 +148,16 @@ const Bootcamps = () => {
 
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      <SEOMetadata
+        title="AI Bootcamps & Workshops - CAiRL"
+        description="Explore upcoming AI bootcamps and workshops at CAiRL. Find intensive training programs in AI, machine learning, data science, and more."
+        keywords="AI bootcamps, AI workshops, machine learning training, data science bootcamps, CAiRL events"
+        ogTitle="AI Bootcamps & Workshops - CAiRL"
+        ogDescription="Explore upcoming AI bootcamps and workshops at CAiRL. Find intensive training programs in AI, machine learning, data science, and more."
+        ogUrl={window.location.href}
+        twitterTitle="AI Bootcamps & Workshops - CAiRL"
+        twitterDescription="Explore upcoming AI bootcamps and workshops at CAiRL. Find intensive training programs in AI, machine learning, data science, and more."
+      />
       <section className="max-w-7xl mx-auto relative z-10 pt-8">
         {/* Page Heading */}
         <div className="text-center mb-12">

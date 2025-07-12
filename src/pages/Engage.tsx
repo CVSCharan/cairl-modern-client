@@ -6,6 +6,7 @@ import Partner from "../components/engage/Partner";
 import GetInTouch from "../components/engage/GetInTouch";
 import NewsLetters from "../components/NewsLetters";
 import Contact from "../components/engage/Contact";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Engage = () => {
   useEffect(() => {
@@ -29,6 +30,16 @@ const Engage = () => {
 
   return (
     <main className="relative overflow-hidden bg-secondary">
+      <SEOMetadata
+        title="Engage with CAiRL - Membership, Partnerships, and Contact"
+        description="Discover how to engage with the Center for AI Research and Learning (CAiRL). Explore membership options, partnership opportunities, and how to get in touch with us."
+        keywords="CAiRL engagement, CAiRL membership, CAiRL partnerships, contact CAiRL, AI community"
+        ogTitle="Engage with CAiRL - Membership, Partnerships, and Contact"
+        ogDescription="Discover how to engage with the Center for AI Research and Learning (CAiRL). Explore membership options, partnership opportunities, and how to get in touch with us."
+        ogUrl={window.location.href}
+        twitterTitle="Engage with CAiRL - Membership, Partnerships, and Contact"
+        twitterDescription="Discover how to engage with the Center for AI Research and Learning (CAiRL). Explore membership options, partnership opportunities, and how to get in touch with us."
+      />
       <div className="w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
         <Hero />
       </div>

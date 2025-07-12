@@ -5,6 +5,7 @@ import PodcastCard from "../components/podcasts/PodcastCard";
 import TopChartItem from "../components/podcasts/TopChartItems";
 import AudioPlayer from "../components/podcasts/AudioPlayer";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Podcasts = () => {
   const [currentTrack, setCurrentTrack] = useState<{
@@ -213,6 +214,18 @@ const Podcasts = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEOMetadata
+        title="CAiRL Podcasts - AI Insights and Innovations"
+        description="Listen to the CAiRL podcast for insights from leading AI researchers, industry experts, and innovators. Explore topics like AI research, future of work, and creative AI."
+        keywords="AI podcast, CAiRL podcast, machine learning podcast, AI research, AI innovation"
+        ogTitle="CAiRL Podcasts - AI Insights and Innovations"
+        ogDescription="Listen to the CAiRL podcast for insights from leading AI researchers, industry experts, and innovators. Explore topics like AI research, future of work, and creative AI."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1752006647/podcast-thumbnail_fjzb1h.webp"
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Podcasts - AI Insights and Innovations"
+        twitterDescription="Listen to the CAiRL podcast for insights from leading AI researchers, industry experts, and innovators. Explore topics like AI research, future of work, and creative AI."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1752006647/podcast-thumbnail_fjzb1h.webp"
+      />
       <div className="w-full bg-secondary">
         {/* Hero Section */}
         <div className="flex flex-col justify-center items-center text-foreground pb-8 sm:pb-10 lg:pb-12 pt-8">

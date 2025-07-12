@@ -1,10 +1,43 @@
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
+import { useEffect } from "react";
 
 const WhitePaperDetails = () => {
+  useEffect(() => {
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
+
   return (
     <main className="min-h-screen bg-transparent flex flex-col">
+      <SEOMetadata
+        title="Toward Universally Ethical AI - CAiRL White Paper"
+        description="Read CAiRL's white paper on building universally ethical AI, exploring its implications in commerce, law, medicine, education, and global challenges."
+        keywords="ethical AI, AI white paper, AI ethics, AI in commerce, AI in medicine, AI in education, CAiRL"
+        ogTitle="Toward Universally Ethical AI - CAiRL White Paper"
+        ogDescription="Read CAiRL's white paper on building universally ethical AI, exploring its implications in commerce, law, medicine, education, and global challenges."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750793939/white-papers-card-img-2_bv6xdm.png"
+        ogUrl={window.location.href}
+        twitterTitle="Toward Universally Ethical AI - CAiRL White Paper"
+        twitterDescription="Read CAiRL's white paper on building universally ethical AI, exploring its implications in commerce, law, medicine, education, and global challenges."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750793939/white-papers-card-img-2_bv6xdm.png"
+      />
       {/* Hero Section */}
       <div className="bg-transparent flex flex-col justify-center items-center text-white pb-16 mt-8">
         <motion.h4

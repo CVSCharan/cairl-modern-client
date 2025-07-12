@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import NewsLetters from "../components/NewsLetters";
 import CTA from "../components/CTA";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -76,6 +77,18 @@ const Resources = () => {
 
   return (
     <main className="min-h-screen bg-background isolate">
+      <SEOMetadata
+        title="CAiRL Resources - Datasets, Computing, and Use Cases"
+        description="Access curated AI resources from CAiRL, including datasets for innovation, affordable AI computing, and real-world AI use cases and implementation guides."
+        keywords="AI resources, AI datasets, AI computing, AI use cases, CAiRL resources"
+        ogTitle="CAiRL Resources - Datasets, Computing, and Use Cases"
+        ogDescription="Access curated AI resources from CAiRL, including datasets for innovation, affordable AI computing, and real-world AI use cases and implementation guides."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750789703/resources-img-1_gg2dsv.png"
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Resources - Datasets, Computing, and Use Cases"
+        twitterDescription="Access curated AI resources from CAiRL, including datasets for innovation, affordable AI computing, and real-world AI use cases and implementation guides."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750789703/resources-img-1_gg2dsv.png"
+      />
       <div className="relative w-full mb-24">
         {/* Background Element */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">

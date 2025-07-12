@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CTA from "../components/CTA";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 interface BlogCardProps {
   id: string;
@@ -189,6 +190,16 @@ const Blogs = () => {
 
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      <SEOMetadata
+        title="CAiRL Blog - Insights on AI, Technology, and Research"
+        description="Explore the latest articles and insights from the Center for AI Research and Learning (CAiRL). Stay informed on AI, technology, and research topics."
+        keywords="CAiRL blog, AI blog, technology blog, research articles, AI insights"
+        ogTitle="CAiRL Blog - Insights on AI, Technology, and Research"
+        ogDescription="Explore the latest articles and insights from the Center for AI Research and Learning (CAiRL). Stay informed on AI, technology, and research topics."
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Blog - Insights on AI, Technology, and Research"
+        twitterDescription="Explore the latest articles and insights from the Center for AI Research and Learning (CAiRL). Stay informed on AI, technology, and research topics."
+      />
       {/* Featured Blog Section */}
       <section className="bg-card pt-24 pb-12">
         <div className="container mx-auto px-4 max-w-6xl">

@@ -5,6 +5,7 @@ import Transformation from "../components/landing/Transformation";
 import Events from "../components/landing/Events";
 import CTA from "../components/CTA";
 import Contact from "../components/landing/Contact";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Landing = () => {
   // Smooth scroll to section when URL has hash
@@ -29,6 +30,18 @@ const Landing = () => {
 
   return (
     <main className="min-h-screen bg-background overflow-hidden">
+      <SEOMetadata
+        title="CAiRL - Center for AI Research and Learning"
+        description="The Center for AI Research and Learning (CAiRL) is a dynamic hub for AI innovation, fostering collaboration and advancing research to tackle real-world challenges."
+        keywords="AI research, machine learning, artificial intelligence, CAiRL, AI innovation"
+        ogTitle="CAiRL - Center for AI Research and Learning"
+        ogDescription="The Center for AI Research and Learning (CAiRL) is a dynamic hub for AI innovation, fostering collaboration and advancing research to tackle real-world challenges."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381598/Element-1_tsbawm.png"
+        ogUrl="https://www.cairl.org/"
+        twitterTitle="CAiRL - Center for AI Research and Learning"
+        twitterDescription="The Center for AI Research and Learning (CAiRL) is a dynamic hub for AI innovation, fostering collaboration and advancing research to tackle real-world challenges."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381598/Element-1_tsbawm.png"
+      />
       {/* Hero Section - Full width */}
       <div className="w-full px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
         <Hero />

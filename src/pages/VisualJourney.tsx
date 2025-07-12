@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const VisualJourney = () => {
   const eventImages = [
@@ -19,6 +20,18 @@ const VisualJourney = () => {
 
   return (
     <main className="relative min-h-screen bg-background flex flex-col">
+      <SEOMetadata
+        title="CAiRL Visual Journey - Awards, Hackathons, and Event Highlights"
+        description="Explore the visual journey of CAiRL, showcasing our awards, hackathon winners, and highlights from our key events and conferences."
+        keywords="CAiRL visual journey, AI awards, hackathon winners, AI event highlights, CAiRL achievements"
+        ogTitle="CAiRL Visual Journey - Awards, Hackathons, and Event Highlights"
+        ogDescription="Explore the visual journey of CAiRL, showcasing our awards, hackathon winners, and highlights from our key events and conferences."
+        ogImage={eventImages[0]}
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Visual Journey - Awards, Hackathons, and Event Highlights"
+        twitterDescription="Explore the visual journey of CAiRL, showcasing our awards, hackathon winners, and highlights from our key events and conferences."
+        twitterImage={eventImages[0]}
+      />
       <div className="relative w-full">
         {/* Background Element - Now covers header to form */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-55 pointer-events-none">

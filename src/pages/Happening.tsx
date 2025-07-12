@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import NewsLetters from "../components/NewsLetters";
 import UpComingEvents from "../components/happenings/UpComingEvents";
 import EventsTimeline from "../components/happenings/EventsTimeline";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -82,6 +83,16 @@ const Happening = () => {
 
   return (
     <main className="min-h-screen bg-background isolate">
+      <SEOMetadata
+        title="Happenings at CAiRL - Events, Webinars, and More"
+        description="Stay up-to-date with the latest events, webinars, and visual journeys from the Center for AI Research and Learning (CAiRL)."
+        keywords="AI events, AI webinars, AI visual journey, CAiRL happenings, AI news"
+        ogTitle="Happenings at CAiRL - Events, Webinars, and More"
+        ogDescription="Stay up-to-date with the latest events, webinars, and visual journeys from the Center for AI Research and Learning (CAiRL)."
+        ogUrl={window.location.href}
+        twitterTitle="Happenings at CAiRL - Events, Webinars, and More"
+        twitterDescription="Stay up-to-date with the latest events, webinars, and visual journeys from the Center for AI Research and Learning (CAiRL)."
+      />
       <div className="relative w-full">
         {/* Background Element */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">

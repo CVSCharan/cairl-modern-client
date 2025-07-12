@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import CTA from "../components/CTA";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -122,6 +123,18 @@ const ResearchAndInnovation = () => {
 
   return (
     <main className="min-h-screen bg-background isolate">
+      <SEOMetadata
+        title="Research & Innovation - CAiRL"
+        description="Explore CAiRL's contributions to AI research, innovation, and ecosystem development. Learn about our work in Generative AI, Explainable AI, and AI for Social Good."
+        keywords="AI research, AI innovation, Generative AI, Explainable AI, AI for Social Good, CAiRL"
+        ogTitle="Research & Innovation - CAiRL"
+        ogDescription="Explore CAiRL's contributions to AI research, innovation, and ecosystem development. Learn about our work in Generative AI, Explainable AI, and AI for Social Good."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750324894/research-innovation-img-9_kcezsa.jpg"
+        ogUrl={window.location.href}
+        twitterTitle="Research & Innovation - CAiRL"
+        twitterDescription="Explore CAiRL's contributions to AI research, innovation, and ecosystem development. Learn about our work in Generative AI, Explainable AI, and AI for Social Good."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750324894/research-innovation-img-9_kcezsa.jpg"
+      />
       <div className="relative w-full">
         {/* Background Element */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">

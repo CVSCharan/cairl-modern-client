@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 // import { Button } from "../components/ui/button";
 import CTA from "../components/CTA";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -11,29 +12,23 @@ const fadeInUp = {
 
 const MOU = () => {
   useEffect(() => {
-    // Check if there's a hash in the URL
-    if (window.location.hash) {
-      // Remove the '#' from the hash
-      const elementId = window.location.hash.substring(1);
-      // Find the element by ID
-      const element = document.getElementById(elementId);
-
-      if (element) {
-        // Smooth scroll to the element
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        // Update URL without jumping (optional)
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.hash
-        );
-      }
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
-  }, []); // Empty dependency array means this runs once on mount
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
 
   const partnerships = [
     {
@@ -135,6 +130,18 @@ const MOU = () => {
 
   return (
     <main className="min-h-screen bg-background isolate">
+      <SEOMetadata
+        title="CAiRL MoUs & Strategic Partnerships"
+        description="Learn about CAiRL's strategic partnerships and MoUs with leading institutions to foster a collaborative and innovative AI ecosystem in India."
+        keywords="CAiRL partnerships, CAiRL MoUs, AI collaboration, strategic partnerships, AI ecosystem"
+        ogTitle="CAiRL MoUs & Strategic Partnerships"
+        ogDescription="Learn about CAiRL's strategic partnerships and MoUs with leading institutions to foster a collaborative and innovative AI ecosystem in India."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751533928/mou-t-hub-img_bejzwv.png"
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL MoUs & Strategic Partnerships"
+        twitterDescription="Learn about CAiRL's strategic partnerships and MoUs with leading institutions to foster a collaborative and innovative AI ecosystem in India."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1751533928/mou-t-hub-img_bejzwv.png"
+      />
       <div className="relative w-full">
         {/* Background Element */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">

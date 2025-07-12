@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const BootcampDetails = () => {
   useEffect(() => {
@@ -16,6 +17,18 @@ const BootcampDetails = () => {
 
   return (
     <main className="min-h-screen bg-background flex flex-col pt-24">
+      <SEOMetadata
+        title="AI & Machine Learning Bootcamp - CAiRL"
+        description="Join our intensive 12-week AI & Machine Learning Bootcamp to master AI concepts, solve real-world problems, and start your career in the AI industry."
+        keywords="AI bootcamp, machine learning bootcamp, AI training, data science bootcamp, CAiRL bootcamp"
+        ogTitle="AI & Machine Learning Bootcamp - CAiRL"
+        ogDescription="Join our intensive 12-week AI & Machine Learning Bootcamp to master AI concepts, solve real-world problems, and start your career in the AI industry."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750185490/cloud-computing_qlbzxs.png"
+        ogUrl={window.location.href}
+        twitterTitle="AI & Machine Learning Bootcamp - CAiRL"
+        twitterDescription="Join our intensive 12-week AI & Machine Learning Bootcamp to master AI concepts, solve real-world problems, and start your career in the AI industry."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750185490/cloud-computing_qlbzxs.png"
+      />
       <div className="flex-grow">
         {/* Hero Section */}
         <section className="bg-card py-12 md:py-16">

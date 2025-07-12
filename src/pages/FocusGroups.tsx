@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const FocusGroups = () => {
   useEffect(() => {
@@ -24,6 +25,18 @@ const FocusGroups = () => {
 
   return (
     <main className="relative min-h-screen bg-background flex flex-col">
+      <SEOMetadata
+        title="CAiRL Focus Groups - Driving AI Adoption Through Collaboration"
+        description="Learn about CAiRL's focus groups, where we bring together industry leaders and experts to tackle real-world challenges and accelerate responsible AI adoption."
+        keywords="AI focus groups, enterprise AI adoption, AI capacity building, AI collaboration, CAiRL"
+        ogTitle="CAiRL Focus Groups - Driving AI Adoption Through Collaboration"
+        ogDescription="Learn about CAiRL's focus groups, where we bring together industry leaders and experts to tackle real-world challenges and accelerate responsible AI adoption."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750554814/focus-group-img-1_ku3uqw.png"
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Focus Groups - Driving AI Adoption Through Collaboration"
+        twitterDescription="Learn about CAiRL's focus groups, where we bring together industry leaders and experts to tackle real-world challenges and accelerate responsible AI adoption."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750554814/focus-group-img-1_ku3uqw.png"
+      />
       <div className="relative w-full">
         {/* Background Element - Now covers header to form */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-55 pointer-events-none">

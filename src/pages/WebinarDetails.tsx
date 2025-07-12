@@ -6,6 +6,7 @@ import { WebinarsData } from "../data/Webinar";
 import type { Webinar } from "../types/webinar";
 import CTA from "../components/CTA";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +17,25 @@ const WebinarDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [webinar, setWebinar] = useState<Webinar | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Disable scroll restoration so we can manually control it
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    setTimeout(() => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }
+    }, 100); // small delay to ensure DOM is rendered
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -38,6 +58,16 @@ const WebinarDetails = () => {
   if (!webinar) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
+        <SEOMetadata
+          title="Webinar Not Found - CAiRL"
+          description="The webinar you are looking for could not be found."
+          keywords="webinar, not found, CAiRL"
+          ogTitle="Webinar Not Found - CAiRL"
+          ogDescription="The webinar you are looking for could not be found."
+          ogUrl={window.location.href}
+          twitterTitle="Webinar Not Found - CAiRL"
+          twitterDescription="The webinar you are looking for could not be found."
+        />
         <div className="text-center bg-card p-12 rounded-lg shadow-lg max-w-md border border-border">
           <h2 className="text-3xl font-bold text-foreground mb-4">
             Webinar Not Found
@@ -57,6 +87,16 @@ const WebinarDetails = () => {
 
   return (
     <main className="min-h-screen bg-background isolate">
+      <SEOMetadata
+        title={`${webinar.title} - CAiRL`}
+        description={webinar.aboutWebinar}
+        keywords={`webinar, ${webinar.title}, ${webinar.topic}, CAiRL`}
+        ogTitle={`${webinar.title} - CAiRL`}
+        ogDescription={webinar.aboutWebinar}
+        ogUrl={window.location.href}
+        twitterTitle={`${webinar.title} - CAiRL`}
+        twitterDescription={webinar.aboutWebinar}
+      />
       <div className="relative w-full">
         {/* Background Element */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">

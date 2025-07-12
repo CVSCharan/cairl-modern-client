@@ -7,6 +7,7 @@ import Hero from "../components/about/Hero";
 import MOU from "../components/MOU";
 import Journey from "../components/about/Journey";
 import NewsLetters from "../components/NewsLetters";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const About = () => {
   useEffect(() => {
@@ -30,6 +31,16 @@ const About = () => {
 
   return (
     <main className="min-h-screen bg-background isolate">
+      <SEOMetadata
+        title="About CAiRL - Our Mission, Vision, and Team"
+        description="Learn about the Center for AI Research and Learning (CAiRL), our mission to democratize AI, our vision for the future, and the team behind our success."
+        keywords="about CAiRL, CAiRL mission, CAiRL vision, CAiRL team, AI research center"
+        ogTitle="About CAiRL - Our Mission, Vision, and Team"
+        ogDescription="Learn about the Center for AI Research and Learning (CAiRL), our mission to democratize AI, our vision for the future, and the team behind our success."
+        ogUrl={window.location.href}
+        twitterTitle="About CAiRL - Our Mission, Vision, and Team"
+        twitterDescription="Learn about the Center for AI Research and Learning (CAiRL), our mission to democratize AI, our vision for the future, and the team behind our success."
+      />
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* About Header */}
         <Hero />

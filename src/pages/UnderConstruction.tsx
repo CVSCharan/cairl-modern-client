@@ -2,11 +2,22 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { BackgroundGradient } from "../components/ui/bg-gradient";
 import { Button } from "../components/ui/button";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const UnderConstruction = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-[calc(100vh-80px)] w-full flex items-center justify-center p-4 md:p-8">
+      <SEOMetadata
+        title="Under Construction - CAiRL"
+        description="This page is currently under construction. We are working on something amazing and will be back soon."
+        keywords="under construction, coming soon, CAiRL"
+        ogTitle="Under Construction - CAiRL"
+        ogDescription="This page is currently under construction. We are working on something amazing and will be back soon."
+        ogUrl={window.location.href}
+        twitterTitle="Under Construction - CAiRL"
+        twitterDescription="This page is currently under construction. We are working on something amazing and will be back soon."
+      />
       <BackgroundGradient className="w-full max-w-4xl mx-auto rounded-3xl overflow-hidden">
         <div className="relative overflow-hidden bg-card/80 backdrop-blur-sm rounded-3xl p-8 md:p-12">
           {/* Decorative elements */}

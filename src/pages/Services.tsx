@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
+import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Services = () => {
   useEffect(() => {
@@ -24,6 +25,18 @@ const Services = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEOMetadata
+        title="CAiRL Services - AI Transformation, Education, and Innovation"
+        description="Explore the services offered by CAiRL, including AI bootcamps, innovation challenges, startup support, and social impact initiatives. Driving responsible AI transformation."
+        keywords="AI services, AI transformation, AI education, AI innovation, startup support, CAiRL"
+        ogTitle="CAiRL Services - AI Transformation, Education, and Innovation"
+        ogDescription="Explore the services offered by CAiRL, including AI bootcamps, innovation challenges, startup support, and social impact initiatives. Driving responsible AI transformation."
+        ogImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750332593/services-landing-img_vubko6.jpg"
+        ogUrl={window.location.href}
+        twitterTitle="CAiRL Services - AI Transformation, Education, and Innovation"
+        twitterDescription="Explore the services offered by CAiRL, including AI bootcamps, innovation challenges, startup support, and social impact initiatives. Driving responsible AI transformation."
+        twitterImage="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750332593/services-landing-img_vubko6.jpg"
+      />
       <div className="relative w-full">
         {/* Background Element - Now covers header to form */}
         <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">
