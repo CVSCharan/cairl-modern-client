@@ -317,7 +317,8 @@ const NewsLetters = () => {
             </h2>
             <p className="text-muted-foreground mb-8 max-w-md">
               Thank you for subscribing to the CAiRL newsletter. You're all set
-              to receive the latest updates directly in your inbox.
+              to receive the latest updates directly in your inbox. Please check
+              your spam box as well for the confirmation.
             </p>
             <Button onClick={handleDialogClose} className="h-10 px-8 text-sm">
               Close
