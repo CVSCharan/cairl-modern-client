@@ -6,7 +6,6 @@ import Events from "../components/landing/Events";
 import CTA from "../components/CTA";
 import Contact from "../components/landing/Contact";
 import SEOMetadata from "../components/seo/SEOMetadata";
-import NewsLetters from "../components/NewsLetters";
 
 const Landing = () => {
   // Smooth scroll to section when URL has hash
