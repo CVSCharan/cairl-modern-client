@@ -42,7 +42,7 @@ const Transformation: React.FC = () => {
               >
                 <Link
                   to="/services"
-                  className="inline-block bg-primary text-primary-foreground font-medium py-2.5 px-5 sm:py-3 sm:px-6 md:px-8 lg:py-3.5 lg:px-10 rounded-full hover:bg-primary/90 active:bg-primary/80 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wide"
+                  className="inline-block bg-primary text-primary-foreground py-2.5 px-5 sm:py-3 sm:px-6 md:px-8 lg:py-3.5 lg:px-10 rounded-full hover:bg-primary/90 active:bg-primary/80 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-xs sm:text-sm md:text-base lg:text-lg font-semibold tracking-wide"
                 >
                   Explore Services
                 </Link>
