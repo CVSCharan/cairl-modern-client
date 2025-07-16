@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
+import { type CarouselApi } from "../../components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
@@ -10,21 +11,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Hero: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [carouselApi, setCarouselApi] = useState<any>(null);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
   // Combined feature data with images and text
   const carouselData = [
     {
       image:
-        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752356161/landing-banner-img6_bekmes.webp",
-      title: "Innovation",
-      text: "Fostering innovation through collaborative research initiatives.",
-    },
-    {
-      image:
         "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752355511/landing-banner-img2_popakm.webp",
       title: "Education",
       text: "Empowering communities with AI education and training.",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752356161/landing-banner-img6_bekmes.webp",
+      title: "Innovation",
+      text: "Fostering innovation through collaborative research initiatives.",
     },
     {
       image:
@@ -84,7 +85,7 @@ const Hero: React.FC = () => {
                         width={1920}
                         height={640}
                         loading="lazy"
-                        className="w-full h-full object-cover max-h-[320px] sm:max-h-[450px] md:max-h-[550px] lg:max-h-[600px] xl:max-h-[640px]"
+                        className="w-full object-cover h-[550px] md:h-[550px] lg:h-[600px] xl:h-[640px]"
                         initial={{ scale: 1 }}
                         animate={{ scale: 1.02 }}
                         transition={{
@@ -106,7 +107,7 @@ const Hero: React.FC = () => {
           <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="container mx-auto px-4 py-8 text-center">
               <motion.h1
-                className="font-heading text-base sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 text-white leading-tight tracking-tight"
+                className="font-heading text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-10 sm:mb-12 md:mb-14 text-white leading-tight tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
@@ -164,7 +165,7 @@ const Hero: React.FC = () => {
                   >
                     <div className="flex items-center justify-center mb-3 sm:mb-4">
                       <motion.h2
-                        className="text-[#85D1F1] font-bold text-lg sm:text-2xl md:text-3xl"
+                        className="text-[#85D1F1] font-bold text-2xl sm:text-3xl md:text-3xl"
                         initial={{ scale: 0.95 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.2, duration: 0.6 }}
@@ -173,7 +174,7 @@ const Hero: React.FC = () => {
                       </motion.h2>
                     </div>
                     <motion.p
-                      className="font-sans text-sm sm:text-lg md:text-xl text-lightText-secondary max-w-xs sm:max-w-md md:max-w-lg mx-auto leading-relaxed px-2"
+                      className="font-sans text-lg sm:text-xl md:text-xl text-lightText-secondary max-w-xs sm:max-w-md md:max-w-lg mx-auto leading-relaxed px-2"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.6 }}

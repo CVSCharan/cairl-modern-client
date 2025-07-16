@@ -95,11 +95,11 @@ const CTA: React.FC = () => {
         </DialogContent>
       </Dialog>
 
-      <section className="w-full flex flex-col justify-center items-center px-4">
+      <section className="w-full flex flex-col justify-center items-center px-4 py-16">
         <div className="container max-w-7xl w-full">
           <BackgroundGradient>
             <div
-              className="section cta py-12 sm:py-16 md:py-20 lg:py-24 px-4 relative overflow-hidden rounded-xl sm:rounded-2xl my-1 mx-1"
+              className="section cta py-12 px-6 relative overflow-hidden rounded-xl sm:rounded-2xl my-1 mx-1"
               style={{
                 background: `
             linear-gradient(95.35deg, #000000 0.77%, #004A9F 50.41%, #071A37 99.86%),
@@ -118,28 +118,30 @@ const CTA: React.FC = () => {
 
               <div className="container mx-auto max-w-6xl relative z-10">
                 <div className="text-center">
-                  <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 md:mb-8 tracking-tight leading-tight">
-                    Ready to Make an
-                    <motion.span
-                      initial={{ opacity: 0.5, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{
-                        delay: 0.4,
-                        duration: 0.9,
-                        ease: "easeInOut",
-                      }}
-                      className="text-primary block sm:inline"
-                    >
-                      {" "}
-                      Impact
-                    </motion.span>{" "}
-                    <span className="block sm:inline">with CAiRL?</span>
-                  </h2>
-                  <p className="font-sans text-base sm:text-lg md:text-xl text-muted-foreground mb-8 sm:mb-10 md:mb-12 max-w-sm sm:max-w-md md:max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-                    Explore how you can get involved as a student, researcher,
-                    partner, or sponsor in our mission to advance AI for social
-                    good.
-                  </p>
+                  <div className="mb-16">
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+                      Ready to Make an
+                      <motion.span
+                        initial={{ opacity: 0.5, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{
+                          delay: 0.4,
+                          duration: 0.9,
+                          ease: "easeInOut",
+                        }}
+                        className="text-primary block sm:inline"
+                      >
+                        {" "}
+                        Impact
+                      </motion.span>{" "}
+                      <span className="block sm:inline">with CAiRL?</span>
+                    </h2>
+                    <p className="font-sans text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
+                      Explore how you can get involved as a student, researcher,
+                      partner, or sponsor in our mission to advance AI for social
+                      good.
+                    </p>
+                  </div>
 
                   {/* Responsive Button Layout */}
                   <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 md:gap-6 w-full max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto">
