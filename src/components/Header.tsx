@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import DropdownButton from "./header/DropdownButton";
 import MobileMenu from "./header/MobileMenu";
 import { navigationData } from "../constants/navigation";
+import AdvancedDropdown from "./header/AdvancedDropdown"; // Import the new dropdown
 
 const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -74,6 +75,7 @@ const Header: React.FC = () => {
             {navigationData.map((item) => (
               <div
                 key={item.label}
+                className="relative"
                 onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
                 onMouseLeave={handleMouseLeave}
               >
@@ -83,9 +85,10 @@ const Header: React.FC = () => {
                 >
                   {item.label}
                 </DropdownButton>
-                <item.component
+                <AdvancedDropdown
                   isOpen={activeDropdown === item.label.toLowerCase()}
                   onClose={closeAllDropdowns}
+                  items={item.links}
                 />
               </div>
             ))}

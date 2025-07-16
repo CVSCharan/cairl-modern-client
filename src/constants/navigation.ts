@@ -8,25 +8,16 @@ import {
   Database,
   Cpu,
 } from "lucide-react";
-import AboutDropdown from "../components/header/AboutDropdown";
-import ServicesDropdown from "../components/header/ServicesDropdown";
-import ResearchDropdown from "../components/header/ResearchDropdown";
-import HappeningsDropdown from "../components/header/HappeningsDropdown";
-import FocusGroupsDropdown from "../components/header/FocusGroupsDropdown";
-import ResourcesDropdown from "../components/header/ResourcesDropdown";
 
 export const aboutUs = {
   label: "About us",
   route: "/about-us",
-  component: AboutDropdown,
   links: [
     {
       title: "Who We Are",
       links: [
         { name: "Our Mission", href: "/about-us#mission" },
         { name: "Our Vision", href: "/about-us#vision" },
-        // { name: "Objectives", href: "/about-us#objectives" },
-        // { name: "Goals", href: "/about-us#goals" },
       ],
     },
     {
@@ -61,7 +52,6 @@ export const aboutUs = {
 export const services = {
   label: "Services",
   route: "/services",
-  component: ServicesDropdown,
   links: [
     {
       title: "Capacity Building & Knowledge Empowerment",
@@ -108,7 +98,6 @@ export const services = {
 export const researchAndInnovation = {
   label: "Research & Innovation",
   route: "/research-and-innovation",
-  component: ResearchDropdown,
   links: [
     {
       title: "Research & Innovation",
@@ -150,7 +139,6 @@ export const researchAndInnovation = {
 export const happenings = {
   label: "Happenings",
   route: "/happenings",
-  component: HappeningsDropdown,
   links: [
     {
       title: "Happenings",
@@ -166,7 +154,6 @@ export const happenings = {
 export const focusGroups = {
   label: "Focus Groups",
   route: "/focus-groups",
-  component: FocusGroupsDropdown,
   links: [
     {
       title: "Focus Groups",
@@ -194,7 +181,6 @@ export const focusGroups = {
 export const resources = {
   label: "Resources",
   route: "/resources",
-  component: ResourcesDropdown,
   links: [
     {
       title: "Knowledge Hub",

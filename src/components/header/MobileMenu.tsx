@@ -33,13 +33,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               {navigationData.map((item) => (
                 <MobileDropdown
                   key={item.label}
-                  title={item.label}
+                  label={item.label}
                   isOpen={activeDropdown === item.label.toLowerCase()}
                   onToggle={() => handleToggle(item.label.toLowerCase())}
                 >
                   {item.links.map((section) => (
                     <div key={section.title}>
-                      <h3 className="px-4 py-2 text-sm font-semibold text-foreground/60">{section.title}</h3>
                       {section.links.map((link) => (
                         <Link
                           key={link.href}

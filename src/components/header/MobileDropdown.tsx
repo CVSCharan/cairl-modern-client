@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 
 interface MobileDropdownProps {
-  title: string;
+  label: string;
   isOpen: boolean;
   onToggle: () => void;
   children: React.ReactNode;
 }
 
-const MobileDropdown: React.FC<MobileDropdownProps> = ({ title, isOpen, onToggle, children }) => {
+const MobileDropdown: React.FC<MobileDropdownProps> = ({ label, isOpen, onToggle, children }) => {
   return (
     <div className="border-b border-border/50">
       <button
         onClick={onToggle}
         className="flex items-center justify-between w-full py-4 text-left text-lg font-medium text-foreground transition-colors duration-300 hover:text-primary"
       >
-        <span>{title}</span>
+        <span>{label}</span>
         {isOpen ? (
           <Minus className="w-5 h-5" />
         ) : (
