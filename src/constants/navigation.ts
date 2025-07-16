@@ -1,5 +1,13 @@
-
-import { Users, Briefcase, Handshake, Book, Mic, FileText, Database, Cpu } from "lucide-react";
+import {
+  Users,
+  Briefcase,
+  Handshake,
+  Book,
+  Mic,
+  FileText,
+  Database,
+  Cpu,
+} from "lucide-react";
 import AboutDropdown from "../components/header/AboutDropdown";
 import ServicesDropdown from "../components/header/ServicesDropdown";
 import ResearchDropdown from "../components/header/ResearchDropdown";
@@ -17,8 +25,8 @@ export const aboutUs = {
       links: [
         { name: "Our Mission", href: "/about-us#mission" },
         { name: "Our Vision", href: "/about-us#vision" },
-        { name: "Objectives", href: "/about-us#objectives" },
-        { name: "Goals", href: "/about-us#goals" },
+        // { name: "Objectives", href: "/about-us#objectives" },
+        // { name: "Goals", href: "/about-us#goals" },
       ],
     },
     {
@@ -155,8 +163,6 @@ export const happenings = {
   ],
 };
 
-
-
 export const focusGroups = {
   label: "Focus Groups",
   route: "/focus-groups",
@@ -184,8 +190,6 @@ export const focusGroups = {
     },
   ],
 };
-
-
 
 export const resources = {
   label: "Resources",
