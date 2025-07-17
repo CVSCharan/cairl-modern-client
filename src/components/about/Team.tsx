@@ -149,7 +149,7 @@ const Team = () => {
                   "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090501/Dr._Prasad_Nuli-whitebg_bao47b.png",
               },
               {
-                name: "Dr. Ravi Guijula",
+                name: "Dr. Ravi Guijjula",
                 role: "PhD from IIT Hyderabad",
                 image:
                   "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090499/Dr._Ravi_Gujjula-whitebg_ovg5ck.png",

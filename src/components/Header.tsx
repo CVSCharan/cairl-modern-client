@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import DropdownButton from "./header/DropdownButton";
@@ -10,6 +10,7 @@ const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const hoverTimeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,15 +20,24 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
     };
   }, []);
 
   const handleMouseEnter = (dropdownName: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
     setActiveDropdown(dropdownName);
   };
 
   const handleMouseLeave = () => {
-    setActiveDropdown(null);
+    hoverTimeoutRef.current = window.setTimeout(() => {
+      setActiveDropdown(null);
+    }, 200);
   };
 
   const closeAllDropdowns = () => {
