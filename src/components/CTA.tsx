@@ -163,13 +163,13 @@ const CTA: React.FC = () => {
                     </button>
                     <button
                       onClick={() => handleButtonClick("sponsor")}
-                      className="flex-1 bg-transparent border-2 border-primary text-primary font-medium py-3 px-4 sm:px-6 md:py-4 md:px-8 rounded-lg sm:rounded-xl hover:bg-primary/10 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-sans text-sm sm:text-base whitespace-nowrap"
+                      className="flex-1 bg-secondary text-secondary-foreground font-medium py-3 px-4 sm:px-6 md:py-4 md:px-8 rounded-lg sm:rounded-xl hover:bg-secondary/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-sans text-sm sm:text-base whitespace-nowrap"
                     >
                       Sponsor a Program
                     </button>
                     <button
                       onClick={() => handleButtonClick("partnership")}
-                      className="flex-1 bg-transparent border-2 border-border text-foreground font-medium py-3 px-4 sm:px-6 md:py-4 md:px-8 rounded-lg sm:rounded-xl hover:bg-secondary/20 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-sans text-sm sm:text-base whitespace-nowrap"
+                      className="flex-1 bg-accent text-accent-foreground font-medium py-3 px-4 sm:px-6 md:py-4 md:px-8 rounded-lg sm:rounded-xl hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-sans text-sm sm:text-base whitespace-nowrap"
                     >
                       Start a Partnership
                     </button>
