@@ -83,22 +83,6 @@ const Header: React.FC = () => {
     }
   };
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (activeDropdown && dropdownRef.current) {
-      const focusableElements = dropdownRef.current.querySelectorAll(
-        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      );
-      if (focusableElements.length > 0) {
-        (focusableElements[0] as HTMLElement).focus();
-      }
-    } else if (!activeDropdown && dropdownButtonRef.current) {
-      dropdownButtonRef.current.focus();
-    }
-  }, [activeDropdown]);
-
   return (
     <header
       ref={headerRef}
@@ -137,7 +121,6 @@ const Header: React.FC = () => {
                 onClick={() => handleDropdownToggle(item.label.toLowerCase())}
               >
                 <DropdownButton
-                  ref={dropdownButtonRef}
                   isActive={activeDropdown === item.label.toLowerCase()}
                   route={item.route}
                   onKeyDown={(e: React.KeyboardEvent) =>
@@ -147,7 +130,6 @@ const Header: React.FC = () => {
                   {item.label}
                 </DropdownButton>
                 <AdvancedDropdown
-                  ref={dropdownRef}
                   isOpen={activeDropdown === item.label.toLowerCase()}
                   onClose={closeAllDropdowns}
                   items={item.links}
