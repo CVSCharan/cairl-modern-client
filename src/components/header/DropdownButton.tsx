@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 interface DropdownButtonProps {
@@ -8,12 +8,10 @@ interface DropdownButtonProps {
   onKeyDown?: (e: React.KeyboardEvent) => void;
 }
 
-const DropdownButton: React.FC<DropdownButtonProps> = ({
-  isActive,
-  children,
-  route,
-  onKeyDown,
-}) => {
+const DropdownButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, DropdownButtonProps>((
+  { isActive, children, route, onKeyDown },
+  ref
+) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Common content for both button and link
@@ -58,6 +56,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
   return route ? (
     <Link
       to={route}
+      ref={ref as React.Ref<HTMLAnchorElement>} // Cast ref for Link
       className={commonClassNames}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -67,6 +66,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
     </Link>
   ) : (
     <button
+      ref={ref as React.Ref<HTMLButtonElement>} // Cast ref for button
       className={commonClassNames}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -75,6 +75,6 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
       {content}
     </button>
   );
-};
+});
 
 export default DropdownButton;

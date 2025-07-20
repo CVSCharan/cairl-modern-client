@@ -1,6 +1,6 @@
-import React, { useState, forwardRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { forwardRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
 interface NavLink {
