@@ -18,9 +18,29 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 10);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        closeAllDropdowns();
+      }
+    };
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeAllDropdowns();
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscapeKey);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscapeKey);
       if (hoverTimeoutRef.current) {
         clearTimeout(hoverTimeoutRef.current);
       }
@@ -57,10 +77,27 @@ const Header: React.FC = () => {
 
   // Keyboard navigation support
   const handleKeyDown = (e: React.KeyboardEvent, dropdownName: string) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
       handleDropdownToggle(dropdownName);
     }
   };
+
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (activeDropdown && dropdownRef.current) {
+      const focusableElements = dropdownRef.current.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusableElements.length > 0) {
+        (focusableElements[0] as HTMLElement).focus();
+      }
+    } else if (!activeDropdown && dropdownButtonRef.current) {
+      dropdownButtonRef.current.focus();
+    }
+  }, [activeDropdown]);
 
   return (
     <header
@@ -97,10 +134,10 @@ const Header: React.FC = () => {
                 className="relative"
                 onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
                 onMouseLeave={handleMouseLeave}
-                onFocus={() => handleMouseEnter(item.label.toLowerCase())}
                 onClick={() => handleDropdownToggle(item.label.toLowerCase())}
               >
                 <DropdownButton
+                  ref={dropdownButtonRef}
                   isActive={activeDropdown === item.label.toLowerCase()}
                   route={item.route}
                   onKeyDown={(e: React.KeyboardEvent) =>
@@ -110,6 +147,7 @@ const Header: React.FC = () => {
                   {item.label}
                 </DropdownButton>
                 <AdvancedDropdown
+                  ref={dropdownRef}
                   isOpen={activeDropdown === item.label.toLowerCase()}
                   onClose={closeAllDropdowns}
                   items={item.links}
