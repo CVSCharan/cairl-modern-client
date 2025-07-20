@@ -1,32 +1,7 @@
-import { useEffect } from "react";
 import TeamSection from "./TeamSection";
 import { motion } from "framer-motion";
 
 const Team = () => {
-  useEffect(() => {
-    // Check if there's a hash in the URL
-    if (window.location.hash) {
-      // Remove the '#' from the hash
-      const elementId = window.location.hash.substring(1);
-      // Find the element by ID
-      const element = document.getElementById(elementId);
-
-      if (element) {
-        // Smooth scroll to the element
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-
-        // Update URL without jumping (optional)
-        window.history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.hash
-        );
-      }
-    }
-  }, []); // Empty dependency array means this runs once on mount
 
   return (
     <section className="relative w-full py-16">
@@ -200,7 +175,7 @@ const Team = () => {
                 name: "Mr. Aswani Kumar Iraganaboina",
                 role: "Founder & CEO of RunCode",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090500/Mr._Aswani_Kumar_Iraganaboina-whitebg_n9pc8s.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753018295/Aswani_Kumar_vor5is.png",
               },
               {
                 name: "Dr. Meenakshi S",

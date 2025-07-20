@@ -24,10 +24,10 @@ const Events: React.FC = () => {
   };
 
   return (
-    <section className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center py-16">
-      <div className="bg-secondary/50 backdrop-blur-sm border border-border/50 h-full w-full py-12 px-6 rounded-3xl max-w-7xl mx-auto">
+    <section className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center py-24 sm:py-32 md:py-40">
+      <div className="bg-secondary/50 backdrop-blur-sm border border-border/50 h-full w-full py-16 sm:py-20 md:py-24 px-6 sm:px-8 md:px-12 rounded-3xl max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ const Events: React.FC = () => {
         </div>
 
         {/* Featured Event Card */}
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-12 md:mb-16">
           <div className="bg-card border border-border/50 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 group">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Image Section */}
@@ -77,7 +77,7 @@ const Events: React.FC = () => {
               </div>
 
               {/* Content Section */}
-              <div className="p-8 lg:p-12 flex flex-col justify-center">
+              <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
                 <div className="space-y-6">
                   {/* Event Details */}
                   <div className="space-y-4">
