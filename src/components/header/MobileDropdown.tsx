@@ -7,9 +7,10 @@ interface MobileDropdownProps {
   isOpen: boolean;
   onToggle: () => void;
   children: React.ReactNode;
+  onClose: () => void;
 }
 
-const MobileDropdown: React.FC<MobileDropdownProps> = ({ label, isOpen, onToggle, children }) => {
+const MobileDropdown: React.FC<MobileDropdownProps> = ({ label, isOpen, onToggle, children, onClose }) => {
   return (
     <div className="border-b border-border/50">
       <button
@@ -33,7 +34,11 @@ const MobileDropdown: React.FC<MobileDropdownProps> = ({ label, isOpen, onToggle
             className="overflow-hidden"
           >
             <div className="pt-2 pb-4 pl-4 pr-2 flex flex-col items-start">
-              {children}
+              {React.Children.map(children, (child) =>
+                React.isValidElement(child)
+                  ? React.cloneElement(child as React.ReactElement<any>, { onClick: onClose })
+                  : child
+              )}
             </div>
           </motion.div>
         )}
