@@ -98,6 +98,7 @@ const Header: React.FC = () => {
                 onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
                 onMouseLeave={handleMouseLeave}
                 onFocus={() => handleMouseEnter(item.label.toLowerCase())}
+                onClick={() => handleDropdownToggle(item.label.toLowerCase())}
               >
                 <DropdownButton
                   isActive={activeDropdown === item.label.toLowerCase()}
@@ -133,7 +134,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden z-40">
+          <div className="md:hidden z-40">
             <button
               onClick={toggleMobileMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-foreground/70 hover:text-primary hover:bg-secondary focus:outline-none transition-colors duration-300"
