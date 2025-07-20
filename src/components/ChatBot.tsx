@@ -14,8 +14,10 @@ const ChatBot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [typingMessageId, setTypingMessageId] = useState<string | null>(null);
+  const [isBotReplying, setIsBotReplying] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const typeIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Initialize with welcome message when chat is opened
   useEffect(() => {
@@ -48,7 +50,11 @@ const ChatBot: React.FC = () => {
     let index = 0;
     const speed = 20; // Faster typing speed for professional feel
 
-    const typeInterval = setInterval(() => {
+    if (typeIntervalRef.current) {
+      clearInterval(typeIntervalRef.current);
+    }
+
+    typeIntervalRef.current = setInterval(() => {
       if (index < text.length) {
         setMessages((prev) =>
           prev.map((msg) =>
@@ -65,7 +71,10 @@ const ChatBot: React.FC = () => {
           )
         );
         setTypingMessageId(null);
-        clearInterval(typeInterval);
+        if (typeIntervalRef.current) {
+          clearInterval(typeIntervalRef.current);
+          typeIntervalRef.current = null;
+        }
         if (callback) callback();
       }
     }, speed);
@@ -97,7 +106,9 @@ const ChatBot: React.FC = () => {
   };
 
   const handleSendMessage = async () => {
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isBotReplying) return;
+
+    setIsBotReplying(true);
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -107,43 +118,49 @@ const ChatBot: React.FC = () => {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const question = inputValue;
     setInputValue("");
 
+    const botResponseId = (Date.now() + 1).toString();
+    const botTypingMessage: Message = {
+      id: botResponseId,
+      text: "", // Start with empty text
+      sender: "bot",
+      timestamp: new Date(),
+      isTyping: true,
+    };
+
+    setMessages((prev) => [...prev, botTypingMessage]);
+    setTypingMessageId(botResponseId);
+
     try {
-      // Call n8n webhook
-      const botResponseId = (Date.now() + 1).toString();
-      const botResponse: Message = {
-        id: botResponseId,
-        text: "", // Start with empty text
-        sender: "bot",
-        timestamp: new Date(),
-        isTyping: true,
-      };
-
-      setMessages((prev) => [...prev, botResponse]);
-      setTypingMessageId(botResponseId);
-
       // Get response from n8n
-      const n8nResponse = await callN8nWebhook(inputValue);
+      const n8nResponse = await callN8nWebhook(question);
 
       // Use typewriter effect with the response from n8n
       typewriterEffect(
         n8nResponse.answer ||
           n8nResponse.text ||
           "I couldn't find an answer to that question. Could you try rephrasing?",
-        botResponseId
+        botResponseId,
+        () => setIsBotReplying(false)
       );
     } catch (error) {
       console.error("Error:", error);
-      // Fallback response
-      const botResponseId = (Date.now() + 2).toString();
-      const botResponse: Message = {
-        id: botResponseId,
-        text: "I'm having trouble connecting to the knowledge base. Please try again later.",
-        sender: "bot",
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, botResponse]);
+      // Fallback response on error, updating the typing message
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === botResponseId
+            ? {
+                ...msg,
+                text: "I'm having trouble connecting to the knowledge base. Please try again later.",
+                isTyping: false,
+              }
+            : msg
+        )
+      );
+      setTypingMessageId(null);
+      setIsBotReplying(false);
     }
   };
 
@@ -157,6 +174,12 @@ const ChatBot: React.FC = () => {
   const handleClose = () => {
     setIsOpen(false);
     setMessages([]);
+    if (typeIntervalRef.current) {
+      clearInterval(typeIntervalRef.current);
+      typeIntervalRef.current = null;
+    }
+    setIsBotReplying(false);
+    setTypingMessageId(null);
   };
 
   // Focus input when chat opens
@@ -165,6 +188,15 @@ const ChatBot: React.FC = () => {
       inputRef.current.focus();
     }
   }, [isOpen]);
+
+  // Cleanup effect for component unmount
+  useEffect(() => {
+    return () => {
+      if (typeIntervalRef.current) {
+        clearInterval(typeIntervalRef.current);
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -286,17 +318,22 @@ const ChatBot: React.FC = () => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Message CAiRL Assistant..."
+                placeholder={
+                  isBotReplying
+                    ? "Waiting for response..."
+                    : "Message CAiRL Assistant..."
+                }
                 className="w-full px-4 py-3 pr-12 bg-background/70 text-foreground placeholder:text-muted-foreground rounded-xl text-sm focus:outline-none"
+                disabled={isBotReplying}
               />
               <button
                 onClick={handleSendMessage}
-                disabled={!inputValue.trim()}
+                disabled={!inputValue.trim() || isBotReplying}
                 className={`
         absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 rounded-full 
         transition-colors
         ${
-          inputValue.trim()
+          inputValue.trim() && !isBotReplying
             ? "bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80"
             : "bg-muted text-muted-foreground cursor-not-allowed"
         }
