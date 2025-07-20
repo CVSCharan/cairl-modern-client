@@ -4,13 +4,14 @@ import { Menu, X } from "lucide-react";
 import DropdownButton from "./header/DropdownButton";
 import MobileMenu from "./header/MobileMenu";
 import { navigationData } from "../constants/navigation";
-import AdvancedDropdown from "./header/AdvancedDropdown"; // Import the new dropdown
+import AdvancedDropdown from "./header/AdvancedDropdown";
 
 const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const hoverTimeoutRef = useRef<number | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +38,7 @@ const Header: React.FC = () => {
   const handleMouseLeave = () => {
     hoverTimeoutRef.current = window.setTimeout(() => {
       setActiveDropdown(null);
-    }, 200);
+    }, 300); // Increased delay for better UX
   };
 
   const closeAllDropdowns = () => {
@@ -54,8 +55,16 @@ const Header: React.FC = () => {
     setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
   };
 
+  // Keyboard navigation support
+  const handleKeyDown = (e: React.KeyboardEvent, dropdownName: string) => {
+    if (e.key === "Enter") {
+      handleDropdownToggle(dropdownName);
+    }
+  };
+
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? "bg-secondary/70 shadow-md backdrop-blur-sm"
@@ -88,10 +97,14 @@ const Header: React.FC = () => {
                 className="relative"
                 onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
                 onMouseLeave={handleMouseLeave}
+                onFocus={() => handleMouseEnter(item.label.toLowerCase())}
               >
                 <DropdownButton
                   isActive={activeDropdown === item.label.toLowerCase()}
                   route={item.route}
+                  onKeyDown={(e: React.KeyboardEvent) =>
+                    handleKeyDown(e, item.label.toLowerCase())
+                  }
                 >
                   {item.label}
                 </DropdownButton>

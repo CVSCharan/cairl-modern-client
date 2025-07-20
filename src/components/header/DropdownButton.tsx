@@ -5,12 +5,14 @@ interface DropdownButtonProps {
   isActive: boolean;
   children: React.ReactNode;
   route?: string; // Optional route for direct navigation
+  onKeyDown?: (e: React.KeyboardEvent) => void;
 }
 
 const DropdownButton: React.FC<DropdownButtonProps> = ({
   isActive,
   children,
   route,
+  onKeyDown,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -59,6 +61,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
       className={commonClassNames}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onKeyDown={onKeyDown}
     >
       {content}
     </Link>
@@ -67,6 +70,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
       className={commonClassNames}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onKeyDown={onKeyDown}
     >
       {content}
     </button>
