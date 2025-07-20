@@ -9,11 +9,13 @@ import {
   DialogDescription,
 } from "./ui/dialog";
 
+type ActionType = "member" | "sponsor" | "partnership";
+
 const CTA: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loadingType, setLoadingType] = useState("");
+  const [loadingType, setLoadingType] = useState<ActionType | "">("");
 
-  const handleButtonClick = (type: string) => {
+  const handleButtonClick = (type: ActionType) => {
     setLoadingType(type);
     setIsModalOpen(true);
   };
@@ -41,6 +43,7 @@ const CTA: React.FC = () => {
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 mx-auto">
                 <motion.div
+                  aria-hidden="true"
                   initial={{ scale: 0.8 }}
                   animate={{ scale: [0.8, 1.1, 0.8] }}
                   transition={{
@@ -50,7 +53,11 @@ const CTA: React.FC = () => {
                   }}
                   className="absolute inset-0 bg-primary/10 rounded-full"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  role="img"
+                  aria-label="Sparkles emoji"
+                >
                   <span className="text-3xl sm:text-4xl md:text-5xl">✨</span>
                 </div>
               </div>
@@ -111,7 +118,10 @@ const CTA: React.FC = () => {
               }}
             >
               {/* Decorative elements - Responsive */}
-              <div className="absolute top-0 left-0 w-full h-full opacity-20">
+              <div
+                className="absolute top-0 left-0 w-full h-full opacity-20"
+                aria-hidden="true"
+              >
                 <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-10 md:left-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-40 lg:h-40 rounded-full bg-primary blur-2xl md:blur-3xl"></div>
                 <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-10 md:right-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-40 lg:h-40 rounded-full bg-accent blur-2xl md:blur-3xl"></div>
               </div>

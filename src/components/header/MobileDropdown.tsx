@@ -36,7 +36,7 @@ const MobileDropdown: React.FC<MobileDropdownProps> = ({ label, isOpen, onToggle
             <div className="pt-2 pb-4 pl-4 pr-2 flex flex-col items-start">
               {React.Children.map(children, (child) =>
                 React.isValidElement(child)
-                  ? React.cloneElement(child as React.ReactElement<any>, { onClick: onClose })
+                  ? React.cloneElement(child as React.ReactElement<React.HTMLProps<HTMLDivElement>>, { onClick: onClose })
                   : child
               )}
             </div>
