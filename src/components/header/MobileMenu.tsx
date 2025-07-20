@@ -10,6 +10,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   activeDropdown,
   onDropdownToggle,
   onClose,
+  isScrolled,
 }) => {
   const handleToggle = (dropdownName: string) => {
     onDropdownToggle(activeDropdown === dropdownName ? "" : dropdownName);
@@ -27,7 +28,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="fixed inset-0 z-30 bg-background/95 backdrop-blur-sm shadow-lg md:hidden"
         >
-          <div className="pt-20 pb-8 px-6 h-full overflow-y-auto">
+          <div
+            className={`pb-8 px-6 h-full overflow-y-auto transition-all duration-300 ${
+              isScrolled ? "pt-16" : "pt-20"
+            }`}
+          >
             <nav className="flex flex-col space-y-2">
               {navigationData.map((item) => (
                 <MobileDropdown
