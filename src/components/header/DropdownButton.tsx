@@ -56,12 +56,23 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-  const ButtonComponent = route ? Link : 'button';
-  const buttonProps = route ? { to: route } : {};
+  if (route) {
+    return (
+      <Link
+        to={route}
+        className={commonClassNames}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+      >
+        {content}
+      </Link>
+    );
+  }
 
   return (
-    <ButtonComponent
-      {...buttonProps}
+    <button
       className={commonClassNames}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -69,7 +80,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({
       onKeyDown={onKeyDown}
     >
       {content}
-    </ButtonComponent>
+    </button>
   );
 };
 
