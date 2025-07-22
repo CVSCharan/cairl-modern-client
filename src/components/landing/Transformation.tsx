@@ -23,7 +23,7 @@ const Transformation: React.FC = () => {
               Driving Responsible AI
               <span className="block sm:inline"> Transformation</span>
             </h2>
-            <p className="text-lg opacity-90 mx-auto max-w-2xl leading-relaxed">
+            <p className="text-lg opacity-90 mx-auto max-w-2xl leading-relaxed mb-8">
               Our research focuses on developing AI technologies that are
               ethical, transparent, and beneficial to society. We work with
               partners across industries to implement responsible AI

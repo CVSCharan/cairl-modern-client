@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Hero from "../components/landing/Hero";
 import About from "../components/landing/About";
 import Transformation from "../components/landing/Transformation";
@@ -6,27 +5,10 @@ import Events from "../components/landing/Events";
 import CTA from "../components/CTA";
 import Contact from "../components/landing/Contact";
 import SEOMetadata from "../components/seo/SEOMetadata";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 const Landing = () => {
-  // Smooth scroll to section when URL has hash
-  useEffect(() => {
-    // Disable scroll restoration so we can manually control it
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    setTimeout(() => {
-      if (window.location.hash) {
-        const id = window.location.hash.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      } else {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      }
-    }, 100); // small delay to ensure DOM is rendered
-  }, []);
+  useSmoothScroll();
 
   return (
     <main className="min-h-screen bg-background overflow-hidden">

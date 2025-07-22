@@ -1,10 +1,14 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
+import { cn } from "../../lib/utils";
 
 const FAQs = () => {
-  const [activeIndex, setActiveIndex] = useState(1); // default open 2nd question
-
   const questions = [
     "What is CAiRL's mission?",
     "How does CAiRL collaborate with startups?",
@@ -32,9 +36,9 @@ const FAQs = () => {
   return (
     <section
       id="faqs"
-      className="bg-transparent min-h-screen w-full flex flex-col justify-center items-center py-16"
+      className="bg-transparent w-full flex flex-col justify-center items-center py-16 md:py-24"
     >
-      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 lg:px-8 w-full">
         <div className="text-center mb-12">
           <motion.h4
             initial={{ opacity: 0.5, y: -30 }}
@@ -46,170 +50,75 @@ const FAQs = () => {
             }}
             className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
           >
-            FAQS
+            FAQs
           </motion.h4>
-          <h2 className="text-3xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 bg-card rounded-xl overflow-hidden">
-          {/* Left: Questions */}
-          <div className="bg-background divide-y divide-border border-[1px] border-border rounded-xl">
+        <div className="bg-card border border-border/50 rounded-2xl p-4 sm:p-6 md:p-8">
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue="item-1"
+            className="w-full"
+          >
             {questions.map((question, index) => (
-              <div key={index}>
-                <button
-                  className={`w-full px-6 py-4 text-left flex items-center justify-between transition ${
-                    activeIndex === index
-                      ? "bg-primary/10 font-semibold text-primary"
-                      : "hover:bg-muted text-foreground"
-                  }`}
-                  onClick={() => setActiveIndex(index)}
-                >
-                  <span className="flex items-center gap-3">
-                    <div
-                      className={`w-3 h-3 rounded-full ${
-                        activeIndex === index ? "bg-primary" : "bg-accent"
-                      }`}
-                    ></div>
-                    {question}
-                  </span>
-                  <svg
-                    className={`w-4 h-4 transform transition-transform duration-200 md:hidden ${
-                      activeIndex === index ? "-rotate-90 text-primary" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                {/* Answer for mobile view */}
-                <div
-                  className={`md:hidden p-6 ${
-                    activeIndex === index ? "block" : "hidden"
-                  }`}
-                >
-                  <p>{answers[index]}</p>
-                </div>
-              </div>
+              <AccordionItem
+                value={`item-${index}`}
+                key={index}
+                className={cn(
+                  "border-b border-border/50",
+                  index === questions.length - 1 && "border-b-0"
+                )}
+              >
+                <AccordionTrigger className="text-lg text-left font-semibold text-foreground hover:no-underline py-6">
+                  {question}
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground pb-6">
+                  {answers[index]}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
-
-          {/* Right: Answers (hidden on mobile) */}
-          <div className="hidden md:block bg-secondary p-8 rounded-xl text-foreground text-base space-y-6">
-            <h4 className="font-semibold text-primary mb-2">
-              {questions[activeIndex]}
-            </h4>
-            <p>{answers[activeIndex]}</p>
-          </div>
+          </Accordion>
         </div>
       </div>
 
       {/* Additional Info Section */}
-      <div className="bg-card border border-border/50 rounded-2xl p-8 md:p-12 mb-12 max-w-7xl mx-auto my-16">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
-                <svg
-                  className="text-primary w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-foreground">
-                Need More Help?
-              </h3>
+      <div className="bg-card border border-border/50 rounded-2xl p-8 md:p-12 mt-16 max-w-4xl mx-auto w-full">
+        <div className="text-center">
+          <div className="flex justify-center items-center gap-3 mb-4">
+            <div className="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center">
+              <svg
+                className="text-primary w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Can't find what you're looking for? Our team is here to help you
-              with any additional questions about our programs and services.
-            </p>
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span>Quick Response</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4 text-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-2-2V10a2 2 0 012-2h2m2-4h6a2 2 0 012 2v6a2 2 0 01-2 2h-6l-4 4V8a2 2 0 012-2z"
-                  />
-                </svg>
-                <span>Expert Support</span>
-              </div>
-            </div>
+            <h3 className="text-2xl font-bold text-foreground">
+              Need More Help?
+            </h3>
           </div>
-
-          <div className="space-y-4">
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-              <h4 className="font-semibold text-foreground mb-2">
-                Partnership Inquiries
-              </h4>
-              <p className="text-muted-foreground text-sm">
-                Information about collaboration opportunities and strategic
-                partnerships
-              </p>
-            </div>
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-              <h4 className="font-semibold text-foreground mb-2">
-                Program Details
-              </h4>
-              <p className="text-muted-foreground text-sm">
-                Detailed information about our educational programs and training
-                initiatives
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="text-center">
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+            Can't find what you're looking for? Our team is here to help you
+            with any additional questions about our programs and services.
+          </p>
           <Link
             to="/engage-with-us#get-in-touch"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl group"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 transition-all duration-300 shadow-lg hover:shadow-xl group"
           >
             Contact Support
             <svg
-              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

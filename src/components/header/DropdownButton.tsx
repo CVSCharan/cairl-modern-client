@@ -1,17 +1,21 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 interface DropdownButtonProps {
   isActive: boolean;
   children: React.ReactNode;
   route?: string; // Optional route for direct navigation
+  onClick?: () => void;
   onKeyDown?: (e: React.KeyboardEvent) => void;
 }
 
-const DropdownButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, DropdownButtonProps>((
-  { isActive, children, route, onKeyDown },
-  ref
-) => {
+const DropdownButton: React.FC<DropdownButtonProps> = ({
+  isActive,
+  children,
+  route,
+  onClick,
+  onKeyDown,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   // Common content for both button and link
@@ -52,29 +56,21 @@ const DropdownButton = forwardRef<HTMLButtonElement | HTMLAnchorElement, Dropdow
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-  // If route is provided, render as Link, otherwise as button
-  return route ? (
-    <Link
-      to={route}
-      ref={ref as React.Ref<HTMLAnchorElement>} // Cast ref for Link
+  const ButtonComponent = route ? Link : 'button';
+  const buttonProps = route ? { to: route } : {};
+
+  return (
+    <ButtonComponent
+      {...buttonProps}
       className={commonClassNames}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={onClick}
       onKeyDown={onKeyDown}
     >
       {content}
-    </Link>
-  ) : (
-    <button
-      ref={ref as React.Ref<HTMLButtonElement>} // Cast ref for button
-      className={commonClassNames}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onKeyDown={onKeyDown}
-    >
-      {content}
-    </button>
+    </ButtonComponent>
   );
-});
+};
 
 export default DropdownButton;

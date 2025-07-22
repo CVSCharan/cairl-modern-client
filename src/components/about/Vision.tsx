@@ -32,7 +32,7 @@ const Vision: React.FC = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="inline-block px-6 py-3 rounded-full bg-background/70 text-primary text-sm font-medium mb-6 border border-primary/20"
         >
-          Our Vision
+          Vision
         </motion.h4>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

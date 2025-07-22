@@ -4,13 +4,24 @@ const Hero = () => {
   return (
     <section className="relative bg-transparent overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="relative w-full h-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-background/70 to-background/50 z-10 rounded-b-[30px] shadow-xl" />
-        <img
+      <div className="relative w-full h-full rounded-b-[30px] overflow-hidden shadow-lg">
+        <motion.img
           src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750244957/about_img_1_b5biqp.png"
           alt="About CAiRL"
-          className="w-full h-full object-cover max-h-[420px] md:max-h-[620px] rounded-b-[30px]"
+          width={1920}
+          height={640}
+          loading="lazy"
+          className="w-full object-cover h-full max-h-[420px] md:max-h-[620px]"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.02 }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "easeInOut",
+          }}
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-transparent sm:from-black/70 sm:via-black/60" />
       </div>
 
       {/* Content */}

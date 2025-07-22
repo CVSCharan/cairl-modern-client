@@ -16,31 +16,32 @@ export const aboutUs = {
     {
       title: "Who We Are",
       links: [
-        { name: "Our Mission", href: "/about-us#mission" },
-        { name: "Our Vision", href: "/about-us#vision" },
+        { name: "Mission", href: "/about-us#mission" },
+        { name: "Vision", href: "/about-us#vision" },
       ],
     },
     {
       title: "Advisory Team",
       links: [
-        { name: "Strategic Advisor", href: "/about-us#strategic-advisors" },
-        { name: "Academic Advisor", href: "/about-us#academic-advisors" },
-        { name: "Industry Advisor", href: "/about-us#industry-advisors" },
-        { name: "Technology Advisor", href: "/about-us#technology-advisors" },
+        { name: "Team", href: "/about-us#board-members" },
+        // { name: "Strategic Advisor", href: "/about-us#strategic-advisors" },
+        // { name: "Academic Advisor", href: "/about-us#academic-advisors" },
+        // { name: "Industry Advisor", href: "/about-us#industry-advisors" },
+        // { name: "Technology Advisor", href: "/about-us#technology-advisors" },
       ],
     },
-    {
-      title: "Our Team",
-      links: [
-        {
-          name: "Board Members & Management Team",
-          href: "/about-us#board-members",
-        },
-      ],
-    },
+    // {
+    //   title: "Team",
+    //   links: [
+    //     {
+    //       name: "Board Members & Management Team",
+    //       href: "/about-us#board-members",
+    //     },
+    //   ],
+    // },
     {
       title: "MOUs & Strategic Partnerships",
-      links: [{ name: "View All Partnerships", href: "/about-us#mou" }],
+      links: [{ name: "Partnership", href: "/about-us#mou" }],
     },
     {
       title: "FAQs",
@@ -57,13 +58,13 @@ export const services = {
       title: "Capacity Building & Knowledge Empowerment",
       links: [
         { name: "AI Bootcamps", href: "/services#knowledge-empowerment" },
-        { name: "Workshops", href: "/services#knowledge-empowerment" },
+        // { name: "Workshops", href: "/services#knowledge-empowerment" },
         {
           name: "Center of Excellence",
           href: "/services#knowledge-empowerment",
         },
         {
-          name: "AI Tech Conference & Summits",
+          name: "AI Summits",
           href: "/services#knowledge-empowerment",
         },
       ],
@@ -72,11 +73,11 @@ export const services = {
       title: "Innovation & Startup Support",
       links: [
         {
-          name: "Hackathons & Innovation Challenges",
+          name: "Hackathons & Challenges",
           href: "/services#innovation",
         },
         {
-          name: "Startup Incubators & Innovation Hubs",
+          name: "Innovation Hubs",
           href: "/services#innovation",
         },
         { name: "Joint Research Collaborations", href: "/services#innovation" },

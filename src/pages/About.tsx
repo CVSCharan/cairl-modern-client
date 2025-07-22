@@ -2,32 +2,15 @@ import FAQs from "../components/about/FAQs";
 import Mission from "../components/about/Mission";
 import Vision from "../components/about/Vision";
 import Team from "../components/about/Team";
-import { useEffect } from "react";
 import Hero from "../components/about/Hero";
 import MOU from "../components/MOU";
 import Journey from "../components/about/Journey";
 import NewsLetters from "../components/NewsLetters";
 import SEOMetadata from "../components/seo/SEOMetadata";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 const About = () => {
-  useEffect(() => {
-    // Disable scroll restoration so we can manually control it
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    setTimeout(() => {
-      if (window.location.hash) {
-        const id = window.location.hash.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      } else {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      }
-    }, 100); // small delay to ensure DOM is rendered
-  }, []);
+  useSmoothScroll();
 
   return (
     <main className="min-h-screen bg-background isolate">

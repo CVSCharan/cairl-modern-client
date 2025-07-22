@@ -111,18 +111,17 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" onMouseLeave={handleMouseLeave}>
             {navigationData.map((item) => (
               <div
                 key={item.label}
                 className="relative"
                 onMouseEnter={() => handleMouseEnter(item.label.toLowerCase())}
-                onMouseLeave={handleMouseLeave}
-                onClick={() => handleDropdownToggle(item.label.toLowerCase())}
               >
                 <DropdownButton
                   isActive={activeDropdown === item.label.toLowerCase()}
                   route={item.route}
+                  onClick={closeAllDropdowns}
                   onKeyDown={(e: React.KeyboardEvent) =>
                     handleKeyDown(e, item.label.toLowerCase())
                   }

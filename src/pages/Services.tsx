@@ -1,27 +1,10 @@
-import { useEffect } from "react";
 import CTA from "../components/CTA";
 import { motion } from "framer-motion";
 import SEOMetadata from "../components/seo/SEOMetadata";
+import useSmoothScroll from "../hooks/useSmoothScroll";
 
 const Services = () => {
-  useEffect(() => {
-    // Disable scroll restoration so we can manually control it
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
-
-    setTimeout(() => {
-      if (window.location.hash) {
-        const id = window.location.hash.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      } else {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      }
-    }, 100); // small delay to ensure DOM is rendered
-  }, []);
+  useSmoothScroll();
 
   return (
     <main className="min-h-screen bg-background">
@@ -60,7 +43,7 @@ const Services = () => {
               }}
               className="inline-block px-6 py-3 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
-              Our Services
+              Services
             </motion.div>
 
             <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
@@ -88,10 +71,10 @@ const Services = () => {
                 </h2>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {[
                   {
-                    title: "AI Bootcamps & Workshops",
+                    title: "AI Bootcamps",
                     desc: "Fast-paced, hands-on learning programs designed to build foundational and advanced AI skills across domains.",
                     image:
                       "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022901/Services-AI_Bootcamps_Workshops_alx4na.png",
@@ -109,7 +92,7 @@ const Services = () => {
                       "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022914/Services-CenterofExcellence_tcyvqk.png",
                   },
                   {
-                    title: "AI Tech Conferences & Summits",
+                    title: "AI Summits",
                     desc: "Annual flagship events that bring together AI thinkers, makers, and leaders to shape the future of responsible innovation.",
                     image:
                       "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022917/Services-AITechConferences_Summits_rcpnpc.png",
@@ -133,16 +116,16 @@ const Services = () => {
                 </h2>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {[
                   {
-                    title: "Hackathons & Innovation Challenges",
+                    title: "Hackathons & Challenges",
                     desc: "Solve real-world challenges through domain-specific AI hackathons and competitions co-hosted with partners.",
                     image:
                       "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022905/Services-Hackathons_InnovationChallenges_xj9ovn.png",
                   },
                   {
-                    title: "Startup Incubators & Innovation Hubs",
+                    title: "Innovation Hubs",
                     desc: "Structured support for early-stage AI startups with mentorship, infrastructure, access to compute, and industry networks.",
                     image:
                       "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022893/Services-StartupIncubators_nnovationHubs_idqjuk.png",
@@ -172,7 +155,7 @@ const Services = () => {
                 </h2>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
                 {[
                   {
                     title: "AI for Social Good & Rural Outreach",
@@ -216,18 +199,24 @@ const ServiceCard = ({
   desc: string;
   image: string;
 }) => (
-  <div className="bg-card rounded-xl shadow-md border border-border overflow-hidden hover:shadow-xl transition-all">
-    <div className="h-40 bg-muted overflow-hidden">
-      <img src={image} alt={title} className="w-full h-full object-cover" />
+  <div className="bg-card rounded-xl shadow-sm hover:shadow-md border border-border overflow-hidden transition-all duration-300 flex flex-col h-full">
+    <div className="h-48 bg-muted flex items-center justify-center p-4">
+      <img 
+        src={image} 
+        alt={title} 
+        className="max-h-40 w-auto object-contain" 
+      />
     </div>
-    <div className="p-5">
+    <div className="p-5 flex-grow flex flex-col">
       <h3 className="text-lg font-semibold text-card-foreground mb-2">
         {title}
       </h3>
-      <p className="text-sm text-muted-foreground mb-4">{desc}</p>
-      {/* <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-2 rounded-full font-medium">
-        Know more
-      </button> */}
+      <p className="text-sm text-muted-foreground">{desc}</p>
+      {/* <div className="mt-auto pt-4">
+        <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-2 rounded-full font-medium transition-all">
+          Know more
+        </button>
+      </div> */}
     </div>
   </div>
 );
