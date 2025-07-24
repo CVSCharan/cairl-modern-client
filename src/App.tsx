@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
 import Layout from "./components/Layout";
 import ChatBot from "./components/ChatBot";
+import FAQButton from "./components/FAQButton";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import About from "./pages/About";
 import Happening from "./pages/Happening";
@@ -24,6 +25,7 @@ import Podcasts from "./pages/Podcasts";
 import UnderConstruction from "./pages/UnderConstruction";
 import MOU from "./pages/MOU";
 import WebinarDetails from "./pages/WebinarDetails";
+import Courses from "./pages/Courses";
 
 const queryClient = new QueryClient();
 
@@ -54,10 +56,12 @@ const App = () => (
           <Route path="/white-papers" element={<UnderConstruction />} />
           <Route path="/white-papers/:id" element={<UnderConstruction />} />
           <Route path="/podcasts" element={<Podcasts />} />
+          <Route path="/courses" element={<Courses />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {/* ChatBot component available on all pages */}
         <ChatBot />
+        <FAQButton />
         <ScrollToTop />
       </Layout>
     </BrowserRouter>

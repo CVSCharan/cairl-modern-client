@@ -6,6 +6,7 @@ import Partner from "../components/engage/Partner";
 import GetInTouch from "../components/engage/GetInTouch";
 import NewsLetters from "../components/NewsLetters";
 import Contact from "../components/engage/Contact";
+import FAQs from "../components/engage/FAQs";
 import SEOMetadata from "../components/seo/SEOMetadata";
 
 const Engage = () => {
@@ -59,6 +60,10 @@ const Engage = () => {
 
       <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
         <GetInTouch />
+      </div>
+
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <FAQs />
       </div>
 
       {/* Contact Info Section */}

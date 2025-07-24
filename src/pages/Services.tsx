@@ -3,6 +3,155 @@ import { motion } from "framer-motion";
 import SEOMetadata from "../components/seo/SEOMetadata";
 import useSmoothScroll from "../hooks/useSmoothScroll";
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const serviceSections = [
+  {
+    category: "Capacity Building & Knowledge Empowerment",
+    services: [
+      {
+        id: "bootcamps",
+        title: "AI Bootcamps",
+        description:
+          "Fast-paced, hands-on learning programs designed to build foundational and advanced AI skills across domains.",
+        bullets: [
+          "Build foundational and advanced AI skills.",
+          "Hands-on learning across various domains.",
+          "Designed for professionals and students.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022901/Services-AI_Bootcamps_Workshops_alx4na.png",
+        reverse: false,
+      },
+      {
+        id: "courses",
+        title: "Courses & Workshops",
+        description:
+          "Custom-designed training sessions on cutting-edge AI topics delivered by expert practitioners and researchers.",
+        bullets: [
+          "Custom-designed training sessions.",
+          "Focus on cutting-edge AI topics.",
+          "Delivered by expert practitioners.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022899/Services-Courses_bvnxyc.png",
+        reverse: true,
+      },
+      {
+        id: "coe",
+        title: "Center of Excellence Setup",
+        description:
+          "Guidance and strategic support to set up AI-focused Centers of Excellence in research institutions and enterprises.",
+        bullets: [
+          "Strategic guidance for setting up CoEs.",
+          "Support for research institutions and enterprises.",
+          "Build a focused AI innovation hub.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022914/Services-CenterofExcellence_tcyvqk.png",
+        reverse: false,
+      },
+      {
+        id: "summits",
+        title: "AI Tech Conferences & Summits",
+        description:
+          "Annual flagship events that bring together AI thinkers, makers, and leaders to shape the future of responsible innovation.",
+        bullets: [
+          "Flagship events for AI leaders.",
+          "Shape the future of responsible AI.",
+          "Networking with thinkers and makers.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022917/Services-AITechConferences_Summits_rcpnpc.png",
+        reverse: true,
+      },
+    ],
+  },
+  {
+    category: "Innovation & Startup Support",
+    services: [
+      {
+        id: "hackathons",
+        title: "Hackathons & Innovation Challenges",
+        description:
+          "Solve real-world challenges through domain-specific AI hackathons and competitions co-hosted with partners.",
+        bullets: [
+          "Solve real-world challenges.",
+          "Domain-specific AI competitions.",
+          "Co-hosted with industry partners.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022905/Services-Hackathons_InnovationChallenges_xj9ovn.png",
+        reverse: false,
+      },
+      {
+        id: "hubs",
+        title: "Startup Incubators & Innovation Hubs",
+        description:
+          "Structured support for early-stage AI startups with mentorship, infrastructure, access to compute, and industry networks.",
+        bullets: [
+          "Support for early-stage AI startups.",
+          "Mentorship, infrastructure, and compute access.",
+          "Connect with industry networks.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022893/Services-StartupIncubators_nnovationHubs_idqjuk.png",
+        reverse: true,
+      },
+      {
+        id: "research",
+        title: "Joint Research Collaborations",
+        description:
+          "Collaborate with CAiRL to co-develop research, whitepapers, and deployable AI solutions across sectors.",
+        bullets: [
+          "Co-develop research and whitepapers.",
+          "Create deployable AI solutions.",
+          "Collaborate across various sectors.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022900/Services-JointResearchCollaborations_ndla5f.png",
+        reverse: false,
+      },
+    ],
+  },
+  {
+    category: "Ecosystem Building & Social Impact",
+    services: [
+      {
+        id: "social-good",
+        title: "AI for Social Good & Rural Outreach",
+        description:
+          "Bringing AI to underserved communities by supporting initiatives in agriculture, public health, and education that create real social impact.",
+        bullets: [
+          "Bring AI to underserved communities.",
+          "Support initiatives in agriculture, health, and education.",
+          "Create tangible social impact.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022916/Services-AIforSocialGood_RuralOutreach_e85egz.png",
+        reverse: true,
+      },
+      {
+        id: "policy",
+        title: "Liaising & Policy Engagement",
+        description:
+          "Connecting corporates, startups, academia, and policymakers to co-create AI frameworks, influence policy, and build sustainable ecosystems.",
+        bullets: [
+          "Connect stakeholders to co-create AI frameworks.",
+          "Influence AI policy and regulations.",
+          "Build a sustainable AI ecosystem.",
+        ],
+        image:
+          "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022925/Services-Liaising_PolicyEngagement_yhesfl.png",
+        reverse: false,
+      },
+    ],
+  },
+];
+
 const Services = () => {
   useSmoothScroll();
 
@@ -26,7 +175,7 @@ const Services = () => {
           <img
             src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381598/Element-1_tsbawm.png"
             alt="Background Element"
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full object-contain"
           />
         </div>
 
@@ -62,124 +211,74 @@ const Services = () => {
           </div>
 
           {/* Services Section */}
-          <section className="space-y-20 mt-24">
-            {/* Capacity Building & Knowledge Empowerment */}
-            <div id="knowledge-empowerment" className="scroll-mt-20">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Capacity Building & Knowledge Empowerment
-                </h2>
-              </div>
+          <div id="services-list" className="space-y-16 md:space-y-24 mt-24">
+            {serviceSections.map((section, sectionIndex) => (
+              <div key={sectionIndex}>
+                <div className="text-center mb-10">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    {section.category}
+                  </h2>
+                </div>
+                <div className="space-y-16 md:space-y-24">
+                  {section.services.map((service, serviceIndex) => (
+                    <motion.div
+                      key={serviceIndex}
+                      id={service.id}
+                      className="bg-card rounded-2xl shadow-xl overflow-hidden border border-border"
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, amount: 0.3 }}
+                      variants={fadeInUp}
+                      transition={{ duration: 0.8 }}
+                    >
+                      <div
+                        className={`grid grid-cols-1 md:grid-cols-3 gap-8 items-center ${
+                          service.reverse ? "md:grid-flow-col-dense" : ""
+                        }`}
+                      >
+                        <div
+                          className={`md:col-span-1 ${
+                            service.reverse ? "md:col-start-3" : ""
+                          }`}
+                        >
+                          <div className="bg-background/50 rounded-xl h-full flex items-center justify-center p-6">
+                            <img
+                              className="max-h-80 w-auto object-contain p-4 transition-all hover:scale-105"
+                              src={service.image}
+                              alt={service.title}
+                            />
+                          </div>
+                        </div>
 
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                {[
-                  {
-                    title: "AI Bootcamps",
-                    desc: "Fast-paced, hands-on learning programs designed to build foundational and advanced AI skills across domains.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022901/Services-AI_Bootcamps_Workshops_alx4na.png",
-                  },
-                  {
-                    title: "Courses",
-                    desc: "Custom-designed training sessions on cutting-edge AI topics delivered by expert practitioners and researchers.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022899/Services-Courses_bvnxyc.png",
-                  },
-                  {
-                    title: "Center of Excellence",
-                    desc: "Guidance and strategic support to set up AI-focused Centers of Excellence in research institutions and enterprises.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022914/Services-CenterofExcellence_tcyvqk.png",
-                  },
-                  {
-                    title: "AI Summits",
-                    desc: "Annual flagship events that bring together AI thinkers, makers, and leaders to shape the future of responsible innovation.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022917/Services-AITechConferences_Summits_rcpnpc.png",
-                  },
-                ].map((item, idx) => (
-                  <ServiceCard
-                    key={idx}
-                    title={item.title}
-                    desc={item.desc}
-                    image={item.image}
-                  />
-                ))}
+                        <div className="p-8 md:col-span-2">
+                          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                            {service.title}
+                          </h2>
+                          <div className="space-y-6">
+                            <div>
+                              <p className="text-muted-foreground mb-4">
+                                {service.description}
+                              </p>
+                              <ul className="space-y-4 mb-6">
+                                {service.bullets.map((point, i) => (
+                                  <li key={i} className="flex gap-3">
+                                    <span className="w-2 h-2 mt-2 bg-primary rounded-full flex-shrink-0" />
+                                    <span className="text-muted-foreground">
+                                      {point}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* Innovation & Startup Support */}
-            <div id="innovation" className="scroll-mt-20">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Innovation & Startup Support
-                </h2>
-              </div>
-
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {[
-                  {
-                    title: "Hackathons & Challenges",
-                    desc: "Solve real-world challenges through domain-specific AI hackathons and competitions co-hosted with partners.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022905/Services-Hackathons_InnovationChallenges_xj9ovn.png",
-                  },
-                  {
-                    title: "Innovation Hubs",
-                    desc: "Structured support for early-stage AI startups with mentorship, infrastructure, access to compute, and industry networks.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022893/Services-StartupIncubators_nnovationHubs_idqjuk.png",
-                  },
-                  {
-                    title: "Joint Research Collaborations",
-                    desc: "Collaborate with CAiRL to co-develop research, whitepapers, and deployable AI solutions across sectors.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022900/Services-JointResearchCollaborations_ndla5f.png",
-                  },
-                ].map((item, idx) => (
-                  <ServiceCard
-                    key={idx}
-                    title={item.title}
-                    desc={item.desc}
-                    image={item.image}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Ecosystem Building & Social Impact */}
-            <div id="eco-system" className="scroll-mt-20">
-              <div className="text-center mb-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Ecosystem Building & Social Impact
-                </h2>
-              </div>
-
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-                {[
-                  {
-                    title: "AI for Social Good & Rural Outreach",
-                    desc: "Bringing AI to underserved communities by supporting initiatives in agriculture, public health, and education that create real social impact.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022916/Services-AIforSocialGood_RuralOutreach_e85egz.png",
-                  },
-                  {
-                    title: "Liaising & Policy Engagement",
-                    desc: "Connecting corporates, startups, academia, and policymakers to co-create AI frameworks, influence policy, and build sustainable ecosystems.",
-                    image:
-                      "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753022925/Services-Liaising_PolicyEngagement_yhesfl.png",
-                  },
-                ].map((item, idx) => (
-                  <ServiceCard
-                    key={idx}
-                    title={item.title}
-                    desc={item.desc}
-                    image={item.image}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
+            ))}
+          </div>
 
           <div className="my-28">
             <CTA />
@@ -189,36 +288,5 @@ const Services = () => {
     </main>
   );
 };
-
-const ServiceCard = ({
-  title,
-  desc,
-  image,
-}: {
-  title: string;
-  desc: string;
-  image: string;
-}) => (
-  <div className="bg-card rounded-xl shadow-sm hover:shadow-md border border-border overflow-hidden transition-all duration-300 flex flex-col h-full">
-    <div className="h-48 bg-muted flex items-center justify-center p-4">
-      <img 
-        src={image} 
-        alt={title} 
-        className="max-h-40 w-auto object-contain" 
-      />
-    </div>
-    <div className="p-5 flex-grow flex flex-col">
-      <h3 className="text-lg font-semibold text-card-foreground mb-2">
-        {title}
-      </h3>
-      <p className="text-sm text-muted-foreground">{desc}</p>
-      {/* <div className="mt-auto pt-4">
-        <button className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-2 rounded-full font-medium transition-all">
-          Know more
-        </button>
-      </div> */}
-    </div>
-  </div>
-);
 
 export default Services;

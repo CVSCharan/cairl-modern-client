@@ -1,4 +1,3 @@
-import FAQs from "../components/about/FAQs";
 import Mission from "../components/about/Mission";
 import Vision from "../components/about/Vision";
 import Team from "../components/about/Team";
@@ -49,11 +48,6 @@ const About = () => {
       {/* MOU Section */}
       <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
         <MOU />
-      </div>
-
-      {/* FAQs Section */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
-        <FAQs />
       </div>
 
       {/* Newsletter Section */}

@@ -43,10 +43,10 @@ export const aboutUs = {
       title: "MOUs & Strategic Partnerships",
       links: [{ name: "Partnership", href: "/about-us#mou" }],
     },
-    {
-      title: "FAQs",
-      links: [{ name: "Frequently Asked Questions", href: "/about-us#faqs" }],
-    },
+    // {
+    //   title: "FAQs",
+    //   links: [{ name: "Frequently Asked Questions", href: "/about-us#faqs" }],
+    // },
   ],
 };
 
@@ -58,6 +58,7 @@ export const services = {
       title: "Capacity Building & Knowledge Empowerment",
       links: [
         { name: "AI Bootcamps", href: "/services#knowledge-empowerment" },
+        { name: "Courses", href: "/courses" },
         // { name: "Workshops", href: "/services#knowledge-empowerment" },
         {
           name: "Center of Excellence",
