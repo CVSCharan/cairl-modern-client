@@ -10,10 +10,11 @@ const fadeInUp = {
 
 const serviceSections = [
   {
+    id: "capacity-building",
     category: "Capacity Building & Knowledge Empowerment",
     services: [
       {
-        id: "bootcamps",
+        id: "ai-bootcamps",
         title: "AI Bootcamps",
         description:
           "Fast-paced, hands-on learning programs designed to build foundational and advanced AI skills across domains.",
@@ -41,7 +42,7 @@ const serviceSections = [
         reverse: true,
       },
       {
-        id: "coe",
+        id: "center-of-excellence",
         title: "Center of Excellence Setup",
         description:
           "Guidance and strategic support to set up AI-focused Centers of Excellence in research institutions and enterprises.",
@@ -55,7 +56,7 @@ const serviceSections = [
         reverse: false,
       },
       {
-        id: "summits",
+        id: "ai-summits",
         title: "AI Tech Conferences & Summits",
         description:
           "Annual flagship events that bring together AI thinkers, makers, and leaders to shape the future of responsible innovation.",
@@ -71,6 +72,7 @@ const serviceSections = [
     ],
   },
   {
+    id: "innovation",
     category: "Innovation & Startup Support",
     services: [
       {
@@ -88,7 +90,7 @@ const serviceSections = [
         reverse: false,
       },
       {
-        id: "hubs",
+        id: "innovation-hubs",
         title: "Startup Incubators & Innovation Hubs",
         description:
           "Structured support for early-stage AI startups with mentorship, infrastructure, access to compute, and industry networks.",
@@ -102,7 +104,7 @@ const serviceSections = [
         reverse: true,
       },
       {
-        id: "research",
+        id: "joint-research",
         title: "Joint Research Collaborations",
         description:
           "Collaborate with CAiRL to co-develop research, whitepapers, and deployable AI solutions across sectors.",
@@ -118,6 +120,7 @@ const serviceSections = [
     ],
   },
   {
+    id: "social-impact",      
     category: "Ecosystem Building & Social Impact",
     services: [
       {
@@ -135,7 +138,7 @@ const serviceSections = [
         reverse: true,
       },
       {
-        id: "policy",
+        id: "liaising-policy",
         title: "Liaising & Policy Engagement",
         description:
           "Connecting corporates, startups, academia, and policymakers to co-create AI frameworks, influence policy, and build sustainable ecosystems.",
@@ -213,7 +216,7 @@ const Services = () => {
           {/* Services Section */}
           <div id="services-list" className="space-y-16 md:space-y-24 mt-24">
             {serviceSections.map((section, sectionIndex) => (
-              <div key={sectionIndex}>
+              <div key={sectionIndex} id={section.id}>
                 <div className="text-center mb-10">
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                     {section.category}

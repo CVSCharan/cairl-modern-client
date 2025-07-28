@@ -57,16 +57,16 @@ export const services = {
     {
       title: "Capacity Building & Knowledge Empowerment",
       links: [
-        { name: "AI Bootcamps", href: "/services#knowledge-empowerment" },
-        { name: "Courses", href: "/courses" },
+        { name: "AI Bootcamps", href: "/services#ai-bootcamps" },
+        { name: "Courses", href: "/services/courses" },
         // { name: "Workshops", href: "/services#knowledge-empowerment" },
         {
           name: "Center of Excellence",
-          href: "/services#knowledge-empowerment",
+          href: "/services#center-of-excellence",
         },
         {
           name: "AI Summits",
-          href: "/services#knowledge-empowerment",
+          href: "/services#ai-summits",
         },
       ],
     },
@@ -75,13 +75,16 @@ export const services = {
       links: [
         {
           name: "Hackathons & Challenges",
-          href: "/services#innovation",
+          href: "/services#hackathons",
         },
         {
           name: "Innovation Hubs",
-          href: "/services#innovation",
+          href: "/services#innovation-hubs",
         },
-        { name: "Joint Research Collaborations", href: "/services#innovation" },
+        {
+          name: "Joint Research Collaborations",
+          href: "/services#joint-research",
+        },
       ],
     },
     {
@@ -89,9 +92,12 @@ export const services = {
       links: [
         {
           name: "AI for Social Good & Rural Outreach",
-          href: "/services#eco-system",
+          href: "/services#social-good",
         },
-        { name: "Liaising & Policy Engagement", href: "/services#eco-system" },
+        {
+          name: "Liaising & Policy Engagement",
+          href: "/services#liaising-policy",
+        },
       ],
     },
   ],

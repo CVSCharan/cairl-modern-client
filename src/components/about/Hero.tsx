@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="relative bg-transparent overflow-hidden">
+    <section id="hero" className="relative bg-transparent overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="relative w-full h-full rounded-b-[30px] overflow-hidden shadow-lg">
         <motion.img

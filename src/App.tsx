@@ -56,7 +56,7 @@ const App = () => (
           <Route path="/white-papers" element={<UnderConstruction />} />
           <Route path="/white-papers/:id" element={<UnderConstruction />} />
           <Route path="/podcasts" element={<Podcasts />} />
-          <Route path="/courses" element={<Courses />} />
+          <Route path="/services/courses" element={<Courses />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {/* ChatBot component available on all pages */}

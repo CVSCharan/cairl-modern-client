@@ -2,9 +2,8 @@ import TeamSection from "./TeamSection";
 import { motion } from "framer-motion";
 
 const Team = () => {
-
   return (
-    <section className="relative w-full py-16">
+    <section id="team" className="relative w-full py-16">
       <div className="absolute top-0 left-0 w-full h-full z-0 opacity-35 pointer-events-none">
         <img
           src="https://res.cloudinary.com/dnyouhvwj/image/upload/v1750381712/Element-2_yonfix.png"
@@ -127,7 +126,7 @@ const Team = () => {
                 name: "Dr. Ravi Guijjula",
                 role: "PhD from IIT Hyderabad",
                 image:
-                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1752090499/Dr._Ravi_Gujjula-whitebg_ovg5ck.png",
+                  "https://res.cloudinary.com/dnyouhvwj/image/upload/v1753704599/Ravi-Gujjula-white-bg-img_sztzro.png",
               },
             ]}
           />

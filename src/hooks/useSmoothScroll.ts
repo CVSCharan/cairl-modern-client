@@ -20,12 +20,10 @@ const useSmoothScroll = () => {
     };
 
     if (location.hash) {
-      // Use requestAnimationFrame to ensure the element is rendered before scrolling
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         smoothScrollTo(location.hash.substring(1));
-      });
+      }, 300); // Add a small delay
     } else {
-      // Scroll to the top of the page if there is no hash
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location.pathname, location.hash]);
